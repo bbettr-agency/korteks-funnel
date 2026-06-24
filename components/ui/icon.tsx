@@ -1,0 +1,80 @@
+import {
+  Award,
+  BadgeCheck,
+  BedDouble,
+  Blinds,
+  Boxes,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Clock,
+  Droplet,
+  Factory,
+  Gauge,
+  Gem,
+  Globe,
+  Hotel,
+  Layers,
+  MapPin,
+  Palette,
+  Phone,
+  Repeat,
+  Scissors,
+  Shield,
+  ShieldCheck,
+  Sofa,
+  Sparkles,
+  Square,
+  Store,
+  TrendingUp,
+  Truck,
+  Users,
+  Utensils,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  Award,
+  BadgeCheck,
+  BedDouble,
+  Blinds,
+  Boxes,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Clock,
+  Droplet,
+  Factory,
+  Gauge,
+  Gem,
+  Globe,
+  Hotel,
+  Layers,
+  MapPin,
+  Palette,
+  Phone,
+  Repeat,
+  Scissors,
+  Shield,
+  ShieldCheck,
+  Sofa,
+  Sparkles,
+  Square,
+  Store,
+  TrendingUp,
+  Truck,
+  Users,
+  Utensils,
+  Zap,
+};
+
+type IconProps = {
+  name: string;
+  className?: string;
+};
+
+export default function Icon({ name, className }: IconProps) {
+  const Component = iconMap[name] ?? Sparkles;
+  return <Component className={className} aria-hidden />;
+}
