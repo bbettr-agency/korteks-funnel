@@ -26,6 +26,20 @@ export const heroContent = {
   ],
 };
 
+// ── LEAD FORM — business-type qualifier options ───────────────────────────────
+// The core qualifier: routes leads and filters out single-unit consumers.
+export const businessTypes = [
+  "Retailer / Curtain Store",
+  "Furniture / Décor Store",
+  "Interior Designer",
+  "Property Developer",
+  "Hospitality Group / Hotel",
+  "Guest House / Lodge",
+  "Procurement / Commercial Buyer",
+  "Wholesaler",
+  "Other",
+];
+
 // ── TRUST BAR ───────────────────────────────────────────────────────────────
 // Qualitative pillars are CLIENT-STATED strengths (not invented numbers) and
 // render now. Numeric stats stay hidden until verified figures are supplied.

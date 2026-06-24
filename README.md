@@ -33,6 +33,26 @@ call**, and **WhatsApp**. Consumer / single-unit shoppers are filtered out by
 copy ("trade & wholesale only") and form qualifiers (company name + business
 type). Secondary goal: brand awareness as a local manufacturer.
 
+## ⚠️ Temporary development decisions (read before launch)
+
+These are interim choices for development/testing, to be swapped for the
+client's final setup. Full detail in [`SESSION-HANDOVER.md`](./SESSION-HANDOVER.md).
+
+- **Native lead form replaces the blank GHL embed.** The hero/final-CTA forms
+  are a fully functional native form (`components/funnel/lead-form.tsx`), shown
+  while `siteConfig.useGhlForm === false`. Set it to `true` (with a real
+  `formId`) to swap the GoHighLevel embed back in — no other code changes.
+- **Temporary email destination = `info@bbettragency.com`.** Submissions are
+  emailed via [FormSubmit.co](https://formsubmit.co) (no API key). FormSubmit
+  requires a **one-time activation**: the first submission triggers an
+  "Activate Form" email to `info@bbettragency.com` — click it once and delivery
+  goes live. The visitor flow (redirect to Thank You) works immediately
+  regardless. Change the destination in `siteConfig.leadEmail`.
+- **Thank You page is the conversion destination.** Successful submits redirect
+  to `/thank-you` (noindex), where the Google Ads / GTM lead conversion fires.
+- **GHL integration will be swapped in later** once the client provides the
+  dedicated form.
+
 ## Tech stack
 
 - Next.js 14 (App Router) · React 18 · TypeScript
@@ -76,7 +96,8 @@ and no fake stats, reviews or certifications are presented as real.
 | Placeholder | Location | Notes |
 |---|---|---|
 | Phone, WhatsApp, email, factory city/province, domain | `config/site-config.ts` | shown as `010 000 0000`, all-zero WA, `sales@korteks.co.za` |
-| **GHL form ID + embed URL** | `config/site-config.ts` (`formId`, `formSrc`) | form panel renders blank until set |
+| **GHL form ID + embed URL** | `config/site-config.ts` (`formId`, `formSrc`, `useGhlForm`) | temporary native form is used until `useGhlForm = true` |
+| **Final lead email / activation** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` via FormSubmit (activate once); replace with client's address or GHL |
 | **GTM ID + Google Ads conversion ID & labels** | `config/site-config.ts` (`tracking`) | tracking is a no-op until real IDs are pasted |
 | Capacity / years / trade-client numbers | `config/funnel-config.ts` (`trustStats`, `trustStatsConfirmed`) | qualitative pillars shown until `trustStatsConfirmed = true` |
 | Real reviews / testimonials | `config/funnel-config.ts` (`reviews`, `reviewsMeta`) | empty + `showAggregate: false` |

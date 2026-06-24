@@ -1,5 +1,7 @@
 import { Factory, Lock } from "lucide-react";
+import { siteConfig } from "@/config/site-config";
 import GhlForm from "@/components/funnel/ghl-form";
+import LeadForm from "@/components/funnel/lead-form";
 
 type FormPanelProps = {
   instanceId: string;
@@ -32,7 +34,11 @@ export default function FormPanel({
             </div>
           </div>
 
-          <GhlForm instanceId={instanceId} />
+          {siteConfig.useGhlForm ? (
+            <GhlForm instanceId={instanceId} />
+          ) : (
+            <LeadForm instanceId={instanceId} />
+          )}
 
           <div className="mt-2 flex items-center justify-center gap-1.5 pb-1 text-[11px] text-brand-ink/45">
             <Lock className="h-3 w-3" />

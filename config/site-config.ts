@@ -55,9 +55,16 @@ export const siteConfig = {
   ctaWhatsApp: "Chat on WhatsApp",
   ctaCall: "Call the Factory",
 
-  // ── Lead capture (GoHighLevel) ── CLIENT TO SUPPLY ───────────────────────────
-  // Replace with the dedicated Korteks GHL form so leads route to the correct
-  // pipeline. Until then the embed renders the placeholder form id.
+  // ── Lead capture ─────────────────────────────────────────────────────────────
+  // TEMPORARY (development): while the client's GHL form is not yet provided we
+  // render a native lead form that emails submissions via FormSubmit.co to the
+  // address below. Flip `useGhlForm` to true (and set a real formId) to swap the
+  // GoHighLevel embed back in — no other code changes needed.
+  useGhlForm: false, // ← set true once the real GHL form is provided
+  leadEmail: "info@bbettragency.com", // TEMP dev destination — replace with client's address / GHL
+  thankYouPath: "/thank-you", // post-submit redirect (conversion destination)
+
+  // CLIENT TO SUPPLY — dedicated Korteks GHL form (used only when useGhlForm=true)
   formId: "GHL-FORM-ID-XXXX", // PLACEHOLDER
   formSrc: "https://link.bbettragency.com/widget/form/GHL-FORM-ID-XXXX", // PLACEHOLDER
   formScript: "https://link.bbettragency.com/js/form_embed.js",
