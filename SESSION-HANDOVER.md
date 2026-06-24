@@ -6,6 +6,37 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
+## 📌 Status snapshot — end of day 2026-06-24
+
+**Done & on `main`:**
+- Funnel complete, pushed to `main`. Build ✅ · lint ✅ · mobile verified ✅.
+- Native lead form live; submissions → `info@bbettragency.com` via FormSubmit.
+- **FormSubmit activation COMPLETE** — submissions now deliver for real.
+- Thank-you page live as the primary conversion destination (noindex).
+- Conversion architecture in place: form submit, click-to-call, WhatsApp click.
+- Repo connected; ready for Vercel.
+
+**Outstanding (mostly client-asset / ID dependent):**
+- Replace placeholder logo.
+- Replace placeholder imagery with real Korteks assets.
+- Add real manufacturing statistics (then set `trustStatsConfirmed = true`).
+- Add real testimonials/reviews.
+- Add GTM + Google Ads conversion IDs/labels.
+- Add final GHL form if required (`useGhlForm = true`).
+- Connect final domain (update `siteConfig.website`).
+- Final conversion-optimisation review before Google Ads launch.
+
+**Next session priorities (refine & launch — DO NOT rebuild structure):**
+1. Review the live funnel with fresh eyes.
+2. Identify conversion improvements (refinement only; change architecture only
+   for a clear, justified conversion benefit).
+3. Replace placeholder assets *if supplied*.
+4. Verify tracking setup (real IDs if provided; otherwise confirm dataLayer).
+5. Deploy / verify on Vercel.
+6. Prepare a launch-ready version.
+
+---
+
 ## ⚠️ Temporary development decisions (active now)
 
 These are interim and must be revisited before / at launch.
@@ -15,10 +46,9 @@ These are interim and must be revisited before / at launch.
 - Set in `config/site-config.ts` → `leadEmail`.
 - Transport: **FormSubmit.co** (`https://formsubmit.co/ajax/{email}`) — no API
   key, no backend.
-- **One-time activation required:** the first submission triggers an
-  "Activate Form" email to `info@bbettragency.com`. Someone must click that link
-  once before submissions actually deliver. (A test submission was already sent
-  during the build session, so the activation email should be in that inbox.)
+- **Activation: DONE.** FormSubmit was activated for `info@bbettragency.com`, so
+  submissions now deliver. (If the destination email changes, the new address
+  must be activated once the same way.)
 - The FormSubmit AJAX response on an unactivated address is
   `{"success":"false","message":"This form needs Activation…"}` — our code keys
   the redirect off the HTTP 200, so the **visitor flow works regardless**.
