@@ -28,19 +28,23 @@ Google Ads budget by capturing and qualifying:
 - Procurement & commercial buyers
 - Wholesale buyers
 
-Three conversion paths are provided: **contact form** (GoHighLevel), **phone
-call**, and **WhatsApp**. Consumer / single-unit shoppers are filtered out by
-copy ("trade & wholesale only") and form qualifiers (company name + business
-type). Secondary goal: brand awareness as a local manufacturer.
+**Two** lead/contact paths only: the **email / quote form** and **phone calls**.
+**WhatsApp is not used anywhere in this funnel** (removed by request). Consumer /
+single-unit shoppers are filtered out by copy ("trade & wholesale only") and form
+qualifiers (company name + business type). Secondary goal: brand awareness as a
+local manufacturer.
+
+**Phone:** 012 666 7100 (`tel:+27126667100`). **Dedicated quote page:**
+`/get-a-quote` — every quote CTA across the funnel links/scrolls here.
 
 ## ⚠️ Temporary development decisions (read before launch)
 
 These are interim choices for development/testing, to be swapped for the
 client's final setup. Full detail in [`SESSION-HANDOVER.md`](./SESSION-HANDOVER.md).
 
-- **Native lead form replaces the blank GHL embed.** The hero/final-CTA forms
-  are a fully functional native form (`components/funnel/lead-form.tsx`), shown
-  while `siteConfig.useGhlForm === false`. Set it to `true` (with a real
+- **Native lead form replaces the blank GHL embed.** The quote form on
+  `/get-a-quote` is a fully functional native form (`components/funnel/lead-form.tsx`),
+  shown while `siteConfig.useGhlForm === false`. Set it to `true` (with a real
   `formId`) to swap the GoHighLevel embed back in — no other code changes.
 - **Temporary email destination = `info@bbettragency.com`.** Submissions are
   emailed via [FormSubmit.co](https://formsubmit.co) (no API key). FormSubmit
@@ -71,10 +75,14 @@ lib/tracking.ts           # GTM / Google Ads helpers (no-op until IDs set)
 
 ## Page structure
 
-Header → Hero (2-col, form) → Trust bar → Who We Supply → Product Ranges
-(curtains featured) → Why Korteks → How It Works → WhatsApp band → Reviews →
-FAQ → Final CTA → Footer → sticky mobile Call + WhatsApp bar. Successful form
-submissions redirect to `/thank-you` (noindex), where the lead conversion fires.
+**Home (`/`):** Header → Hero (2-col: pitch + "Get a Quote" CTA card) → Trust bar
+→ Who We Supply → Product Ranges (curtains featured) → Why Korteks → How It Works
+→ Reviews → FAQ → Final CTA → Footer → sticky mobile **Call** bar. Every quote
+CTA links to `/get-a-quote`.
+
+**Quote page (`/get-a-quote`):** headline → short trust row → "who this is for" →
+quote form (6 fields) → phone CTA → response expectation. The form emails the
+lead and redirects to `/thank-you` (noindex), where the lead conversion fires.
 
 ## Local preview
 
@@ -95,7 +103,7 @@ and no fake stats, reviews or certifications are presented as real.
 
 | Placeholder | Location | Notes |
 |---|---|---|
-| Phone, WhatsApp, email, factory city/province, domain | `config/site-config.ts` | shown as `010 000 0000`, all-zero WA, `sales@korteks.co.za` |
+| Email, factory city/province, domain | `config/site-config.ts` | email `sales@korteks.co.za` (placeholder); phone `012 666 7100` is real/confirmed |
 | **GHL form ID + embed URL** | `config/site-config.ts` (`formId`, `formSrc`, `useGhlForm`) | temporary native form is used until `useGhlForm = true` |
 | **Final lead email / activation** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` via FormSubmit (activate once); replace with client's address or GHL |
 | **GTM ID + Google Ads conversion ID & labels** | `config/site-config.ts` (`tracking`) | tracking is a no-op until real IDs are pasted |

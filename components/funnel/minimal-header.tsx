@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone, MessageCircle, Factory } from "lucide-react";
+import { Phone, Factory } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { siteConfig } from "@/config/site-config";
@@ -21,10 +22,6 @@ export default function MinimalHeader() {
     trackEvent("click_to_call", { location: "header" });
     fireAdsConversion(siteConfig.tracking.callConversionLabel);
   };
-  const onWhatsApp = () => {
-    trackEvent("whatsapp_click", { location: "header" });
-    fireAdsConversion(siteConfig.tracking.whatsappConversionLabel);
-  };
 
   return (
     <header
@@ -41,9 +38,9 @@ export default function MinimalHeader() {
           isScrolled ? "py-3" : "py-4"
         )}
       >
-        {/* Brand lockup — no nav links, keeps focus on the form */}
-        <a
-          href="#top"
+        {/* Brand lockup — no nav links, keeps focus on the quote action */}
+        <Link
+          href="/"
           className="flex items-center gap-2.5"
           aria-label={siteConfig.businessName}
         >
@@ -53,32 +50,28 @@ export default function MinimalHeader() {
           <span className="font-display text-base font-bold tracking-tight text-white sm:text-lg">
             Korteks <span className="text-brand-accent">Textiles</span>
           </span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-2">
-          {/* WhatsApp — icon-only on mobile, labelled on larger screens */}
-          <a
-            href={siteConfig.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onWhatsApp}
-            aria-label={siteConfig.ctaWhatsApp}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white backdrop-blur-md transition hover:border-[#25D366]/60 hover:bg-white/10 sm:px-4"
-          >
-            <MessageCircle className="h-4 w-4 text-[#25D366]" />
-            <span className="hidden sm:inline">WhatsApp</span>
-          </a>
-
+          {/* Call — icon-only on mobile, number on larger screens */}
           <a
             href={siteConfig.phoneLink}
             onClick={onCall}
-            aria-label={siteConfig.ctaCall}
+            aria-label={`${siteConfig.ctaCall} — ${siteConfig.phoneDisplay}`}
             className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white backdrop-blur-md transition hover:border-brand-accent/60 hover:bg-white/10 sm:px-4"
           >
             <Phone className="h-4 w-4 text-brand-accent" />
             <span className="hidden sm:inline">{siteConfig.phoneDisplay}</span>
             <span className="sm:hidden">Call</span>
           </a>
+
+          {/* Primary — Get a Quote */}
+          <Link
+            href={siteConfig.quotePath}
+            className="inline-flex items-center gap-2 rounded-full bg-brand-accent px-4 py-2 text-sm font-bold text-brand-ink shadow-accent transition hover:bg-white"
+          >
+            {siteConfig.ctaQuote}
+          </Link>
         </div>
       </div>
     </header>

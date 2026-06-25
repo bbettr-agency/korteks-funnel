@@ -222,7 +222,7 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
 
       {status === "error" && (
         <p className="rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600">
-          Something went wrong. Please try again, or call / WhatsApp us instead.
+          Something went wrong. Please try again, or call us instead.
         </p>
       )}
 

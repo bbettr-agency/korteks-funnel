@@ -30,7 +30,7 @@ export default function ProductRanges() {
 
       {/* Featured — Ready-Made Curtains */}
       <motion.a
-        href="#quote-form"
+        href={siteConfig.quotePath}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -80,7 +80,7 @@ export default function ProductRanges() {
         {productRanges.map((item, index) => (
           <motion.a
             key={item.title}
-            href="#quote-form"
+            href={siteConfig.quotePath}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 }}

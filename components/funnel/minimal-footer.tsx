@@ -1,4 +1,4 @@
-import { Mail, Phone, MessageCircle, Factory } from "lucide-react";
+import { Mail, Phone, Factory } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 
 export default function MinimalFooter() {
@@ -31,15 +31,6 @@ export default function MinimalFooter() {
           >
             <Phone className="h-4 w-4 text-brand-accent" />
             {siteConfig.phoneDisplay}
-          </a>
-          <a
-            href={siteConfig.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-brand-accent"
-          >
-            <MessageCircle className="h-4 w-4 text-[#25D366]" />
-            {siteConfig.ctaWhatsApp}
           </a>
           <a
             href={siteConfig.emailLink}

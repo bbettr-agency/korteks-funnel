@@ -46,7 +46,7 @@ export default function HowItWorks() {
 
       <div className="mt-14 flex justify-center">
         <a
-          href="#quote-form"
+          href={siteConfig.quotePath}
           className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-primary px-8 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:bg-brand-primaryDark"
         >
           {siteConfig.cta}

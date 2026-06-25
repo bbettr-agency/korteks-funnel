@@ -5,7 +5,6 @@ import {
   BadgeCheck,
   CheckCircle2,
   Phone,
-  MessageCircle,
   ClipboardCheck,
   Clock,
 } from "lucide-react";
@@ -112,16 +111,13 @@ export default function ThankYouPage() {
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-accent px-8 py-4 text-base font-bold text-brand-ink shadow-accent transition-all duration-300 hover:bg-white"
             >
               <Phone className="h-5 w-5" />
-              {siteConfig.ctaCall}
+              Call {siteConfig.phoneDisplay}
             </a>
             <a
-              href={siteConfig.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-[#25D366]/60 hover:bg-white/10"
+              href="/"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-brand-accent/60 hover:bg-white/10"
             >
-              <MessageCircle className="h-5 w-5 text-[#25D366]" />
-              {siteConfig.ctaWhatsApp}
+              Return to Website
             </a>
           </motion.div>
         </div>

@@ -6,6 +6,33 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
+## 📌 Latest update — 2026-06-25 (WhatsApp removed + dedicated quote page)
+
+**Lead/contact paths are now PHONE + FORM only. No WhatsApp anywhere.**
+
+- **WhatsApp fully removed:** no buttons, no band, no sticky WhatsApp, no
+  `whatsapp_click` tracking, no links/icons. The `whatsapp-band.tsx` component
+  was deleted; `whatsappConversionLabel` removed from `siteConfig.tracking`.
+  (The only "WhatsApp" strings left are code comments stating it's not used.)
+- **Phone (real/confirmed):** `012 666 7100` → `tel:+27126667100` everywhere.
+  Phone CTA copy = "Speak to Sales" / "Call 012 666 7100".
+- **New dedicated quote page `/get-a-quote`** (`views/get-a-quote-page.tsx`,
+  route `app/get-a-quote/page.tsx`, copy in `funnel-config.ts → quotePage`):
+  strong headline, short trust row, "who this is for", the 6-field quote form,
+  phone CTA, response expectation. Indexable; added to sitemap.
+- **The quote form now lives only on `/get-a-quote`.** The home hero's right
+  column is a "Get a Quote" CTA *card* (not a form); the old final-CTA form is
+  now a CTA band. **Every quote CTA across the funnel links to `/get-a-quote`**
+  (verified: 12 on the home page). Form still submits to `info@bbettragency.com`
+  and redirects to `/thank-you`.
+- **Sticky mobile bar is now Call-only** (full-width "Call 012 666 7100").
+
+Verified this session: build ✅, lint ✅, desktop + mobile, 0 WhatsApp links,
+all quote CTAs → `/get-a-quote`, form → `/thank-you`, `click_to_call` +
+`lead_form_submit`/`generate_lead` fire, `/thank-you` still noindex.
+
+---
+
 ## 📌 Status snapshot — end of day 2026-06-24
 
 **Done & on `main`:**
@@ -13,7 +40,7 @@ See [`README.md`](./README.md) for the full overview.
 - Native lead form live; submissions → `info@bbettragency.com` via FormSubmit.
 - **FormSubmit activation COMPLETE** — submissions now deliver for real.
 - Thank-you page live as the primary conversion destination (noindex).
-- Conversion architecture in place: form submit, click-to-call, WhatsApp click.
+- Conversion architecture in place: form submit, click-to-call.
 - Repo connected; ready for Vercel.
 
 **Outstanding (mostly client-asset / ID dependent):**
@@ -54,18 +81,20 @@ These are interim and must be revisited before / at launch.
   the redirect off the HTTP 200, so the **visitor flow works regardless**.
 - **At launch:** replace with the client's real email, or switch to GHL (below).
 
-### 2. Temporary native form replacing the blank GHL placeholder
+### 2. Temporary native form (now on /get-a-quote)
 - The original GHL embed rendered blank (placeholder form id), which looked
   broken. It's replaced with a native form: `components/funnel/lead-form.tsx`.
 - Fields: Full Name, Company Name, Email, Phone, Business Type (qualifier
   dropdown), Message (optional). Honeypot anti-spam. Client-side validation.
+- The form lives on **`/get-a-quote`** only (FormPanel `instanceId="quote"`).
+  Home + sections drive to it via "Get a Quote" CTAs.
 - Toggled by `config/site-config.ts` → `useGhlForm` (currently `false`).
 - Business-type options live in `config/funnel-config.ts` → `businessTypes`.
 
 ### 3. Thank You page is the conversion destination
 - `/thank-you` (`views/thank-you-page.tsx`, route `app/thank-you/page.tsx`).
 - Confirms enquiry received, sets a "reply within 1 business day" expectation,
-  shows Call + WhatsApp, and is `noindex`.
+  shows a Call CTA + "Return to Website", and is `noindex`.
 - `components/funnel/conversion-tracker.tsx` fires the lead conversion on mount
   (`generate_lead` dataLayer event + Google Ads conversion). This is the
   **primary Google Ads / GTM conversion destination**.
@@ -89,33 +118,34 @@ IDs contain the `XXXX` placeholder token, so the site runs clean pre-launch.
 | Conversion | Event | Where it fires |
 |---|---|---|
 | Form submit | `lead_form_submit` (on submit) + `generate_lead` + Ads conversion (on `/thank-you`) | `lead-form.tsx`, `conversion-tracker.tsx` |
-| Click-to-Call | `click_to_call` + Ads conversion | header, hero, final CTA, sticky mobile bar |
-| WhatsApp Click | `whatsapp_click` + Ads conversion | header, hero, final CTA, WhatsApp band, sticky bar |
+| Click-to-Call | `click_to_call` + Ads conversion | header, hero, final CTA, sticky mobile bar, `/get-a-quote` |
+
+_(WhatsApp click conversion removed — WhatsApp is no longer used.)_
 
 **To activate:** set real IDs in `config/site-config.ts` → `tracking`
-(`gtmId`, `googleAdsId`, `leadConversionLabel`, `callConversionLabel`,
-`whatsappConversionLabel`). Verified in the build session: all events push to
-`dataLayer` correctly; `gtag` is absent only because the Ads ID is still a
-placeholder.
+(`gtmId`, `googleAdsId`, `leadConversionLabel`, `callConversionLabel`).
+Verified: all events push to `dataLayer` correctly; `gtag` is absent only
+because the Ads ID is still a placeholder.
 
 ---
 
 ## Still needed from client
 
-Phone / WhatsApp / email / factory city / domain · real GHL form id ·
-GTM + Google Ads IDs & labels · capacity / years / trade-client numbers
-(`trustStatsConfirmed`) · real reviews · certifications · logo + OG image ·
-MOQs / lead times / delivery specifics for FAQ. See README table for exact
-locations. **Do not fabricate any of these** — honest placeholders are in place.
+Email · factory city / domain · real GHL form id · GTM + Google Ads IDs & labels ·
+capacity / years / trade-client numbers (`trustStatsConfirmed`) · real reviews ·
+certifications · logo + OG image · MOQs / lead times / delivery specifics for FAQ.
+(Phone `012 666 7100` is confirmed.) See README table for exact locations.
+**Do not fabricate any of these** — honest placeholders are in place.
 
 ---
 
 ## Build / verify status (last session)
 
 - `npm run build` ✅ · `npm run lint` ✅ (no warnings/errors)
-- Verified in preview desktop (1280) + mobile (375): hero form, validation
-  (5 required-field errors), end-to-end submit → `/thank-you`, all three
-  conversion events, sticky mobile Call+WhatsApp bar.
+- Verified in preview desktop (1280) + mobile (375): home hero CTA card,
+  `/get-a-quote` form + validation, end-to-end submit → `/thank-you`,
+  `click_to_call` + `lead_form_submit`/`generate_lead`, Call-only sticky bar,
+  zero WhatsApp links.
 - Local preview: `npm run dev` → http://localhost:3400 (config `korteks-dev`).
 - ⚠️ Don't run `npm run build` while `npm run dev` is live — they share `.next`
   and it corrupts the dev server's CSS. Stop the dev server first, or

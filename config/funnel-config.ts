@@ -26,6 +26,27 @@ export const heroContent = {
   ],
 };
 
+// ── GET A QUOTE PAGE (/get-a-quote) ───────────────────────────────────────────
+export const quotePage = {
+  badge: "Trade & Wholesale · Ready-Made Curtains",
+  headlineLead: "Get your ready-made curtain",
+  headlineHighlight: "trade quote",
+  subheadline:
+    "Send your requirements and our team will come back with trade / wholesale pricing, minimum order quantities and lead times — manufactured locally in South Africa.",
+  // Short trust row
+  trustChips: [
+    "Local SA manufacturing",
+    "Vertically integrated",
+    "Consistent quality at volume",
+    "Trade & wholesale only",
+  ],
+  // Short "who this is for"
+  whoForTitle: "This quote form is for:",
+  whoFor:
+    "Retailers, curtain & furniture stores, interior designers, property developers, hospitality groups, hotels, guest houses, procurement and wholesale buyers.",
+  responseNote: "No obligation. Trade enquiries only. We reply within 1 business day.",
+};
+
 // ── LEAD FORM — business-type qualifier options ───────────────────────────────
 // The core qualifier: routes leads and filters out single-unit consumers.
 export const businessTypes = [
@@ -208,7 +229,7 @@ export const steps = [
     number: "01",
     title: "Send Your Enquiry",
     description:
-      "Tell us what you're sourcing — products, rough quantities and any deadlines. Takes under a minute via the form, phone or WhatsApp.",
+      "Tell us what you're sourcing — products, rough quantities and any deadlines. Takes under a minute via the quote form or by phone.",
   },
   {
     number: "02",

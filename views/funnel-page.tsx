@@ -7,7 +7,6 @@ import WhoWeSupply from "@/components/sections/who-we-supply";
 import ProductRanges from "@/components/sections/product-ranges";
 import WhyChoose from "@/components/sections/why-choose";
 import HowItWorks from "@/components/sections/how-it-works";
-import WhatsAppBand from "@/components/sections/whatsapp-band";
 import GoogleReviews from "@/components/sections/google-reviews";
 import FunnelFaq from "@/components/sections/funnel-faq";
 import FinalCta from "@/components/sections/final-cta";
@@ -23,7 +22,6 @@ export default function FunnelPage() {
         <ProductRanges />
         <WhyChoose />
         <HowItWorks />
-        <WhatsAppBand />
         <GoogleReviews />
         <FunnelFaq />
         <FinalCta />

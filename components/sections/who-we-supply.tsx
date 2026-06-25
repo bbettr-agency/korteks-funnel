@@ -58,7 +58,7 @@ export default function WhoWeSupply() {
 
       <div className="mt-12 flex justify-center">
         <a
-          href="#quote-form"
+          href={siteConfig.quotePath}
           className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-accent px-8 py-4 text-base font-bold text-brand-ink shadow-accent transition-all duration-300 hover:bg-white"
         >
           {siteConfig.cta}

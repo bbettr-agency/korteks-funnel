@@ -2,19 +2,13 @@
 //  SINGLE SOURCE OF TRUTH — Korteks Textiles Africa (Zaydtex)
 //  B2B Ready-Made Curtains · Trade & Wholesale lead funnel.
 //
-//  ⚠️ PLACEHOLDERS: Several values below are placeholders and MUST be replaced
-//  with the client's verified details before launch. They are written as obvious
-//  placeholders (all-zero numbers, XXXX tokens) so nothing fabricated is ever
-//  presented to a visitor as fact. See the "CLIENT TO SUPPLY" markers.
+//  Lead/contact paths: PHONE CALLS and the EMAIL/QUOTE FORM only.
+//  (No WhatsApp anywhere in this funnel — removed by request.)
+//
+//  ⚠️ PLACEHOLDERS: Some values below are placeholders and MUST be replaced with
+//  the client's verified details before launch. They are written as obvious
+//  placeholders (XXXX tokens) so nothing fabricated is presented as fact.
 // ─────────────────────────────────────────────────────────────────────────────
-
-// WhatsApp number — digits only, international format, no "+" or spaces.
-// CLIENT TO SUPPLY — placeholder below (all zeros).
-const whatsappNumber = "27100000000";
-
-// Pre-filled WhatsApp message — primes a qualifying, trade-framed conversation.
-const whatsappMessage =
-  "Hi Korteks, I'd like trade / wholesale pricing for ready-made curtains. My business is a [retailer / interior design studio / hospitality group / developer].";
 
 export const siteConfig = {
   // ── Identity ────────────────────────────────────────────────────────────────
@@ -26,19 +20,12 @@ export const siteConfig = {
   description:
     "Korteks Textiles Africa (Zaydtex) is a vertically integrated South African textile manufacturer supplying ready-made curtains — plus roll goods, fabrics, towels, table linen and cushions — to retailers, interior designers, hospitality groups, developers and wholesale buyers nationwide.",
 
-  // ── Contact channels ── CLIENT TO SUPPLY (placeholders below) ────────────────
-  phone: "010 000 0000", // PLACEHOLDER — replace with real number
-  phoneDisplay: "010 000 0000", // PLACEHOLDER
-  phoneLink: "tel:+27100000000", // PLACEHOLDER
+  // ── Contact channels (phone + email only) ────────────────────────────────────
+  phone: "012 666 7100",
+  phoneDisplay: "012 666 7100",
+  phoneLink: "tel:+27126667100",
   email: "sales@korteks.co.za", // PLACEHOLDER — verify real address
   emailLink: "mailto:sales@korteks.co.za", // PLACEHOLDER
-
-  whatsappNumber,
-  whatsappMessage,
-  whatsappDisplay: "010 000 0000", // PLACEHOLDER
-  whatsappLink: `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(
-    whatsappMessage
-  )}`,
 
   hours: "Mon – Fri · 08:00 – 17:00", // PLACEHOLDER — confirm trading hours
   website: "https://korteks.co.za", // PLACEHOLDER — confirm live domain
@@ -50,10 +37,13 @@ export const siteConfig = {
   // ── Calls to action (copy) ──────────────────────────────────────────────────
   // Primary conversion offer for the whole funnel:
   offer: "Request Trade / Wholesale Pricing for Ready-Made Curtains",
-  cta: "Request Trade Pricing",
+  cta: "Request Trade Pricing", // primary quote CTA label
+  ctaQuote: "Get a Quote",
   ctaShort: "Get Trade Pricing",
-  ctaWhatsApp: "Chat on WhatsApp",
-  ctaCall: "Call the Factory",
+  ctaCall: "Speak to Sales", // phone CTA label (number shown alongside)
+
+  // Dedicated quote page — every quote CTA links/scrolls here.
+  quotePath: "/get-a-quote",
 
   // ── Lead capture ─────────────────────────────────────────────────────────────
   // TEMPORARY (development): while the client's GHL form is not yet provided we
@@ -77,6 +67,5 @@ export const siteConfig = {
     googleAdsId: "AW-XXXXXXXXXX", // PLACEHOLDER — Google Ads conversion ID
     leadConversionLabel: "XXXXXXXXXXXXXXXXXX", // PLACEHOLDER — fires on /thank-you
     callConversionLabel: "XXXXXXXXXXXXXXXXXX", // PLACEHOLDER — click-to-call
-    whatsappConversionLabel: "XXXXXXXXXXXXXXXXXX", // PLACEHOLDER — WhatsApp click
   },
 };
