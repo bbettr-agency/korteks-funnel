@@ -21,14 +21,14 @@ export default function StickyMobileBar() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-brand-ink/95 backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-brand-bone bg-white/90 backdrop-blur-xl md:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="px-3 py-2.5">
         <a
           href={siteConfig.phoneLink}
           onClick={onCall}
-          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-4 text-sm font-bold text-brand-cream shadow-glow active:scale-[0.98]"
+          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-4 text-sm font-bold text-white shadow-glow active:scale-[0.98]"
         >
           <Phone className="h-5 w-5" />
           Call {siteConfig.phoneDisplay}

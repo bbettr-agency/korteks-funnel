@@ -19,7 +19,7 @@ export default function FormPanel({
       {/* Soft glow behind the card */}
       <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-brand-accent/10 blur-2xl" />
 
-      <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white p-2 shadow-ink">
+      <div className="relative overflow-hidden rounded-[1.75rem] border border-brand-bone bg-white p-2 shadow-soft">
         <div className="rounded-[1.4rem] bg-white px-5 pb-4 pt-6 sm:px-7">
           <div className="mb-4 flex items-start justify-between gap-4 border-b border-brand-ink/10 pb-5">
             <div>

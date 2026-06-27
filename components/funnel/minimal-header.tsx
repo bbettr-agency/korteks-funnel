@@ -10,8 +10,10 @@ import { cn } from "@/utils/cn";
 import Logo from "@/components/ui/logo";
 
 const navLinks = [
-  { label: "Our Products", href: "/#products" },
+  { label: "Products", href: "/#products" },
   { label: "Why Zaydtex", href: "/#why" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function MinimalHeader() {
@@ -30,8 +32,8 @@ export default function MinimalHeader() {
   };
 
   const wordmark = (
-    <span className="font-display text-xl font-extrabold lowercase tracking-tight text-brand-cream">
-      zayd<span className="text-brand-accent">tex</span>
+    <span className="font-display text-xl font-extrabold lowercase tracking-tight text-brand-ink">
+      zayd<span className="text-brand-primary">tex</span>
     </span>
   );
 
@@ -40,7 +42,7 @@ export default function MinimalHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         isScrolled
-          ? "border-b border-brand-cream/10 bg-brand-ink/90 backdrop-blur-xl"
+          ? "border-b border-brand-bone bg-white/85 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
@@ -59,13 +61,13 @@ export default function MinimalHeader() {
           {wordmark}
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-7">
           <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-brand-cream/75 transition hover:text-brand-accent"
+                className="text-sm font-semibold text-brand-ink/70 transition hover:text-brand-primary"
               >
                 {link.label}
               </Link>
@@ -77,14 +79,14 @@ export default function MinimalHeader() {
               href={siteConfig.phoneLink}
               onClick={onCall}
               aria-label={`Call ${siteConfig.phoneDisplay}`}
-              className="hidden items-center gap-2 text-sm font-bold text-brand-cream transition hover:text-brand-accent sm:inline-flex"
+              className="hidden items-center gap-2 text-sm font-bold text-brand-ink transition hover:text-brand-primary sm:inline-flex"
             >
-              <Phone className="h-4 w-4 text-brand-accent" />
+              <Phone className="h-4 w-4 text-brand-primary" />
               {siteConfig.phoneDisplay}
             </a>
             <Link
               href={siteConfig.quotePath}
-              className="inline-flex items-center rounded-full bg-brand-primary px-5 py-2.5 text-sm font-bold text-brand-cream shadow-glow transition hover:bg-brand-primaryDark"
+              className="inline-flex items-center rounded-full bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow-glow transition hover:bg-brand-primaryDark"
             >
               {siteConfig.ctaQuote}
             </Link>

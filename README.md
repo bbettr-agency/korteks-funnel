@@ -110,7 +110,8 @@ the official company profile, nothing invented). Remaining items:
 
 | Item | Location | Notes |
 |---|---|---|
-| **Logo files** | `public/images/logo/` | upload `logo-primary.png` + `logo-icon.png` — site auto-updates (fallback wordmark until then). See that folder's README. |
+| **Real photography** | `public/images/` (`hero-curtains`, `factory`, `product-*`) | currently curated **stock placeholders** — replace with real Zaydtex product/factory photos using the same filenames; site auto-updates |
+| **Logo files** | `public/images/logo/` | `logo-primary.png` + `logo-icon.png` are uploaded; header/footer use the copper Z icon + wordmark |
 | **OG image + favicon** | `public/images/logo/` | optional: `og-image.jpg` (1200×630) and `favicon.ico` — config already points at them |
 | **Hero photo** (optional) | `siteConfig.heroImage` | empty = built-in premium drapery visual; set a path to use a real curtain photo |
 | **Form delivery inbox** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` (FormSubmit, activated). Switch to client's inbox + re-activate, or set `useGhlForm = true` with a real `formId`. Public contact email is already `info@zaydtex.com`. |

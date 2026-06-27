@@ -1,81 +1,91 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  COPY + STRUCTURED CONTENT — Zaydtex
-//  Simplified, premium, conversion-first. Short copy only — no long paragraphs,
-//  no heavy manufacturing detail. Public brand = Zaydtex.
+//  COPY + STRUCTURED CONTENT — Zaydtex (Version 2 — premium, photography-led)
+//  Short copy only. Public brand = Zaydtex. Every fact is from the official
+//  company profile (nothing invented).
 //
-//  Every fact below is from the official Zaydtex company profile. Nothing invented.
+//  ⚠️ Photography in /public/images/* is curated stock as a PLACEHOLDER — replace
+//  with real Zaydtex product / factory photography before launch (same filenames
+//  → site updates automatically).
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ── HERO ──────────────────────────────────────────────────────────────────────
 export const heroContent = {
-  badge: "South African Curtain Manufacturer · Trade & Wholesale",
-  headlineTop: "Africa's Largest",
-  headlineHighlight: "Ready-Made Curtain",
-  headlineBottom: "Manufacturer",
-  subheadline:
-    "Zaydtex supplies premium ready-made curtains to retailers, wholesalers and businesses across South Africa.",
-  microStats: "Almost 1 million curtains a year  ·  Since 1997  ·  100% South African",
+  eyebrow: "South African Curtain Manufacturer",
+  headline: "Africa's largest ready-made curtain manufacturer.",
+  sentence:
+    "Zaydtex manufactures premium ready-made curtains and supplies retailers, wholesalers and businesses nationwide.",
 };
 
-// ── TRUST STRIP — strongest profile facts only ────────────────────────────────
+// ── TRUST — large numbers, no cards ───────────────────────────────────────────
 export const trustStats = [
-  { value: "Largest", label: "Curtain manufacturer in Africa" },
-  { prefix: "Almost", value: "1M", label: "Ready-made curtains a year" },
-  { value: "1997", label: "Manufacturing since" },
+  { prefix: "Almost", value: "1M", label: "Curtains made a year" },
   { value: "250+", label: "Skilled employees" },
+  { value: "19,000m²", label: "Production facility" },
+  { value: "1997", label: "Manufacturing since" },
 ];
 
-export const trustMarkers = [
-  "19,000 m² production facility",
-  "100% South African owned & operated",
-  "B-BBEE contributor",
-  "8 quality checks before shipping",
+// ── PRODUCTS — large photography, no icons ────────────────────────────────────
+export const products = [
+  {
+    title: "Ready-Made Curtains",
+    blurb: "Cut, made & finished in-house.",
+    image: "/images/product-ready-made.jpg",
+    featured: true,
+  },
+  {
+    title: "Sheers",
+    blurb: "Light, airy voiles.",
+    image: "/images/product-sheers.jpg",
+  },
+  {
+    title: "Lace",
+    blurb: "Classic & contemporary lace.",
+    image: "/images/product-lace.jpg",
+  },
+  {
+    title: "Blackout",
+    blurb: "Block out light, heat & dust.",
+    image: "/images/product-blackout.jpg",
+  },
+  {
+    title: "Jacquard",
+    blurb: "Rich, textured weaves.",
+    image: "/images/product-jacquard.jpg",
+  },
 ];
 
-// ── WHAT WE MAKE — Ready-Made Curtains lead ───────────────────────────────────
-export const featuredProduct = {
-  title: "Ready-Made Curtains",
-  tag: "Our core product",
-  description:
-    "Premium curtains, cut, made and finished in-house — ready to stock, specify or install. Almost a million produced every year.",
-};
-
-export const productStyles = [
-  { icon: "Blinds", title: "Sheers", description: "Light, elegant voiles & sheers." },
-  { icon: "Layers", title: "Lace", description: "Classic & contemporary lace." },
-  { icon: "Moon", title: "Blackout & Coated", description: "Block out light, heat & dust." },
-  { icon: "Sparkles", title: "Woven Jacquard", description: "Rich, textured woven curtains." },
-];
-
-export const productsNote =
-  "Plus woven dobby, coated fabrics (Scrimp) and towelling (ZaHa).";
-
-// ── WHY ZAYDTEX — 3 reasons ───────────────────────────────────────────────────
+// ── WHY ZAYDTEX — 3 reasons, icons, little text ───────────────────────────────
 export const whyZaydtex = [
   {
     icon: "Layers",
-    title: "Vertically integrated, made in SA",
-    description:
-      "From yarn to finished curtain — produced under one roof at our 19,000 m² Centurion factory.",
+    title: "Vertically integrated",
+    description: "From yarn to finished curtain, all under one roof.",
   },
   {
     icon: "Factory",
-    title: "Built for volume & reliable supply",
-    description:
-      "Almost a million curtains a year, delivered on time to businesses nationwide.",
+    title: "Built for volume",
+    description: "Almost a million curtains a year, delivered nationwide.",
   },
   {
     icon: "ShieldCheck",
-    title: "Consistent, checked quality",
-    description:
-      "Every order passes 8 quality checks before it ships — so you can reorder with confidence.",
+    title: "Checked quality",
+    description: "Eight quality checks before every order ships.",
   },
 ];
 
+// ── FACTORY — full-width image band ───────────────────────────────────────────
+export const factory = {
+  eyebrow: "Inside the factory",
+  heading: "A manufacturer, not a reseller.",
+  sentence:
+    "Almost a million curtains a year are produced under one roof at our 19,000 m² facility in Centurion — from yarn to finished curtain.",
+  image: "/images/factory.jpg",
+};
+
 // ── QUOTE CTA BAND ────────────────────────────────────────────────────────────
 export const quoteBand = {
-  question: "Need trade pricing or a custom curtain quote?",
-  subline: "Tell us what you need — we reply within 1 business day.",
+  heading: "Let's get you a quote.",
+  sentence: "Tell us what you need — we reply within one business day.",
 };
 
 // ── GET A QUOTE PAGE (/get-a-quote) ───────────────────────────────────────────

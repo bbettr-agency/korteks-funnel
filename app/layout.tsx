@@ -35,7 +35,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#1C140D" />
+        <meta name="theme-color" content="#FBF7F1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -43,7 +43,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-brand-mist text-brand-ink antialiased">
+      <body className="bg-white text-brand-ink antialiased">
         <GtmNoScript />
         {children}
         <TrackingScripts />

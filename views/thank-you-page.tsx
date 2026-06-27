@@ -23,60 +23,52 @@ const statusPoints = [
   {
     icon: ClipboardCheck,
     title: "Our Team Reviews It",
-    description:
-      "We review your requirements — products, quantities and timelines.",
+    description: "We review your requirements — products, quantities and timelines.",
   },
   {
     icon: Clock,
     title: "We Reply Within 1 Business Day",
-    description:
-      "Expect trade / wholesale pricing, MOQs and lead times shortly.",
+    description: "Expect trade / wholesale pricing, MOQs and lead times shortly.",
   },
 ];
 
 export default function ThankYouPage() {
   return (
     <>
-      {/* Fires the Google Ads lead conversion (no-op until IDs are configured) */}
       <ConversionTracker />
       <MinimalHeader />
-      <main className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-ink px-6 py-28 text-brand-cream lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-charcoal via-brand-ink to-brand-charcoal" />
-        <div className="absolute inset-0 bg-radial-glow" />
-        <div className="pointer-events-none absolute -top-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-primary/20 blur-[140px]" />
-
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
+      <main className="flex min-h-[100svh] items-center bg-brand-cream px-6 py-28 text-brand-ink lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-brand-accent text-brand-ink shadow-accent"
+            className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-brand-primary text-white shadow-glow"
           >
             <BadgeCheck className="h-11 w-11" />
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl"
+            className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-ink md:text-5xl"
           >
             Thank You — Your Enquiry Is In
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
-            className="mx-auto mt-5 max-w-xl text-base leading-7 text-brand-cream/70 md:text-lg"
+            className="mx-auto mt-5 max-w-xl text-base leading-7 text-brand-ink/65 md:text-lg"
           >
             Our team will review your requirements and come back with trade /
             wholesale pricing for ready-made curtains within 1 business day.
           </motion.p>
 
-          {/* Status points */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.26 }}
             className="mx-auto mt-12 grid max-w-2xl gap-4 sm:grid-cols-3"
@@ -84,38 +76,37 @@ export default function ThankYouPage() {
             {statusPoints.map((point) => (
               <div
                 key={point.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl"
+                className="rounded-2xl border border-brand-bone bg-white p-6"
               >
-                <div className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-accent/15 text-brand-accent">
+                <div className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary/12 text-brand-primary">
                   <point.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display text-sm font-bold text-brand-cream">
+                <h3 className="font-display text-sm font-bold text-brand-ink">
                   {point.title}
                 </h3>
-                <p className="mt-1.5 text-xs leading-5 text-brand-cream/55">
+                <p className="mt-1.5 text-xs leading-5 text-brand-ink/55">
                   {point.description}
                 </p>
               </div>
             ))}
           </motion.div>
 
-          {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.34 }}
             className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <a
               href={siteConfig.phoneLink}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-accent px-8 py-4 text-base font-bold text-brand-ink shadow-accent transition-all duration-300 hover:bg-white"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-primary px-8 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:bg-brand-primaryDark"
             >
               <Phone className="h-5 w-5" />
               Call {siteConfig.phoneDisplay}
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-brand-cream backdrop-blur-md transition-all duration-300 hover:border-brand-accent/60 hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-brand-ink/20 px-8 py-4 text-base font-semibold text-brand-ink transition-all duration-300 hover:border-brand-ink/40 hover:bg-white"
             >
               Return to Website
             </a>

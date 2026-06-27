@@ -6,7 +6,38 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-27 (Zaydtex rebrand + premium simplified redesign)
+## 📌 Latest update — 2026-06-27 (V2: light premium photography-led redesign)
+
+Full UI redesign per owner: a premium manufacturer site (Apple / Herman Miller
+feel) that still converts. Functionality/SEO/tracking/quote-form/conversion
+architecture all preserved.
+
+- **Light theme** — white / warm cream (`brand.cream`) / very light beige
+  (`brand.mist`) backgrounds, **dark brown** (`brand.ink`) type & footer, **copper**
+  (`brand.primary`) buttons/accents. No dark backgrounds throughout (footer +
+  factory band only). Tokens in `tailwind.config.ts`; white body base.
+- **Photography is the hero.** Curated stock images in **`public/images/`**
+  (`hero-curtains`, `factory`, `product-*`). ⚠️ These are **placeholders** —
+  replace with real Zaydtex product/factory photos using the **same filenames**
+  (paths in `funnel-config.ts` `products`/`factory` + `siteConfig.heroImage`).
+  Served via `next/image`.
+- **Homepage sections:** Hero (full-screen, big headline + 2 CTAs + full-bleed
+  curtain photo) → Trust (large numbers, no cards) → Products (large photography,
+  featured + 4 tiles) → Why Zaydtex (3 reasons, icons, no cards) → Factory
+  (full-width image band, id `#about`) → Quote band → Footer (id `#contact`).
+- **Knit motif** = `.knit-braid` (globals.css) via `components/ui/knit-divider.tsx`
+  — used tastefully (quote-band accent, footer top border). Never a page bg.
+- Nav: Products · Why Zaydtex · About · Contact · phone · Get Quote. Logo lockup =
+  copper Z tile + wordmark (dark on light header, cream in footer).
+- Old dark-theme sections/components removed (what-we-make, thread-divider, the
+  weave/stitch/drapery treatments). Quote + thank-you pages re-themed light.
+
+Verified: build ✅ lint ✅ desktop+mobile, all images load, 10 CTAs → /get-a-quote,
+form → /thank-you (conversions fire), 0 WhatsApp, sticky mobile Call bar.
+
+---
+
+## 📌 Update — 2026-06-27 (Zaydtex rebrand + simplified redesign, superseded by V2)
 
 Per the owner: simpler, cleaner, premium, aligned to the official company profile.
 Built from the profile + the 8 strongest facts (nothing invented).

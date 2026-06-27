@@ -31,9 +31,8 @@ export const siteConfig = {
     ogImage: "/images/logo/og-image.jpg", // social share preview, 1200×630 (future)
   },
 
-  // Optional hero photo. Leave empty to use the built-in premium drapery visual;
-  // set a path (e.g. "/images/hero-curtains.jpg") and the hero uses that instead.
-  heroImage: "",
+  // Hero photo (curated stock placeholder — replace with real Zaydtex photography).
+  heroImage: "/images/hero-curtains.jpg",
 
   // ── Contact channels (phone + email only) ────────────────────────────────────
   phone: "012 666 7100",

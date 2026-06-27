@@ -11,24 +11,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Official Zaydtex palette — cream / copper / chocolate.
+        // Zaydtex logo palette — light, premium. White / cream / beige base,
+        // dark brown for type & footer, copper/orange for buttons & accents.
         brand: {
-          // Primary — copper: buttons, links, icons, accents
-          primary: "#B5742B",
-          primaryDark: "#925A1E",
-          primaryLight: "#D29A57",
-          // Secondary — warm amber: highlights, glows, callouts
-          accent: "#D08A2C",
-          accentDark: "#A86E1F",
-          // Dark surfaces — chocolate / espresso scale
-          ink: "#1C140D",
-          charcoal: "#241A11",
-          graphite: "#30231A",
-          steel: "#46331F",
-          // Light surfaces — cream / bone
-          cream: "#FAF6EF",
-          mist: "#F5EFE6",
-          bone: "#EADFCF",
+          // Copper / orange (from the logo) — buttons, links, small accents
+          primary: "#BC7A2E",
+          primaryDark: "#9C6322",
+          primaryLight: "#D49A55",
+          accent: "#C98A3C",
+          accentDark: "#A06E22",
+          // Dark brown (logo) — headings, footer, text
+          ink: "#2E2117",
+          charcoal: "#241910",
+          graphite: "#3A2A1E",
+          steel: "#4A3420",
+          // Light surfaces
+          cream: "#FBF7F1", // warm cream
+          mist: "#F3ECE0", // very light beige
+          bone: "#E7DBC9", // hairline borders
         },
       },
       fontFamily: {
@@ -39,38 +39,19 @@ const config: Config = {
         "2xl": "1.25rem",
         "3xl": "1.75rem",
       },
-      backgroundImage: {
-        "radial-glow":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(181,116,43,0.22), transparent 70%)",
-        "copper-glow":
-          "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(208,138,44,0.16), transparent 70%)",
-      },
       boxShadow: {
-        glow: "0 20px 60px -20px rgba(181,116,43,0.40)",
-        accent: "0 20px 60px -20px rgba(208,138,44,0.38)",
-        ink: "0 30px 80px -30px rgba(20,12,6,0.85)",
-        card: "0 24px 60px -28px rgba(60,40,20,0.22)",
+        glow: "0 24px 60px -24px rgba(188,122,46,0.45)",
+        soft: "0 30px 70px -40px rgba(46,33,23,0.30)",
+        card: "0 28px 60px -34px rgba(46,33,23,0.22)",
       },
       keyframes: {
-        // Subtle copper thread travelling horizontally along a divider
-        thread: {
-          "0%": { transform: "translateX(-130%)" },
-          "100%": { transform: "translateX(130%)" },
-        },
-        // Very slow textile-weave pan for dark backgrounds
-        weave: {
-          "0%": { backgroundPosition: "0px 0px" },
-          "100%": { backgroundPosition: "56px 0px" },
-        },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
       },
       animation: {
-        thread: "thread 7s ease-in-out infinite",
-        weave: "weave 50s linear infinite",
-        float: "float 8s ease-in-out infinite",
+        float: "float 9s ease-in-out infinite",
       },
     },
   },
