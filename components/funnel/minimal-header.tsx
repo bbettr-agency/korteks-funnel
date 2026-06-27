@@ -50,8 +50,13 @@ export default function MinimalHeader() {
           isScrolled ? "py-3" : "py-4"
         )}
       >
-        <Link href="/" className="flex items-center" aria-label={siteConfig.businessName}>
-          <Logo variant="primary" className="h-9 w-auto sm:h-10" markClassName="h-9 w-9" wordmark={wordmark} />
+        <Link
+          href="/"
+          className="flex items-center gap-2.5"
+          aria-label={siteConfig.businessName}
+        >
+          <Logo variant="icon" className="h-9 w-auto sm:h-10" markClassName="h-9 w-9" />
+          {wordmark}
         </Link>
 
         <div className="flex items-center gap-6">

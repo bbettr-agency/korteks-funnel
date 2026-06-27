@@ -18,7 +18,10 @@ export default function MinimalFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <Logo variant="primary" className="h-10 w-auto" markClassName="h-9 w-9" wordmark={wordmark} />
+            <div className="flex items-center gap-2.5">
+              <Logo variant="icon" className="h-10 w-auto" markClassName="h-9 w-9" />
+              {wordmark}
+            </div>
             <p className="mt-5 max-w-sm text-sm leading-7 text-brand-cream/55">
               {siteConfig.tagline} Africa&apos;s largest curtain manufacturer,
               supplying the trade nationwide.
