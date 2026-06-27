@@ -110,7 +110,7 @@ and no fake stats, reviews or certifications are presented as real.
 | Capacity / years / trade-client numbers | `config/funnel-config.ts` (`trustStats`, `trustStatsConfirmed`) | qualitative pillars shown until `trustStatsConfirmed = true` |
 | Real reviews / testimonials | `config/funnel-config.ts` (`reviews`, `reviewsMeta`) | empty + `showAggregate: false` |
 | Certifications / memberships | `config/funnel-config.ts` (`credibilityMarkers`) | only client-stated strengths shown |
-| Logo / favicon + OG image | `app/icon.svg`, `/public/og-image.jpg` | brand assets |
+| Logo / icon / favicon / OG image | `public/images/logo/` (paths in `siteConfig.logo`) | drop files in — site auto-updates; see that folder's README |
 | MOQs / lead times / delivery specifics | `config/funnel-config.ts` (`faqs`) | answers invite enquiry rather than quote unconfirmed numbers |
 
 ## Vercel deployment notes

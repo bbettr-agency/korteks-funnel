@@ -64,6 +64,24 @@ all quote CTAs → `/get-a-quote`, form → `/thank-you`, `click_to_call` +
 
 ---
 
+## 🖼️ Logo / brand-asset system (config-driven, future-proof)
+
+- **Single source of truth:** `config/site-config.ts` → `siteConfig.logo`
+  (`primary`, `icon`, `favicon`, `ogImage`), all pointing into
+  **`public/images/logo/`** (which has its own README).
+- Reusable `components/ui/logo.tsx` renders the image and **falls back to a
+  built-in mark + wordmark** until the real files exist (no broken images). Used
+  by header + footer. Browser icon + OG image (`lib/metadata.ts`) and JSON-LD
+  logo (`lib/schema.ts`) also read from `siteConfig.logo`.
+- **To go live:** drop `logo-primary.png` (horizontal) and `logo-icon.png`
+  (square) into `public/images/logo/` using those exact filenames — the whole
+  site updates automatically, no code changes. `favicon.ico` + `og-image.jpg`
+  are optional future additions (config already points at them).
+- Verified this session: fallback renders with files absent; adding a real file
+  makes header/footer switch to the `<img>` automatically (tested + cleaned up).
+
+---
+
 ## ⚠️ Temporary development decisions (active now)
 
 These are interim and must be revisited before / at launch.

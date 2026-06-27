@@ -1,5 +1,6 @@
-import { Mail, Phone, Factory } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
+import Logo from "@/components/ui/logo";
 
 export default function MinimalFooter() {
   return (
@@ -7,15 +8,19 @@ export default function MinimalFooter() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center">
         <a
           href="#top"
-          className="flex items-center gap-2.5"
+          className="flex items-center"
           aria-label={siteConfig.businessName}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-primary text-white">
-            <Factory className="h-5 w-5" />
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight text-white">
-            Korteks <span className="text-brand-accent">Textiles Africa</span>
-          </span>
+          <Logo
+            variant="primary"
+            className="h-11 w-auto"
+            markClassName="h-9 w-9"
+            wordmark={
+              <span className="font-display text-lg font-bold tracking-tight text-white">
+                Korteks <span className="text-brand-accent">Textiles Africa</span>
+              </span>
+            }
+          />
         </a>
 
         <p className="max-w-xl text-sm leading-7 text-white/55">

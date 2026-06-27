@@ -1,12 +1,13 @@
 "use client";
 
-import { Phone, Factory } from "lucide-react";
+import { Phone } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { siteConfig } from "@/config/site-config";
 import { trackEvent, fireAdsConversion } from "@/lib/tracking";
 import { cn } from "@/utils/cn";
+import Logo from "@/components/ui/logo";
 
 export default function MinimalHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,18 +39,24 @@ export default function MinimalHeader() {
           isScrolled ? "py-3" : "py-4"
         )}
       >
-        {/* Brand lockup — no nav links, keeps focus on the quote action */}
+        {/* Brand lockup — no nav links, keeps focus on the quote action.
+            Logo image comes from siteConfig.logo (central); falls back to the
+            mark + wordmark below until logo-primary.png is supplied. */}
         <Link
           href="/"
-          className="flex items-center gap-2.5"
+          className="flex items-center"
           aria-label={siteConfig.businessName}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-primary text-white shadow-glow">
-            <Factory className="h-5 w-5" />
-          </span>
-          <span className="font-display text-base font-bold tracking-tight text-white sm:text-lg">
-            Korteks <span className="text-brand-accent">Textiles</span>
-          </span>
+          <Logo
+            variant="primary"
+            className="h-9 w-auto sm:h-10"
+            markClassName="h-9 w-9"
+            wordmark={
+              <span className="font-display text-base font-bold tracking-tight text-white sm:text-lg">
+                Korteks <span className="text-brand-accent">Textiles</span>
+              </span>
+            }
+          />
         </Link>
 
         <div className="flex items-center gap-2">

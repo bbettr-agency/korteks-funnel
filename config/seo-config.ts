@@ -20,6 +20,7 @@ export const seoConfig = {
   ],
   author: "Korteks Textiles Africa",
   robots: "index, follow",
-  ogImage: "/og-image.jpg", // CLIENT TO SUPPLY — 1200×630 brand/product image
+  // Social preview image now lives in the central brand config:
+  //   config/site-config.ts → siteConfig.logo.ogImage
   twitterHandle: "@korteks",
 };

@@ -1,5 +1,4 @@
 import { siteConfig } from "@/config/site-config";
-import { seoConfig } from "@/config/seo-config";
 import { faqs } from "@/config/funnel-config";
 
 /**
@@ -15,8 +14,8 @@ export const organizationSchema = {
   name: siteConfig.businessName,
   alternateName: siteConfig.tradingAs,
   url: siteConfig.website,
-  logo: `${siteConfig.website}${seoConfig.ogImage}`,
-  image: `${siteConfig.website}${seoConfig.ogImage}`,
+  logo: `${siteConfig.website}${siteConfig.logo.primary}`,
+  image: `${siteConfig.website}${siteConfig.logo.ogImage}`,
   description: siteConfig.description,
   telephone: siteConfig.phone,
   email: siteConfig.email,

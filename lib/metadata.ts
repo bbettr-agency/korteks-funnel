@@ -29,6 +29,13 @@ export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
     alternates: {
       canonical: url,
     },
+    // Browser icon — central, from siteConfig.logo (activates once the square
+    // icon file is uploaded; the file-based app/icon.svg covers the gap).
+    icons: {
+      icon: siteConfig.logo.icon,
+      shortcut: siteConfig.logo.icon,
+      apple: siteConfig.logo.icon,
+    },
     openGraph: {
       title,
       description,
@@ -38,7 +45,7 @@ export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
       locale: "en_ZA",
       images: [
         {
-          url: seoConfig.ogImage,
+          url: siteConfig.logo.ogImage,
           width: 1200,
           height: 630,
           alt: siteConfig.businessName,
@@ -50,7 +57,7 @@ export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
       title,
       description,
       site: seoConfig.twitterHandle,
-      images: [seoConfig.ogImage],
+      images: [siteConfig.logo.ogImage],
     },
   };
 }

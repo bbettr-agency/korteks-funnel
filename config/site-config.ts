@@ -15,6 +15,18 @@ export const siteConfig = {
   businessName: "Korteks Textiles Africa",
   shortName: "Korteks",
   tradingAs: "Zaydtex",
+
+  // ── Brand assets ── SINGLE SOURCE OF TRUTH for every logo/image ──────────────
+  // Drop replacement files into public/images/logo/ using the SAME filenames and
+  // the whole site updates automatically — no code changes. See that folder's
+  // README. Until logo-primary.png / logo-icon.png exist, a built-in fallback
+  // lockup renders (nothing looks broken).
+  logo: {
+    primary: "/images/logo/logo-primary.png", // main horizontal logo (header/footer)
+    icon: "/images/logo/logo-icon.png", // square icon / browser favicon
+    favicon: "/images/logo/favicon.ico", // optional legacy favicon (future)
+    ogImage: "/images/logo/og-image.jpg", // social share preview, 1200×630 (future)
+  },
   tagline:
     "South African manufacturer and wholesale supplier of ready-made curtains for the trade.",
   description:
