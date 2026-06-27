@@ -2,14 +2,10 @@ import MinimalHeader from "@/components/funnel/minimal-header";
 import MinimalFooter from "@/components/funnel/minimal-footer";
 import StickyMobileBar from "@/components/ui/sticky-mobile-bar";
 import FunnelHero from "@/components/sections/funnel-hero";
-import TrustBar from "@/components/sections/trust-bar";
-import WhoWeSupply from "@/components/sections/who-we-supply";
-import ProductRanges from "@/components/sections/product-ranges";
-import WhyChoose from "@/components/sections/why-choose";
-import HowItWorks from "@/components/sections/how-it-works";
-import GoogleReviews from "@/components/sections/google-reviews";
-import FunnelFaq from "@/components/sections/funnel-faq";
-import FinalCta from "@/components/sections/final-cta";
+import TrustStrip from "@/components/sections/trust-strip";
+import WhatWeMake from "@/components/sections/what-we-make";
+import WhyZaydtex from "@/components/sections/why-zaydtex";
+import QuoteBand from "@/components/sections/quote-band";
 
 export default function FunnelPage() {
   return (
@@ -17,14 +13,10 @@ export default function FunnelPage() {
       <MinimalHeader />
       <main>
         <FunnelHero />
-        <TrustBar />
-        <WhoWeSupply />
-        <ProductRanges />
-        <WhyChoose />
-        <HowItWorks />
-        <GoogleReviews />
-        <FunnelFaq />
-        <FinalCta />
+        <TrustStrip />
+        <WhatWeMake />
+        <WhyZaydtex />
+        <QuoteBand />
       </main>
       <MinimalFooter />
       <StickyMobileBar />

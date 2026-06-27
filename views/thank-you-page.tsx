@@ -40,7 +40,7 @@ export default function ThankYouPage() {
       {/* Fires the Google Ads lead conversion (no-op until IDs are configured) */}
       <ConversionTracker />
       <MinimalHeader />
-      <main className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-ink px-6 py-28 text-white lg:px-8">
+      <main className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-ink px-6 py-28 text-brand-cream lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-charcoal via-brand-ink to-brand-charcoal" />
         <div className="absolute inset-0 bg-radial-glow" />
         <div className="pointer-events-none absolute -top-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-primary/20 blur-[140px]" />
@@ -68,7 +68,7 @@ export default function ThankYouPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
-            className="mx-auto mt-5 max-w-xl text-base leading-7 text-white/70 md:text-lg"
+            className="mx-auto mt-5 max-w-xl text-base leading-7 text-brand-cream/70 md:text-lg"
           >
             Our team will review your requirements and come back with trade /
             wholesale pricing for ready-made curtains within 1 business day.
@@ -89,10 +89,10 @@ export default function ThankYouPage() {
                 <div className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-accent/15 text-brand-accent">
                   <point.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display text-sm font-bold text-white">
+                <h3 className="font-display text-sm font-bold text-brand-cream">
                   {point.title}
                 </h3>
-                <p className="mt-1.5 text-xs leading-5 text-white/55">
+                <p className="mt-1.5 text-xs leading-5 text-brand-cream/55">
                   {point.description}
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function ThankYouPage() {
             </a>
             <a
               href="/"
-              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-brand-accent/60 hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-brand-cream backdrop-blur-md transition-all duration-300 hover:border-brand-accent/60 hover:bg-white/10"
             >
               Return to Website
             </a>

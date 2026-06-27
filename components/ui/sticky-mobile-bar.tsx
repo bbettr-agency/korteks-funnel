@@ -28,7 +28,7 @@ export default function StickyMobileBar() {
         <a
           href={siteConfig.phoneLink}
           onClick={onCall}
-          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-brand-accent px-4 text-sm font-bold text-brand-ink shadow-accent active:scale-[0.98]"
+          className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-brand-primary px-4 text-sm font-bold text-brand-cream shadow-glow active:scale-[0.98]"
         >
           <Phone className="h-5 w-5" />
           Call {siteConfig.phoneDisplay}

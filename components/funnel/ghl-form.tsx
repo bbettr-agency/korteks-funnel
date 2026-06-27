@@ -20,7 +20,7 @@ export default function GhlForm({ instanceId }: { instanceId: string }) {
       <iframe
         src={siteConfig.formSrc}
         id={domId}
-        title="Request trade / wholesale pricing — Korteks Textiles Africa"
+        title="Request trade / wholesale pricing — Zaydtex"
         style={{
           width: "100%",
           height: "100%",

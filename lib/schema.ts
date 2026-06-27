@@ -1,37 +1,40 @@
 import { siteConfig } from "@/config/site-config";
-import { faqs } from "@/config/funnel-config";
 
 /**
  * Structured data (JSON-LD).
  *
- * Korteks is a textile manufacturer, so the primary entity is an Organization
- * typed as a Manufacturer. We deliberately omit aggregateRating / review schema
- * until real, consent-given reviews exist — no fabricated structured data.
+ * Public brand = Zaydtex (name). The registered entity is exposed via the
+ * schema `legalName` field only — a legitimate legal/technical use. No
+ * aggregateRating/review schema until real, consent-given reviews exist.
  */
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "Manufacturer"],
   name: siteConfig.businessName,
-  alternateName: siteConfig.tradingAs,
+  legalName: siteConfig.legalName,
   url: siteConfig.website,
   logo: `${siteConfig.website}${siteConfig.logo.primary}`,
   image: `${siteConfig.website}${siteConfig.logo.ogImage}`,
   description: siteConfig.description,
   telephone: siteConfig.phone,
   email: siteConfig.email,
+  sameAs: [siteConfig.facebook],
   areaServed: { "@type": "Country", name: "South Africa" },
   address: {
     "@type": "PostalAddress",
+    streetAddress: siteConfig.addressLine,
+    addressLocality: siteConfig.city,
+    addressRegion: siteConfig.region,
+    postalCode: siteConfig.postalCode,
     addressCountry: "ZA",
   },
   knowsAbout: [
     "Ready-made curtains",
-    "Textile manufacturing",
-    "Roll goods",
-    "Fabrics",
-    "Towels",
-    "Table linen",
-    "Cushions",
+    "Curtain manufacturing",
+    "Sheers and lace curtains",
+    "Blackout curtains",
+    "Woven jacquard curtains",
+    "Towelling",
   ],
   makesOffer: {
     "@type": "Offer",
@@ -41,14 +44,4 @@ export const organizationSchema = {
       category: "Curtains",
     },
   },
-};
-
-export const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
 };

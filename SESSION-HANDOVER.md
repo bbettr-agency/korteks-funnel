@@ -1,12 +1,48 @@
-# Session Handover — Korteks Textiles Africa (Zaydtex) Funnel
+# Session Handover — Zaydtex Funnel
 
-Context for future sessions. The site is a config-driven B2B Google Ads funnel
-for **ready-made curtains (trade & wholesale)**, built on the Bbettr Website OS.
+Context for future sessions. The site is a config-driven, premium B2B lead site
+for **Zaydtex** (ready-made curtains, trade & wholesale), on the Bbettr Website OS.
 See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-25 (WhatsApp removed + dedicated quote page)
+## 📌 Latest update — 2026-06-27 (Zaydtex rebrand + premium simplified redesign)
+
+Per the owner: simpler, cleaner, premium, aligned to the official company profile.
+Built from the profile + the 8 strongest facts (nothing invented).
+
+- **Public brand = Zaydtex everywhere.** "Korteks" appears ONLY as the registered
+  entity in the footer legal line + schema `legalName` (`siteConfig.legalName =
+  "Korteks Textiles Africa (Pty) Ltd"`, Reg `1997/002157/07`).
+- **Theme swapped** navy/gold → official **cream / copper / chocolate**
+  (`tailwind.config.ts` `brand.*`; light body base).
+- **Homepage simplified to 5 sections:** Hero → Trust strip → What We Make →
+  Why Zaydtex → Quote CTA band (+ header/footer + sticky Call bar). Deleted the
+  old who-we-supply / product-ranges / how-it-works / reviews / FAQ components
+  (and the FAQPage schema).
+- **Premium textile accents** (subtle, reduced-motion aware): `ThreadDivider`
+  (braided copper), `.texture-weave` overlays on dark sections, `.stitch-border`
+  cards, copper-"Z" drapery hero visual, copper-thread card hovers — in
+  `globals.css` + `tailwind.config.ts`.
+- **Real contact (from profile):** phone `012 666 7100`, email
+  `info@zaydtex.com`, address 14 Sesmylspruit Street, Sunderland Ridge, Centurion,
+  0157. Website `zaydtex.com`.
+- **Trust facts used (all real):** almost 1M curtains/yr · largest in Africa ·
+  since 1997 · 250+ employees · 19,000 m² · SA owned & operated · B-BBEE · 8 QC
+  checks. In `funnel-config.ts` (`trustStats` + `trustMarkers`).
+- **Logo:** drop `logo-primary.png` + `logo-icon.png` into `public/images/logo/`
+  (system already wired; fallback "zaydtex" wordmark until then). Optional
+  `siteConfig.heroImage` swaps the drapery visual for a real curtain photo.
+- **Unchanged & verified:** quote form (6 fields) on `/get-a-quote` →
+  `/thank-you` (noindex, conversion), phone + form only, no WhatsApp, all quote
+  CTAs → `/get-a-quote`. Form still delivers to `info@bbettragency.com` (temp).
+
+Verified: build ✅, lint ✅, desktop + mobile, 0 WhatsApp, 0 public "Korteks",
+all CTAs → /get-a-quote, form → /thank-you, conversions fire.
+
+---
+
+## 📌 Update — 2026-06-25 (WhatsApp removed + dedicated quote page)
 
 **Lead/contact paths are now PHONE + FORM only. No WhatsApp anywhere.**
 

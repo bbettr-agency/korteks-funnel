@@ -11,22 +11,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Official Zaydtex palette — cream / copper / chocolate.
         brand: {
-          // Primary — trust navy-blue: buttons, links, icons, section accents
-          primary: "#1E4E8C",
-          primaryDark: "#143764",
-          primaryLight: "#3A6FB0",
-          // Secondary — gold: hover, callouts, premium accents
-          accent: "#C9A24B",
-          accentDark: "#A8842F",
-          // Surfaces — deep navy ink scale
-          ink: "#0A1A30",
-          charcoal: "#0E2238",
-          graphite: "#142B45",
-          steel: "#1E3A57",
-          // Light surfaces
-          mist: "#F4F6F9",
-          bone: "#E6EBF2",
+          // Primary — copper: buttons, links, icons, accents
+          primary: "#B5742B",
+          primaryDark: "#925A1E",
+          primaryLight: "#D29A57",
+          // Secondary — warm amber: highlights, glows, callouts
+          accent: "#D08A2C",
+          accentDark: "#A86E1F",
+          // Dark surfaces — chocolate / espresso scale
+          ink: "#1C140D",
+          charcoal: "#241A11",
+          graphite: "#30231A",
+          steel: "#46331F",
+          // Light surfaces — cream / bone
+          cream: "#FAF6EF",
+          mist: "#F5EFE6",
+          bone: "#EADFCF",
         },
       },
       fontFamily: {
@@ -39,20 +41,26 @@ const config: Config = {
       },
       backgroundImage: {
         "radial-glow":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30,78,140,0.28), transparent 70%)",
-        "gold-glow":
-          "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,162,75,0.18), transparent 70%)",
+          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(181,116,43,0.22), transparent 70%)",
+        "copper-glow":
+          "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(208,138,44,0.16), transparent 70%)",
       },
       boxShadow: {
-        glow: "0 20px 60px -20px rgba(30,78,140,0.45)",
-        accent: "0 20px 60px -20px rgba(201,162,75,0.40)",
-        ink: "0 30px 80px -30px rgba(5,15,30,0.85)",
-        card: "0 20px 50px -25px rgba(10,26,48,0.25)",
+        glow: "0 20px 60px -20px rgba(181,116,43,0.40)",
+        accent: "0 20px 60px -20px rgba(208,138,44,0.38)",
+        ink: "0 30px 80px -30px rgba(20,12,6,0.85)",
+        card: "0 24px 60px -28px rgba(60,40,20,0.22)",
       },
       keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
+        // Subtle copper thread travelling horizontally along a divider
+        thread: {
+          "0%": { transform: "translateX(-130%)" },
+          "100%": { transform: "translateX(130%)" },
+        },
+        // Very slow textile-weave pan for dark backgrounds
+        weave: {
+          "0%": { backgroundPosition: "0px 0px" },
+          "100%": { backgroundPosition: "56px 0px" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
@@ -60,8 +68,9 @@ const config: Config = {
         },
       },
       animation: {
-        marquee: "marquee 35s linear infinite",
-        float: "float 6s ease-in-out infinite",
+        thread: "thread 7s ease-in-out infinite",
+        weave: "weave 50s linear infinite",
+        float: "float 8s ease-in-out infinite",
       },
     },
   },

@@ -13,66 +13,62 @@ export default function GetAQuotePage() {
       <MinimalHeader />
       <main
         id="top"
-        className="relative overflow-hidden bg-brand-ink text-white"
+        className="relative overflow-hidden bg-brand-ink text-brand-cream"
       >
-        {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-ink via-brand-charcoal to-brand-ink" />
         <div className="absolute inset-0 bg-radial-glow" />
-        <div className="pointer-events-none absolute -top-32 right-1/3 h-[480px] w-[480px] rounded-full bg-brand-primary/25 blur-[130px]" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-brand-accent/10 blur-[120px]" />
+        <div className="texture-weave animate-weave pointer-events-none absolute inset-0 opacity-[0.04]" />
+        <div className="pointer-events-none absolute -top-32 right-1/3 h-[480px] w-[480px] rounded-full bg-brand-primary/20 blur-[150px]" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-24 pt-28 lg:grid-cols-[1fr_0.95fr] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-32">
+        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-24 pt-32 lg:grid-cols-[1fr_0.95fr] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-36">
           {/* LEFT — pitch + trust + who-for + phone */}
           <div>
             <div className="inline-flex items-center gap-2.5 rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-accent backdrop-blur">
-              <span className="flex h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(201,162,75,0.9)]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(208,138,44,0.9)]" />
               {quotePage.badge}
             </div>
 
-            <h1 className="mt-6 max-w-xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+            <h1 className="mt-6 max-w-xl font-display text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl">
               {quotePage.headlineLead}{" "}
-              <span className="bg-gradient-to-r from-brand-accent to-brand-accentDark bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-accent to-brand-primaryLight bg-clip-text text-transparent">
                 {quotePage.headlineHighlight}
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-7 text-white/70 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-7 text-brand-cream/70 md:text-lg">
               {quotePage.subheadline}
             </p>
 
-            {/* Short trust row */}
             <ul className="mt-8 grid max-w-xl gap-3 sm:grid-cols-2">
               {quotePage.trustChips.map((chip) => (
                 <li key={chip} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-accent/15 text-brand-accent">
                     <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   </span>
-                  <span className="text-sm font-medium leading-6 text-white/85">
+                  <span className="text-sm font-medium leading-6 text-brand-cream/85">
                     {chip}
                   </span>
                 </li>
               ))}
             </ul>
 
-            {/* Who this is for */}
-            <div className="mt-8 max-w-xl rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl">
-              <div className="flex items-center gap-2 text-sm font-bold text-white">
+            <div className="mt-8 max-w-xl rounded-2xl border border-brand-cream/10 bg-brand-cream/[0.04] p-5 backdrop-blur-xl">
+              <div className="flex items-center gap-2 text-sm font-bold text-brand-cream">
                 <Users className="h-4 w-4 text-brand-accent" />
                 {quotePage.whoForTitle}
               </div>
-              <p className="mt-2 text-sm leading-6 text-white/65">
+              <p className="mt-2 text-sm leading-6 text-brand-cream/65">
                 {quotePage.whoFor}
               </p>
             </div>
 
-            {/* Phone CTA */}
             <div className="mt-8">
-              <p className="text-sm font-semibold text-white/55">
+              <p className="text-sm font-semibold text-brand-cream/55">
                 Prefer to talk?
               </p>
               <a
                 href={siteConfig.phoneLink}
-                className="group mt-2 inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-accent px-7 py-4 text-base font-bold text-brand-ink shadow-accent transition-all duration-300 hover:bg-white"
+                className="group mt-2 inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-primary px-7 py-4 text-base font-bold text-brand-cream shadow-glow transition-all duration-300 hover:bg-brand-primaryDark"
               >
                 <Phone className="h-5 w-5" />
                 Call {siteConfig.phoneDisplay}
@@ -87,7 +83,7 @@ export default function GetAQuotePage() {
               heading="Request Trade / Wholesale Pricing"
               subheading="Ready-made curtains · Tell us what you need and we'll quote it."
             />
-            <div className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-white/55">
+            <div className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-brand-cream/55">
               <Clock className="h-3.5 w-3.5 text-brand-accent" />
               {quotePage.responseNote}
             </div>

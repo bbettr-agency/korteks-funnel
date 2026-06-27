@@ -71,7 +71,7 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
             Accept: "application/json",
           },
           body: JSON.stringify({
-            _subject: "New trade enquiry — Korteks Textiles (ready-made curtains)",
+            _subject: "New trade enquiry — Zaydtex (ready-made curtains)",
             _template: "table",
             _captcha: "false",
             "Full Name": name,

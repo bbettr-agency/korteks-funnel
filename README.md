@@ -1,41 +1,43 @@
-# Korteks Textiles Africa (Zaydtex) — Ready-Made Curtains Funnel
+# Zaydtex — Ready-Made Curtains Funnel
 
-A conversion-first **B2B lead-generation funnel** for Korteks Textiles Africa
-(trading as Zaydtex), a vertically integrated South African textile
-manufacturer. Built on the **Bbettr Website OS** (config-driven Next.js sections).
+A premium, conversion-first **B2B lead site** for **Zaydtex**, Africa's largest
+ready-made curtain manufacturer. Built on the **Bbettr Website OS** (config-driven
+Next.js sections).
+
+> **Branding rule:** the public-facing brand is **Zaydtex only**. The registered
+> entity **Korteks Textiles Africa (Pty) Ltd** (Reg 1997/002157/07) appears ONLY
+> where legally required — the footer legal line and schema `legalName`.
 
 ## Project purpose
 
-A single-page Google Ads landing funnel that positions Korteks as a trusted
-South African manufacturer and **wholesale / trade supplier of ready-made
-curtains**. It is **not** a consumer curtain store and **not** a general textile
-brochure — every section is engineered to attract and qualify trade buyers.
+A simple, premium homepage + dedicated quote page that, within ~5 seconds, tells a
+visitor: *we manufacture ready-made curtains · we're the largest curtain
+manufacturer in Africa · we supply businesses · get a quote.* Nothing competes
+with that message. It is **not** a consumer curtain store, **not** a long funnel,
+and **not** a corporate brochure.
 
-The primary offer throughout the page is:
+The primary action everywhere is **Get a Quote** → `/get-a-quote`.
 
-> **Request Trade / Wholesale Pricing for Ready-Made Curtains**
+## Design direction
+
+- Official Zaydtex palette: **cream / copper / chocolate** (Tailwind `brand.*`).
+- Premium, lots of whitespace, large luxury typography (Plus Jakarta Sans).
+- Subtle textile brand accents — a braided copper **ThreadDivider**, faint woven
+  **`.texture-weave`** overlays on dark sections, **`.stitch-border`** cards, a
+  copper "Z" drapery hero, copper-thread card hovers. All Apple-subtle and
+  reduced-motion aware.
 
 ## Funnel goal
 
-Generate **high-quality B2B leads** (quality over quantity) from a modest
-Google Ads budget by capturing and qualifying:
+Generate **high-quality B2B leads** from retailers, wholesalers, designers,
+developers and hospitality groups.
 
-- Retailers & curtain retailers
-- Furniture / décor stores
-- Interior designers
-- Property developers
-- Hospitality groups, hotels, guest houses & lodges
-- Procurement & commercial buyers
-- Wholesale buyers
+**Two** lead/contact paths only: the **quote form** and **phone calls**.
+**No WhatsApp anywhere.** Consumer shoppers are filtered out by copy ("trade &
+wholesale only") and form qualifiers (company name + business type).
 
-**Two** lead/contact paths only: the **email / quote form** and **phone calls**.
-**WhatsApp is not used anywhere in this funnel** (removed by request). Consumer /
-single-unit shoppers are filtered out by copy ("trade & wholesale only") and form
-qualifiers (company name + business type). Secondary goal: brand awareness as a
-local manufacturer.
-
-**Phone:** 012 666 7100 (`tel:+27126667100`). **Dedicated quote page:**
-`/get-a-quote` — every quote CTA across the funnel links/scrolls here.
+**Phone:** 012 666 7100 (`tel:+27126667100`) · **Email:** info@zaydtex.com ·
+**Quote page:** `/get-a-quote` — every quote CTA links here.
 
 ## ⚠️ Temporary development decisions (read before launch)
 
@@ -69,20 +71,22 @@ config/site-config.ts    # business identity, contact, GHL, tracking IDs
 config/seo-config.ts      # metadata + keywords
 config/funnel-config.ts   # all page copy + section content
 components/sections/*      # reusable funnel sections
-lib/schema.ts             # Manufacturer/Organization + FAQPage JSON-LD
+lib/schema.ts             # Manufacturer/Organization JSON-LD (Zaydtex + legalName)
 lib/tracking.ts           # GTM / Google Ads helpers (no-op until IDs set)
 ```
 
-## Page structure
+## Page structure (simplified — 5 sections)
 
-**Home (`/`):** Header → Hero (2-col: pitch + "Get a Quote" CTA card) → Trust bar
-→ Who We Supply → Product Ranges (curtains featured) → Why Korteks → How It Works
-→ Reviews → FAQ → Final CTA → Footer → sticky mobile **Call** bar. Every quote
-CTA links to `/get-a-quote`.
+**Home (`/`):** Header → Hero → Trust strip → What We Make → Why Zaydtex →
+Quote CTA band → Footer → sticky mobile **Call** bar. Every quote CTA links to
+`/get-a-quote`.
 
 **Quote page (`/get-a-quote`):** headline → short trust row → "who this is for" →
 quote form (6 fields) → phone CTA → response expectation. The form emails the
 lead and redirects to `/thank-you` (noindex), where the lead conversion fires.
+
+Removed in the simplification: Who-We-Supply section, Product Ranges grid, How-It-
+Works steps, Reviews placeholder, and the FAQ (plus its FAQPage schema).
 
 ## Local preview
 
@@ -101,17 +105,17 @@ All are clearly flagged in code (`PLACEHOLDER` / `CLIENT TO SUPPLY`). Nothing is
 fabricated — placeholders use obvious values (all-zero numbers, `XXXX` tokens)
 and no fake stats, reviews or certifications are presented as real.
 
-| Placeholder | Location | Notes |
+Most real details are now in (phone, email, address, the 8 trust facts — all from
+the official company profile, nothing invented). Remaining items:
+
+| Item | Location | Notes |
 |---|---|---|
-| Email, factory city/province, domain | `config/site-config.ts` | email `sales@korteks.co.za` (placeholder); phone `012 666 7100` is real/confirmed |
-| **GHL form ID + embed URL** | `config/site-config.ts` (`formId`, `formSrc`, `useGhlForm`) | temporary native form is used until `useGhlForm = true` |
-| **Final lead email / activation** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` via FormSubmit (activate once); replace with client's address or GHL |
-| **GTM ID + Google Ads conversion ID & labels** | `config/site-config.ts` (`tracking`) | tracking is a no-op until real IDs are pasted |
-| Capacity / years / trade-client numbers | `config/funnel-config.ts` (`trustStats`, `trustStatsConfirmed`) | qualitative pillars shown until `trustStatsConfirmed = true` |
-| Real reviews / testimonials | `config/funnel-config.ts` (`reviews`, `reviewsMeta`) | empty + `showAggregate: false` |
-| Certifications / memberships | `config/funnel-config.ts` (`credibilityMarkers`) | only client-stated strengths shown |
-| Logo / icon / favicon / OG image | `public/images/logo/` (paths in `siteConfig.logo`) | drop files in — site auto-updates; see that folder's README |
-| MOQs / lead times / delivery specifics | `config/funnel-config.ts` (`faqs`) | answers invite enquiry rather than quote unconfirmed numbers |
+| **Logo files** | `public/images/logo/` | upload `logo-primary.png` + `logo-icon.png` — site auto-updates (fallback wordmark until then). See that folder's README. |
+| **OG image + favicon** | `public/images/logo/` | optional: `og-image.jpg` (1200×630) and `favicon.ico` — config already points at them |
+| **Hero photo** (optional) | `siteConfig.heroImage` | empty = built-in premium drapery visual; set a path to use a real curtain photo |
+| **Form delivery inbox** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` (FormSubmit, activated). Switch to client's inbox + re-activate, or set `useGhlForm = true` with a real `formId`. Public contact email is already `info@zaydtex.com`. |
+| **GTM + Google Ads IDs & labels** | `config/site-config.ts` (`tracking`) | tracking is a no-op until real IDs are pasted |
+| Trading hours | `config/site-config.ts` (`hours`) | confirm |
 
 ## Vercel deployment notes
 
@@ -123,9 +127,10 @@ and no fake stats, reviews or certifications are presented as real.
 3. **Environment:** no secret env vars are required for the front end — the GHL
    form and tracking IDs live in `config/site-config.ts`. Replace the
    placeholders there and redeploy.
-4. **Before going live:** set the real GHL form ID, confirm the post-submit
-   redirect inside GoHighLevel points to `/thank-you`, paste the GTM + Google
-   Ads IDs/labels, and flip `trustStatsConfirmed` once real figures are supplied.
+4. **Before going live:** upload the logo files, point `leadEmail` at the
+   client's inbox (or set `useGhlForm = true` with a real `formId`, confirming the
+   GHL post-submit redirect → `/thank-you`), and paste the GTM + Google Ads
+   IDs/labels.
 5. **Analytics:** `/thank-you` is `noindex` and is where the Google Ads lead
    conversion fires; verify it in Google Ads / GTM preview after deploy.
 

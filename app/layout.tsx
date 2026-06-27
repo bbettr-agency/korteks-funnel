@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import { createMetadata } from "@/lib/metadata";
-import { organizationSchema, faqSchema } from "@/lib/schema";
+import { organizationSchema } from "@/lib/schema";
 import TrackingScripts, {
   GtmNoScript,
 } from "@/components/funnel/tracking-scripts";
@@ -35,19 +35,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#0A1A30" />
+        <meta name="theme-color" content="#1C140D" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
       </head>
-      <body className="bg-brand-ink text-white antialiased">
+      <body className="bg-brand-mist text-brand-ink antialiased">
         <GtmNoScript />
         {children}
         <TrackingScripts />

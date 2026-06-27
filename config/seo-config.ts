@@ -1,26 +1,24 @@
 export const seoConfig = {
   title:
-    "Ready-Made Curtains Manufacturer & Wholesale Supplier South Africa | Korteks Textiles Africa",
+    "Zaydtex | Africa's Largest Ready-Made Curtain Manufacturer — Trade & Wholesale",
   description:
-    "Korteks Textiles Africa (Zaydtex) — a vertically integrated South African manufacturer of ready-made curtains for trade & wholesale buyers. Supplying retailers, interior designers, hospitality groups and developers nationwide. Request trade pricing today.",
+    "Zaydtex is South Africa's largest curtain manufacturer — almost a million ready-made curtains a year, since 1997. Trade & wholesale supply to retailers, designers and developers nationwide. Get a quote.",
   keywords: [
-    "ready made curtains wholesale South Africa",
-    "curtain manufacturer South Africa",
-    "wholesale curtains supplier",
-    "trade curtains supplier South Africa",
-    "ready made curtains for retailers",
-    "hospitality curtains supplier",
-    "bulk curtains South Africa",
-    "interior designer curtain supplier",
-    "textile manufacturer South Africa",
-    "curtain wholesaler",
-    "commercial curtains supplier",
-    "Korteks Textiles Africa",
     "Zaydtex",
+    "ready made curtains South Africa",
+    "curtain manufacturer South Africa",
+    "largest curtain manufacturer in Africa",
+    "wholesale curtains supplier",
+    "trade curtains South Africa",
+    "ready made curtains wholesale",
+    "curtain supplier for retailers",
+    "blackout curtains manufacturer",
+    "sheers and lace curtains",
+    "Centurion curtain manufacturer",
   ],
-  author: "Korteks Textiles Africa",
+  author: "Zaydtex",
   robots: "index, follow",
-  // Social preview image now lives in the central brand config:
+  // Social preview image lives in the central brand config:
   //   config/site-config.ts → siteConfig.logo.ogImage
-  twitterHandle: "@korteks",
+  twitterHandle: "@zaydtex",
 };
