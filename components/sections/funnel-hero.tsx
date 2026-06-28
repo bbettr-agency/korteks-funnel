@@ -79,7 +79,7 @@ export default function FunnelHero() {
         >
           <Image
             src={siteConfig.heroImage}
-            alt="Premium ready-made curtains by Zaydtex"
+            alt={siteConfig.heroImageAlt}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -88,6 +88,13 @@ export default function FunnelHero() {
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-cream to-transparent lg:block" />
         </motion.div>
       </div>
+
+      {/* Soft top scrim — keeps the header/nav readable over the photo without
+          darkening the hero (cream lightens, never darkens). */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-20 h-28 bg-gradient-to-b from-brand-cream/90 via-brand-cream/45 to-transparent"
+      />
     </section>
   );
 }

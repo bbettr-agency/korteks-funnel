@@ -8,6 +8,7 @@ import { ArrowRight, ChevronRight, ShieldCheck } from "lucide-react";
 
 import { factory } from "@/config/funnel-config";
 import { siteConfig } from "@/config/site-config";
+import { cn } from "@/utils/cn";
 
 /**
  * Factory — answers "do they manufacture, or just resell?" and concentrates the
@@ -29,7 +30,7 @@ export default function Factory() {
       >
         <Image
           src={factory.image}
-          alt="Inside the Zaydtex textile factory"
+          alt={factory.imageAlt}
           fill
           sizes="100vw"
           className="object-cover"
@@ -55,18 +56,46 @@ export default function Factory() {
             {factory.sentence}
           </p>
 
-          {/* process — reinforces real manufacturing */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-3">
-            {factory.steps.map((step, i) => (
-              <Fragment key={step}>
-                <span className="rounded-full border border-white/25 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-white/90 backdrop-blur-sm">
-                  {step}
-                </span>
-                {i < factory.steps.length - 1 && (
-                  <ChevronRight className="h-4 w-4 text-brand-primaryLight" />
-                )}
-              </Fragment>
-            ))}
+          {/* process — reinforces real manufacturing, revealed step by step */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-2.5 gap-y-3">
+            {factory.steps.map((step, i) => {
+              const isQc = /quality/i.test(step);
+              return (
+                <Fragment key={step}>
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.3 + i * 0.12,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    viewport={{ once: true }}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] backdrop-blur-md",
+                      isQc
+                        ? "border-brand-primaryLight/60 bg-brand-primary/25 text-white shadow-[0_10px_28px_-14px_rgba(188,122,46,0.85)]"
+                        : "border-white/30 bg-white/[0.08] text-white/90"
+                    )}
+                  >
+                    {isQc && (
+                      <ShieldCheck className="h-3.5 w-3.5 text-brand-primaryLight" />
+                    )}
+                    {step}
+                  </motion.span>
+                  {i < factory.steps.length - 1 && (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.36 + i * 0.12 }}
+                      viewport={{ once: true }}
+                    >
+                      <ChevronRight className="h-4 w-4 shrink-0 text-brand-primaryLight/80" />
+                    </motion.span>
+                  )}
+                </Fragment>
+              );
+            })}
           </div>
 
           {/* trust line — SA owned + B-BBEE */}

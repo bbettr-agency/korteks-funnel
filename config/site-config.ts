@@ -32,7 +32,10 @@ export const siteConfig = {
   },
 
   // Hero photo (curated stock placeholder — replace with real Zaydtex photography).
+  // Swap the file at this path (same filename) or change the path here. Alt text
+  // is editable too — see /public/images/README.md for the full swap guide.
   heroImage: "/images/hero-curtains.jpg",
+  heroImageAlt: "Premium ready-made curtains manufactured by Zaydtex",
 
   // ── Contact channels (phone + email only) ────────────────────────────────────
   phone: "012 666 7100",

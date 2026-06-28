@@ -45,7 +45,7 @@ export default function Products() {
           >
             <Image
               src={featured.image}
-              alt={featured.title}
+              alt={featured.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -87,7 +87,7 @@ export default function Products() {
               >
                 <Image
                   src={p.image}
-                  alt={p.title}
+                  alt={p.alt}
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"

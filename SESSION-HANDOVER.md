@@ -6,7 +6,22 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-28 (CRO pass — psychological-journey reorder)
+## 📌 Latest update — 2026-06-28 (polish: hero scrim + image-swap readiness)
+
+- **Hero scrim:** subtle cream top gradient in `funnel-hero.tsx` keeps the
+  header/nav/CTAs readable over the photo without darkening the hero.
+- **Image system is fully config-driven & documented for real-photo swap:**
+  every photo `src` AND `alt` lives in config — `siteConfig.heroImage` /
+  `heroImageAlt`, `funnel-config.ts` `factory.image`/`imageAlt` and
+  `products[].image`/`alt`. No image paths hard-coded in components. Swap guide:
+  **`public/images/README.md`** (filenames, specs, config locations).
+- **Factory section refined (not redesigned):** premium chips with a staggered
+  reveal and the "8 Quality Checks" chip highlighted in copper; image/heading/
+  trust line/CTA/knit-divider all unchanged.
+
+---
+
+## 📌 Update — 2026-06-28 (CRO pass — psychological-journey reorder)
 
 Conversion review against the company profile. Kept the light V2 look; sharpened
 copy + flow. Sections now follow the visitor's questions in order:

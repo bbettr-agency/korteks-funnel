@@ -76,6 +76,7 @@ export const factory = {
   steps: ["Yarn", "Knitting & Weaving", "8 Quality Checks", "Delivered Nationwide"],
   trustLine: "100% South African owned & operated  ·  B-BBEE contributor",
   image: "/images/factory.jpg",
+  imageAlt: "Inside the Zaydtex textile factory in Centurion — manufacturing machinery",
 };
 
 // ── PRODUCTS — "Do they have what I need?" (benefit-led) ───────────────────────
@@ -91,27 +92,32 @@ export const products = [
     title: "Ready-Made Curtains",
     blurb: "Cut, made & finished in-house.",
     image: "/images/product-ready-made.jpg",
+    alt: "Zaydtex ready-made curtains hanging in an interior",
     featured: true,
   },
   {
     title: "Sheers",
     blurb: "Light, airy voiles with constant demand.",
     image: "/images/product-sheers.jpg",
+    alt: "Light sheer voile curtains",
   },
   {
     title: "Lace",
     blurb: "Timeless lace that keeps reordering.",
     image: "/images/product-lace.jpg",
+    alt: "Close-up of lace curtain fabric",
   },
   {
     title: "Blackout",
     blurb: "Coated black-out that sells every season.",
     image: "/images/product-blackout.jpg",
+    alt: "Black-out curtains in a darkened room",
   },
   {
     title: "Jacquard",
     blurb: "Rich texture that lifts your range.",
     image: "/images/product-jacquard.jpg",
+    alt: "Woven jacquard curtain fabric with rich texture",
   },
 ];
 
