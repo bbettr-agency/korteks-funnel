@@ -5,23 +5,22 @@
 //  Products) so the buyer reaches the range already thinking "these are clearly
 //  premium — I want pricing." Answers: "Can I trust the quality of what I'm buying?"
 //
-//  Future-proof, like the logo system:
+//  Config-driven & future-proof:
 //   • Every image lives in /public/images/craftsmanship/ (see that folder's README).
-//   • Replace any image by dropping in the SAME filename — no code changes.
-//   • Add / remove / reorder cards by editing the `cards` array below only.
+//   • Each card points at a real uploaded Zaydtex photo (do not rename the files).
+//   • To use a different photo, change the `image` path here — no component edits.
+//   • To add / remove / reorder cards, edit the `cards` array below only.
 //   • The gallery component reads ONLY from this file — no hard-coded paths.
-//
-//  ⚠️ Images are currently PLACEHOLDERS — swap for real Zaydtex photography.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const DIR = "/images/craftsmanship";
 
 export type CraftsmanshipCard = {
-  /** File in /public/images/craftsmanship/ — replace by same name, zero code. */
+  /** File in /public/images/craftsmanship/ (real Zaydtex upload). */
   image: string;
   /** Alt text — descriptive, for SEO + screen readers. */
   alt: string;
-  /** Product / fabric / detail name. */
+  /** Product / fabric / process name. */
   title: string;
   /** One short, benefit-driven line. Keep it minimal — the image leads. */
   line: string;
@@ -36,61 +35,55 @@ export const craftsmanship = {
   // Per-card text CTA (small, not a big button). Links to siteConfig.quotePath.
   cta: "Request Trade Pricing",
 
-  // Horizontal editorial gallery — quality over quantity.
+  // Horizontal editorial gallery — real Zaydtex photography, quality over quantity.
   cards: [
     {
-      image: `${DIR}/hero-ready-made.webp`,
-      alt: "Finished Zaydtex ready-made curtains hanging in an interior",
+      image: `${DIR}/DSC_0002.webp`,
+      alt: "Packaged Zaydtex ready-made curtains, barcoded and retail-ready",
       title: "Ready-Made Curtains",
-      line: "Cut, made and finished in-house to a repeatable standard.",
+      line: "Packaged, barcoded and ready to stock.",
     },
     {
-      image: `${DIR}/sheer-closeup.webp`,
-      alt: "Close-up of sheer voile curtain fabric with light passing through",
-      title: "Sheers",
-      line: "Light, even voiles that drape beautifully.",
+      image: `${DIR}/DSC_0269.webp`,
+      alt: "Rows of yarn cones on the creel at the Zaydtex factory",
+      title: "Spun From Quality Yarn",
+      line: "It starts with the right yarn, prepared in-house.",
     },
     {
-      image: `${DIR}/lace-detail.webp`,
-      alt: "Detail of lace curtain fabric pattern",
-      title: "Lace",
+      image: `${DIR}/DSC_0292.webp`,
+      alt: "Lace curtain fabric being knitted on a Zaydtex machine",
+      title: "Lace, Knitted In-House",
       line: "Intricate lace, consistent across every run.",
     },
     {
-      image: `${DIR}/blackout-curtain.webp`,
-      alt: "Coated block-out curtain in a darkened room",
-      title: "Blackout",
-      line: "Coated fabrics that block light, heat and dust.",
+      image: `${DIR}/DSC_0454.webp`,
+      alt: "Jacquard curtain fabric being woven on a loom",
+      title: "Woven Jacquard",
+      line: "Rich texture, woven on state-of-the-art looms.",
     },
     {
-      image: `${DIR}/jacquard-detail.webp`,
-      alt: "Woven jacquard curtain fabric texture",
-      title: "Jacquard",
-      line: "Rich woven texture with real depth and weight.",
+      image: `${DIR}/DSC_0358.webp`,
+      alt: "Colourful yarn cones on the creel ready for production",
+      title: "Colour & Consistency",
+      line: "Dyed to match, batch after batch.",
     },
     {
-      image: `${DIR}/stitching-detail.webp`,
-      alt: "Close-up of precision stitching on a curtain hem",
-      title: "Precision Stitching",
-      line: "Clean, even seams and hems on every panel.",
+      image: `${DIR}/DSC_0241.webp`,
+      alt: "Rows of textile machinery across the Zaydtex factory floor",
+      title: "Built for Volume",
+      line: "Almost a million curtains a year, under one roof.",
     },
     {
-      image: `${DIR}/fabric-texture.webp`,
-      alt: "Macro of premium curtain fabric weave",
-      title: "Premium Fabrics",
-      line: "Quality you can feel in the hand.",
+      image: `${DIR}/DSC_0037.webp`,
+      alt: "The Zaydtex team finishing curtains on the factory floor",
+      title: "Finished by Our Team",
+      line: "Cut, made and finished by skilled hands.",
     },
     {
-      image: `${DIR}/factory-machine.webp`,
-      alt: "Zaydtex manufacturing machinery on the factory floor",
-      title: "Made in Our Factory",
-      line: "Manufactured locally, start to finish.",
-    },
-    {
-      image: `${DIR}/curtain-heading.webp`,
-      alt: "Detail of a finished curtain heading",
-      title: "Curtain Headings",
-      line: "Headings finished to spec, ready to hang.",
+      image: `${DIR}/DSC_0500.webp`,
+      alt: "Finished curtain fabric being rolled on the finishing line",
+      title: "Quality, Finished",
+      line: "Every roll checked before it ships.",
     },
   ] as CraftsmanshipCard[],
 };

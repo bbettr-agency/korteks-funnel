@@ -6,7 +6,24 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-28 (polish: hero scrim + image-swap readiness)
+## 📌 Latest update — 2026-06-28 (Craftsmanship gallery — real photography)
+
+- **New section `components/sections/craftsmanship.tsx`** between Factory and
+  Products ("Can I trust the quality?"). Premium horizontal editorial gallery:
+  native swipe + trackpad + click-and-drag (mouse), scroll-snap, fade-up reveal,
+  hover image zoom. Each card = image · title · one benefit line · subtle
+  `Request Trade Pricing →` (→ /get-a-quote). Fully config-driven.
+- **Config:** `config/craftsmanship-config.ts` (section copy + `cards` array).
+  No hard-coded image paths in the component.
+- **Images:** the client uploaded 18 real `DSC_*.jpg` factory photos to
+  `public/images/craftsmanship/` (kept untouched). The gallery uses 8, served via
+  **optimised `.webp` derivatives** (originals 1.5–2 MB; derivatives 66–183 KB,
+  1600px) so dev + prod stay fast — config points at the `.webp`. To swap a card:
+  change its `image` path in the config (see that folder's README).
+
+---
+
+## 📌 Update — 2026-06-28 (polish: hero scrim + image-swap readiness)
 
 - **Hero scrim:** subtle cream top gradient in `funnel-hero.tsx` keeps the
   header/nav/CTAs readable over the photo without darkening the hero.

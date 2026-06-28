@@ -6,6 +6,7 @@ import FunnelHero from "@/components/sections/funnel-hero";
 import TrustStrip from "@/components/sections/trust-strip";
 import WhoWeSupply from "@/components/sections/who-we-supply";
 import Factory from "@/components/sections/factory";
+import Craftsmanship from "@/components/sections/craftsmanship";
 import Products from "@/components/sections/products";
 import WhyZaydtex from "@/components/sections/why-zaydtex";
 import QuoteBand from "@/components/sections/quote-band";
@@ -25,6 +26,8 @@ export default function FunnelPage() {
         {/* Do they manufacture, or just resell? */}
         <Factory />
         <KnittingDivider />
+        {/* Can I trust the quality of what I'm buying? */}
+        <Craftsmanship />
         {/* Do they have the products I need? */}
         <Products />
         {/* Why buy from them instead of another supplier? */}

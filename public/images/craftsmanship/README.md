@@ -1,58 +1,47 @@
 # Zaydtex — "Craftsmanship in Every Curtain" gallery images
 
-Every image in the Craftsmanship gallery lives in **this folder** and is
-referenced from **one config file**: `config/craftsmanship-config.ts`. No image
-paths are hard-coded in any component.
+This folder holds the real Zaydtex photography for the Craftsmanship gallery.
+Everything is **config-driven** from **`config/craftsmanship-config.ts`** — no
+image paths are hard-coded in any component.
 
-> ♻️ **Swap with zero code:** to replace any image, export your photo to the
-> **exact same filename** below and drop it in here. The gallery updates
-> automatically — you never touch code. (To add/remove a *card*, edit the
-> `cards` array in `config/craftsmanship-config.ts` — one line per card.)
+## How the gallery picks images
 
-> ⚠️ The current files are **placeholders** (re-used from existing site photos).
-> Replace them with real Zaydtex photography before the section goes live.
+The gallery renders one card per entry in the `cards` array in
+`config/craftsmanship-config.ts`. Each entry points at a file in this folder and
+carries its own `title`, `line` (one benefit sentence) and `alt` text.
 
-## Required images
+**Currently used (8 cards, in order):**
 
-Recommended for all: **4:5 portrait · 1200 × 1500 px · WebP** (JPG also fine) ·
-target **≤ 250 KB** each (these placeholders are 26–206 KB).
+| Card | File | Shows |
+|---|---|---|
+| Ready-Made Curtains | `DSC_0002.jpg` | Packaged, barcoded retail-ready curtains |
+| Spun From Quality Yarn | `DSC_0269.jpg` | Yarn cones on the creel |
+| Lace, Knitted In-House | `DSC_0292.jpg` | Lace being knitted on the machine |
+| Woven Jacquard | `DSC_0454.jpg` | Jacquard woven on the loom |
+| Colour & Consistency | `DSC_0358.jpg` | Colourful yarn cones |
+| Built for Volume | `DSC_0241.jpg` | Factory-floor machinery at scale |
+| Finished by Our Team | `DSC_0037.jpg` | Team finishing curtains |
+| Quality, Finished | `DSC_0500.jpg` | Finished fabric on the rolling line |
 
-| # | Filename | Type | What it should show |
-|---|---|---|---|
-| 1 | `hero-ready-made.webp` | Product shot | Finished ready-made curtains hanging — the flagship, premium and clean |
-| 2 | `sheer-closeup.webp` | Fabric close-up | Sheer / voile fabric with light through it; soft, even weave |
-| 3 | `lace-detail.webp` | Fabric close-up | Lace pattern detail — intricate, crisp |
-| 4 | `blackout-curtain.webp` | Product shot | Block-out / coated curtain in situ; rich, light-blocking |
-| 5 | `jacquard-detail.webp` | Fabric close-up | Woven jacquard texture — depth and weight |
-| 6 | `stitching-detail.webp` | Manufacturing detail | Macro of seams / hems / stitching — precision and finish |
-| 7 | `fabric-texture.webp` | Texture | Premium fabric weave macro — tactile quality |
-| 8 | `factory-machine.webp` | Factory | Manufacturing machinery / production floor — real maker |
-| 9 | `curtain-heading.webp` | Product detail | Curtain heading top — pleats / eyelets / tape, finished to spec |
+All 18 uploaded `DSC_*.jpg` photos live here; the other 10 are spares you can
+swap in any time.
 
-**Optional extra cards** (drop a file in *and* add a line to the config to use it):
-e.g. `fabric-draping.webp` (fabric flow/drape), `eyelet-detail.webp`,
-`pinch-pleat.webp`. Keep the set focused — **quality over quantity**.
+## To change the gallery (no component edits)
 
-## How to swap (no code)
+- **Use a different photo for a card:** change that card's `image` path in
+  `config/craftsmanship-config.ts` to any file in this folder.
+- **Add / remove / reorder cards:** edit the `cards` array (one object per card —
+  `image`, `alt`, `title`, `line`).
+- **Replace a photo's content:** drop a new file in and point the config at it
+  (or overwrite the file if you keep the same name).
 
-1. Export your photo as **WebP**, 4:5, ~1200×1500, optimised to ≤250 KB.
-2. Name it exactly as in the table above.
-3. Drop it into `public/images/craftsmanship/` (overwrite the placeholder).
-4. Redeploy. Done — the gallery uses your image automatically.
+## Image specs (for future / replacement photos)
 
-## Optimisation tips
-
-- **Format:** WebP gives the best quality-to-size (alpha not needed here). JPG is
-  fine if your tool can't export WebP.
-- **Crop:** images are displayed `object-cover` in a 4:5 card, so frame the
-  subject centrally; edges may crop on different screens.
-- **Size:** aim 100–250 KB. Tools: [Squoosh](https://squoosh.app), ImageOptim,
-  or `cwebp -q 72 in.jpg -o out.webp`.
-- **Alt text:** each card's alt text lives in `config/craftsmanship-config.ts`
-  (`cards[].alt`) — keep it descriptive for SEO and screen readers.
-
-## Where it's wired
-
-- Image paths + copy: **`config/craftsmanship-config.ts`** (single source of truth).
-- Section copy (eyebrow / headline / subheading / CTA): same config file.
-- The gallery component (added later) reads only from that config.
+- **Aspect:** displayed in a **4:3** card (`object-cover`, centre-cropped) — frame
+  the subject centrally; landscape source works best.
+- **Resolution:** ~1600 px on the long edge is plenty (served via `next/image`,
+  which auto-resizes and converts to WebP — you can drop in large JPGs).
+- **Format:** JPG or WebP. **File size:** the uploads are ~1.5–2 MB each; that's
+  fine for source (Next optimises delivery), but ≤500 KB exports are kinder to the
+  repo and build.
+- **Alt text:** keep `cards[].alt` descriptive (SEO + screen readers).
