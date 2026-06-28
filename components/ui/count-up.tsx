@@ -3,30 +3,47 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Lightweight count-up that animates only when scrolled into view.
+ * Count-up that animates once, when scrolled into view.
  *
- * Conversion purpose: rising numbers read as momentum/credibility and draw the
- * eye to the trust stats. Supports decimals (e.g. a 4.9 rating) and respects
- * prefers-reduced-motion (jumps straight to the final value).
+ * format:
+ *   "auto"    → grouped integer (1,000 / 19,000)   [default]
+ *   "compact" → abbreviated (250K / 1M)
+ *   "plain"   → no grouping (1997 — for years)
+ * Respects prefers-reduced-motion (jumps straight to the final value).
  */
 type CountUpProps = {
   value: number;
+  format?: string;
   decimals?: number;
   suffix?: string;
   durationMs?: number;
   className?: string;
 };
 
+function formatNumber(n: number, format: string, decimals: number): string {
+  if (format === "compact") {
+    return new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      maximumFractionDigits: decimals,
+    }).format(n);
+  }
+  if (format === "plain") return String(Math.round(n));
+  return decimals > 0
+    ? n.toFixed(decimals)
+    : Math.round(n).toLocaleString("en-US");
+}
+
 export default function CountUp({
   value,
+  format = "auto",
   decimals = 0,
   suffix = "",
-  durationMs = 1400,
+  durationMs = 1700,
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
+  const started = useRef(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -38,8 +55,8 @@ export default function CountUp({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
           if (prefersReduced) {
             setCount(value);
             return;
@@ -47,8 +64,7 @@ export default function CountUp({
           const start = performance.now();
           const tick = (now: number) => {
             const progress = Math.min((now - start) / durationMs, 1);
-            // easeOutCubic
-            const eased = 1 - Math.pow(1 - progress, 3);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
             setCount(eased * value);
             if (progress < 1) requestAnimationFrame(tick);
             else setCount(value);
@@ -56,21 +72,16 @@ export default function CountUp({
           requestAnimationFrame(tick);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.45 }
     );
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [value, durationMs, started]);
-
-  const formatted =
-    decimals > 0
-      ? count.toFixed(decimals)
-      : Math.round(count).toLocaleString();
+  }, [value, durationMs]);
 
   return (
     <span ref={ref} className={className}>
-      {formatted}
+      {formatNumber(count, format, decimals)}
       {suffix}
     </span>
   );

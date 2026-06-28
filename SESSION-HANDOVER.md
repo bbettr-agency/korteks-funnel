@@ -25,8 +25,14 @@ architecture all preserved.
   curtain photo) → Trust (large numbers, no cards) → Products (large photography,
   featured + 4 tiles) → Why Zaydtex (3 reasons, icons, no cards) → Factory
   (full-width image band, id `#about`) → Quote band → Footer (id `#contact`).
-- **Knit motif** = `.knit-braid` (globals.css) via `components/ui/knit-divider.tsx`
-  — used tastefully (quote-band accent, footer top border). Never a page bg.
+- **Knit motif** = the client's uploaded image, optimized to
+  `public/images/knit-divider.png` (cropped/resized from `Knitting backround
+  png.png`), tiled via `.knit-strip` (globals.css) in the full-bleed
+  `components/ui/knitting-divider.tsx`. Used as edge-to-edge dividers between
+  sections + the footer top border. The one decorative brand element.
+- **Trust stats** = animated count-up (`components/ui/count-up.tsx`,
+  compact/auto/plain formats) — icon · number · label, vertical dividers on
+  desktop, 2×2 on mobile. Config: `funnel-config.ts` `trustStats`.
 - Nav: Products · Why Zaydtex · About · Contact · phone · Get Quote. Logo lockup =
   copper Z tile + wordmark (dark on light header, cream in footer).
 - Old dark-theme sections/components removed (what-we-make, thread-divider, the

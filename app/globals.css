@@ -46,14 +46,14 @@ body {
   background: #bc7a2e;
 }
 
-/* ── Knit braid — the official Zaydtex textile motif, used tastefully as a
-   divider / separator / footer top-border. Two-tone (dark brown + copper).
-   Tiles horizontally; never used as a full-page background. ─────────────────── */
-.knit-braid {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='26' viewBox='0 0 48 26'%3E%3Cg fill='none' stroke-width='2' stroke-linecap='round'%3E%3Cg stroke='%235A3A22'%3E%3Cpath d='M0 5L24 21M24 5L48 21M0 21L24 5M24 21L48 5'/%3E%3C/g%3E%3Cg stroke='%23BC7A2E'%3E%3Cpath d='M0 5C12 -3 36 -3 48 5'/%3E%3Cpath d='M0 21C12 29 36 29 48 21'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* ── Knit strip — the official uploaded Zaydtex knitting motif, used tastefully
+   as a full-width divider / footer top-border. Tiles horizontally so it stays
+   crisp at any width; never used as a full-page background. ─────────────────── */
+.knit-strip {
+  background-image: url("/images/knit-divider.png");
   background-repeat: repeat-x;
   background-position: center;
-  background-size: 48px 26px;
+  background-size: auto 100%;
 }
 
 /* Respect reduced-motion — disable all subtle movement. */

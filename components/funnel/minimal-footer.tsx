@@ -12,8 +12,8 @@ export default function MinimalFooter() {
 
   return (
     <footer id="contact" className="bg-brand-ink text-brand-cream">
-      {/* knit-braid top border — the brand textile motif */}
-      <div className="knit-braid h-[22px] w-full opacity-40" aria-hidden />
+      {/* knitting motif top border — the brand textile element */}
+      <div className="knit-strip h-8 w-full opacity-90" aria-hidden />
 
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-16 md:pb-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">

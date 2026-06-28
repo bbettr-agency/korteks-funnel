@@ -16,12 +16,37 @@ export const heroContent = {
     "Zaydtex manufactures premium ready-made curtains and supplies retailers, wholesalers and businesses nationwide.",
 };
 
-// ── TRUST — large numbers, no cards ───────────────────────────────────────────
+// ── TRUST — animated count-up stats (premium trust block) ─────────────────────
 export const trustStats = [
-  { prefix: "Almost", value: "1M", label: "Curtains made a year" },
-  { value: "250+", label: "Skilled employees" },
-  { value: "19,000m²", label: "Production facility" },
-  { value: "1997", label: "Manufacturing since" },
+  {
+    icon: "Layers",
+    eyebrow: "Almost",
+    value: 1000000,
+    format: "compact",
+    suffix: "",
+    label: "Curtains made per year",
+  },
+  {
+    icon: "Users",
+    value: 250,
+    format: "auto",
+    suffix: "+",
+    label: "Skilled employees",
+  },
+  {
+    icon: "Factory",
+    value: 19000,
+    format: "auto",
+    suffix: "m²",
+    label: "Production facility",
+  },
+  {
+    icon: "Award",
+    value: 1997,
+    format: "plain",
+    suffix: "",
+    label: "Manufacturing since",
+  },
 ];
 
 // ── PRODUCTS — large photography, no icons ────────────────────────────────────

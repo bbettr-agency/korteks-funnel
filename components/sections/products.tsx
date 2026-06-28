@@ -7,7 +7,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { products } from "@/config/funnel-config";
 import { siteConfig } from "@/config/site-config";
-import KnitDivider from "@/components/ui/knit-divider";
 
 export default function Products() {
   const featured = products[0];
@@ -108,8 +107,6 @@ export default function Products() {
             </motion.div>
           ))}
         </div>
-
-        <KnitDivider className="mt-20 w-56" />
       </div>
     </section>
   );

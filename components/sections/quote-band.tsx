@@ -7,7 +7,6 @@ import { Phone, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import { quoteBand } from "@/config/funnel-config";
 import { trackEvent, fireAdsConversion } from "@/lib/tracking";
-import KnitDivider from "@/components/ui/knit-divider";
 
 export default function QuoteBand() {
   const onCall = () => {
@@ -24,7 +23,6 @@ export default function QuoteBand() {
         viewport={{ once: true, margin: "-80px" }}
         className="mx-auto max-w-3xl text-center"
       >
-        <KnitDivider className="mb-10 w-40" />
         <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-ink md:text-5xl lg:text-6xl">
           {quoteBand.heading}
         </h2>
