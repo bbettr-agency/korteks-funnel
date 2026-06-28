@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, Check } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import { heroContent } from "@/config/funnel-config";
@@ -26,17 +26,18 @@ export default function FunnelHero() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl"
           >
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-primary">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
               {heroContent.eyebrow}
             </p>
-            <h1 className="mt-6 font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl xl:text-[4.5rem]">
+            <h1 className="mt-6 font-display text-[2.5rem] font-extrabold leading-[1.04] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
               {heroContent.headline}
             </h1>
             <p className="mt-7 max-w-md text-base leading-7 text-brand-ink/65 md:text-lg">
               {heroContent.sentence}
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            {/* CTAs */}
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href={siteConfig.quotePath}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-primary px-8 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:bg-brand-primaryDark"
@@ -50,9 +51,22 @@ export default function FunnelHero() {
                 className="inline-flex items-center justify-center gap-2.5 rounded-full border border-brand-ink/20 px-8 py-4 text-base font-bold text-brand-ink transition-all duration-300 hover:border-brand-ink/40 hover:bg-brand-ink/[0.04]"
               >
                 <Phone className="h-5 w-5 text-brand-primary" />
-                Call Us
+                Call {siteConfig.phoneDisplay}
               </a>
             </div>
+
+            {/* trust micro-points */}
+            <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5">
+              {heroContent.microPoints.map((point) => (
+                <li
+                  key={point}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-brand-ink/70"
+                >
+                  <Check className="h-4 w-4 text-brand-primary" strokeWidth={3} />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
 
@@ -71,7 +85,6 @@ export default function FunnelHero() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          {/* gentle cream feather on the seam (desktop) */}
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-cream to-transparent lg:block" />
         </motion.div>
       </div>

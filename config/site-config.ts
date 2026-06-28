@@ -55,10 +55,10 @@ export const siteConfig = {
   facebook: "https://www.facebook.com/zaydtex",
 
   // ── Calls to action (copy) ──────────────────────────────────────────────────
-  cta: "Get a Quote",
-  ctaQuote: "Get a Quote",
-  ctaShort: "Get a Quote",
-  ctaCall: "Call",
+  cta: "Request Trade Pricing", // form / strongest
+  ctaQuote: "Get Trade Pricing", // primary CTA across the funnel
+  ctaShort: "Get a Quote", // compact nav button
+  ctaCall: "Call", // phone label (number shown alongside)
 
   // Dedicated quote page — every quote CTA links/scrolls here.
   quotePath: "/get-a-quote",

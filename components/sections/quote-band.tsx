@@ -44,7 +44,7 @@ export default function QuoteBand() {
             className="inline-flex items-center justify-center gap-2.5 rounded-full border border-brand-ink/20 px-8 py-4 text-base font-bold text-brand-ink transition-all duration-300 hover:border-brand-ink/40 hover:bg-white"
           >
             <Phone className="h-5 w-5 text-brand-primary" />
-            Call Now
+            Call {siteConfig.phoneDisplay}
           </a>
         </div>
       </motion.div>

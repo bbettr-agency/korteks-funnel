@@ -12,7 +12,7 @@ import Logo from "@/components/ui/logo";
 const navLinks = [
   { label: "Products", href: "/#products" },
   { label: "Why Zaydtex", href: "/#why" },
-  { label: "About", href: "/#about" },
+  { label: "Factory", href: "/#factory" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -42,7 +42,7 @@ export default function MinimalHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         isScrolled
-          ? "border-b border-brand-bone bg-white/85 backdrop-blur-xl"
+          ? "border-b border-brand-bone bg-white/90 shadow-[0_10px_30px_-20px_rgba(46,33,23,0.45)] backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
@@ -88,7 +88,7 @@ export default function MinimalHeader() {
               href={siteConfig.quotePath}
               className="inline-flex items-center rounded-full bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow-glow transition hover:bg-brand-primaryDark"
             >
-              {siteConfig.ctaQuote}
+              {siteConfig.ctaShort}
             </Link>
           </div>
         </div>

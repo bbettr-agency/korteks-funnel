@@ -1,6 +1,8 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
+import { footerCta } from "@/config/funnel-config";
 import Logo from "@/components/ui/logo";
 
 export default function MinimalFooter() {
@@ -15,7 +17,35 @@ export default function MinimalFooter() {
       {/* knitting motif top border — the brand textile element */}
       <div className="knit-strip h-8 w-full opacity-90" aria-hidden />
 
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-16 md:pb-16 lg:px-8">
+      {/* slim closing CTA — so the footer keeps working */}
+      <div className="border-b border-brand-cream/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-center sm:flex-row sm:text-left lg:px-8">
+          <p className="font-display text-lg font-bold text-brand-cream">
+            {footerCta.text}{" "}
+            <span className="text-brand-cream/55">
+              Trade &amp; wholesale enquiries welcome.
+            </span>
+          </p>
+          <div className="flex items-center gap-3">
+            <Link
+              href={siteConfig.quotePath}
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-primary px-6 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-brand-primaryDark"
+            >
+              {footerCta.cta}
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+            <a
+              href={siteConfig.phoneLink}
+              className="hidden items-center gap-2 text-sm font-bold text-brand-cream transition hover:text-brand-primaryLight sm:inline-flex"
+            >
+              <Phone className="h-4 w-4 text-brand-primaryLight" />
+              {siteConfig.phoneDisplay}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-12 md:pb-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>

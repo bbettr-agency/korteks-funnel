@@ -1,22 +1,26 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  COPY + STRUCTURED CONTENT — Zaydtex (Version 2 — premium, photography-led)
-//  Short copy only. Public brand = Zaydtex. Every fact is from the official
-//  company profile (nothing invented).
-//
-//  ⚠️ Photography in /public/images/* is curated stock as a PLACEHOLDER — replace
-//  with real Zaydtex product / factory photography before launch (same filenames
-//  → site updates automatically).
+//  COPY + STRUCTURED CONTENT — Zaydtex
+//  Written as a buyer's psychological journey (what → trust → for me? → real
+//  manufacturer? → products → why them? → act) and as BENEFITS, not features.
+//  Every line earns its place by moving a trade buyer closer to requesting
+//  trade pricing. Public brand = Zaydtex. Facts are from the official profile.
 // ─────────────────────────────────────────────────────────────────────────────
 
-// ── HERO ──────────────────────────────────────────────────────────────────────
+// ── HERO — "What is this company, and is it for me?" ──────────────────────────
 export const heroContent = {
-  eyebrow: "South African Curtain Manufacturer",
-  headline: "Africa's largest ready-made curtain manufacturer.",
+  eyebrow: "Africa's Leading Ready-Made Curtain Manufacturer · Trade & Wholesale",
+  headline: "Premium Ready-Made Curtains, Manufactured in South Africa.",
   sentence:
-    "Zaydtex manufactures premium ready-made curtains and supplies retailers, wholesalers and businesses nationwide.",
+    "Supply your store, project or property with curtains made at scale by Zaydtex — dependable trade & wholesale supply, nationwide.",
+  microPoints: [
+    "Reply within 1 business day",
+    "Trade & wholesale supply",
+    "South African manufacturing",
+  ],
 };
 
-// ── TRUST — animated count-up stats (premium trust block) ─────────────────────
+// ── TRUST — "Can I trust them?" (animated count-up) ───────────────────────────
+export const trustEyebrow = "Why the trade trusts Zaydtex";
 export const trustStats = [
   {
     icon: "Layers",
@@ -24,32 +28,64 @@ export const trustStats = [
     value: 1000000,
     format: "compact",
     suffix: "",
-    label: "Curtains made per year",
+    label: "Ready-made curtains a year",
   },
   {
     icon: "Users",
     value: 250,
     format: "auto",
     suffix: "+",
-    label: "Skilled employees",
+    label: "Skilled people behind them",
   },
   {
     icon: "Factory",
     value: 19000,
     format: "auto",
     suffix: "m²",
-    label: "Production facility",
+    label: "Production under one roof",
   },
   {
     icon: "Award",
     value: 1997,
     format: "plain",
     suffix: "",
-    label: "Manufacturing since",
+    label: "Manufacturing in SA since",
   },
 ];
 
-// ── PRODUCTS — large photography, no icons ────────────────────────────────────
+// ── WHO WE SUPPLY — "Do they supply businesses like mine?" ────────────────────
+export const whoWeSupply = {
+  intro: "Whatever you sell, specify or fit out — we supply it, at trade prices and at scale.",
+  buyers: [
+    { icon: "Store", label: "Retailers" },
+    { icon: "Boxes", label: "Wholesalers" },
+    { icon: "Blinds", label: "Curtain Shops" },
+    { icon: "Sofa", label: "Furniture Stores" },
+    { icon: "Palette", label: "Interior Designers" },
+    { icon: "Building2", label: "Property Developers" },
+    { icon: "Hotel", label: "Hospitality Groups" },
+  ],
+};
+
+// ── FACTORY — "Do they manufacture, or just resell?" ──────────────────────────
+export const factory = {
+  eyebrow: "Manufactured in South Africa",
+  heading: "Every curtain starts here.",
+  sentence:
+    "From yarn to finished curtain, under one roof in Centurion. You buy direct from the manufacturer — better pricing, full control and supply you can depend on.",
+  steps: ["Yarn", "Knitting & Weaving", "8 Quality Checks", "Delivered Nationwide"],
+  trustLine: "100% South African owned & operated  ·  B-BBEE contributor",
+  image: "/images/factory.jpg",
+};
+
+// ── PRODUCTS — "Do they have what I need?" (benefit-led) ───────────────────────
+export const featuredProduct = {
+  title: "Ready-Made Curtains",
+  tag: "Our core product",
+  description:
+    "Manufactured in-house and supplied trade & wholesale — ready to stock, specify or install. Almost a million made a year, so the lines you reorder are always there.",
+};
+
 export const products = [
   {
     title: "Ready-Made Curtains",
@@ -59,65 +95,69 @@ export const products = [
   },
   {
     title: "Sheers",
-    blurb: "Light, airy voiles.",
+    blurb: "Light, airy voiles with constant demand.",
     image: "/images/product-sheers.jpg",
   },
   {
     title: "Lace",
-    blurb: "Classic & contemporary lace.",
+    blurb: "Timeless lace that keeps reordering.",
     image: "/images/product-lace.jpg",
   },
   {
     title: "Blackout",
-    blurb: "Block out light, heat & dust.",
+    blurb: "Coated black-out that sells every season.",
     image: "/images/product-blackout.jpg",
   },
   {
     title: "Jacquard",
-    blurb: "Rich, textured weaves.",
+    blurb: "Rich texture that lifts your range.",
     image: "/images/product-jacquard.jpg",
   },
 ];
 
-// ── WHY ZAYDTEX — 3 reasons, icons, little text ───────────────────────────────
+export const productsNote =
+  "Including Scrimp® coated black-out fabrics and ZaHa® towelling.";
+
+// ── WHY ZAYDTEX — "Why buy from them instead of another supplier?" ────────────
 export const whyZaydtex = [
   {
     icon: "Layers",
-    title: "Vertically integrated",
-    description: "From yarn to finished curtain, all under one roof.",
+    title: "Made in SA, start to finish",
+    description:
+      "Yarn to finished curtain under one roof — so you get better pricing, tighter control and none of the import delays.",
   },
   {
     icon: "Factory",
-    title: "Built for volume",
-    description: "Almost a million curtains a year, delivered nationwide.",
+    title: "Supply you can plan around",
+    description:
+      "Almost a million curtains a year means stock is there when you reorder — no stockouts, no scrambling.",
   },
   {
     icon: "ShieldCheck",
-    title: "Checked quality",
-    description: "Eight quality checks before every order ships.",
+    title: "Quality you can resell with confidence",
+    description:
+      "Eight quality checks before every order ships, so what your customers receive matches what you promised.",
   },
 ];
 
-// ── FACTORY — full-width image band ───────────────────────────────────────────
-export const factory = {
-  eyebrow: "Inside the factory",
-  heading: "A manufacturer, not a reseller.",
+// ── QUOTE CTA BAND — "What's the easiest next step?" ──────────────────────────
+export const quoteBand = {
+  heading: "Let's get your trade pricing.",
   sentence:
-    "Almost a million curtains a year are produced under one roof at our 19,000 m² facility in Centurion — from yarn to finished curtain.",
-  image: "/images/factory.jpg",
+    "Tell us what you need — we reply within one business day. Trade & wholesale enquiries welcome.",
 };
 
-// ── QUOTE CTA BAND ────────────────────────────────────────────────────────────
-export const quoteBand = {
-  heading: "Let's get you a quote.",
-  sentence: "Tell us what you need — we reply within one business day.",
+// ── FOOTER closing CTA ────────────────────────────────────────────────────────
+export const footerCta = {
+  text: "Still need trade pricing?",
+  cta: "Request your quote",
 };
 
 // ── GET A QUOTE PAGE (/get-a-quote) ───────────────────────────────────────────
 export const quotePage = {
   badge: "Trade & Wholesale · Ready-Made Curtains",
   headlineLead: "Get your curtain",
-  headlineHighlight: "trade quote",
+  headlineHighlight: "trade pricing",
   subheadline:
     "Send your requirements and our team replies with trade / wholesale pricing, minimum order quantities and lead times — manufactured locally by Zaydtex.",
   trustChips: [

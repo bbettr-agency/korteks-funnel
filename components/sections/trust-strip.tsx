@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { trustStats } from "@/config/funnel-config";
+import { trustStats, trustEyebrow } from "@/config/funnel-config";
 import Icon from "@/components/ui/icon";
 import CountUp from "@/components/ui/count-up";
 
@@ -14,6 +14,9 @@ import CountUp from "@/components/ui/count-up";
 export default function TrustStrip() {
   return (
     <section className="bg-white px-6 py-14 md:py-16 lg:px-8">
+      <p className="mb-10 text-center text-xs font-bold uppercase tracking-[0.22em] text-brand-primary">
+        {trustEyebrow}
+      </p>
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-0 lg:divide-x lg:divide-brand-bone">
         {trustStats.map((stat, i) => (
           <motion.div

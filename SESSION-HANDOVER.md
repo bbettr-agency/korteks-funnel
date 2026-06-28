@@ -6,7 +6,38 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-27 (V2: light premium photography-led redesign)
+## 📌 Latest update — 2026-06-28 (CRO pass — psychological-journey reorder)
+
+Conversion review against the company profile. Kept the light V2 look; sharpened
+copy + flow. Sections now follow the visitor's questions in order:
+Hero (what) → Trust stats (trust) → **Who We Supply** (for me?) → Factory
+(real manufacturer?) → Products (what I need?) → Why Zaydtex (why them?) →
+Quote band (act). All copy is benefit-led.
+
+- **Hero**: buyer-benefit H1 "Premium Ready-Made Curtains, Manufactured in South
+  Africa", CTAs `Get Trade Pricing` + `Call 012 666 7100`, + 3 trust micro-points.
+- **NEW `who-we-supply.tsx`**: compact buyer-relevance strip (Retailers,
+  Wholesalers, Curtain Shops, Furniture Stores, Designers, Developers,
+  Hospitality). Self-identification → fewer "is this for me?" drop-offs.
+- **Factory upgraded**: heading "Every curtain starts here", a 4-step process
+  row (Yarn → Knitting & Weaving → 8 Quality Checks → Delivered) and a trust line
+  (100% SA owned & operated · B-BBEE) — absorbs the "manufacturer-not-reseller"
+  proof without adding sections. id is now `#factory`.
+- **Products**: benefit blurbs, explicit `Get pricing →` on each tile, featured
+  CTA `Request a Curtain Supply Quote`, + Scrimp/ZaHa note.
+- **CTA wording** site-wide → `siteConfig.ctaQuote = "Get Trade Pricing"` (nav
+  button = `ctaShort` "Get a Quote"). Phone CTAs show the number.
+- **Footer**: slim closing CTA ("Still need trade pricing? Request your quote").
+- **Nav**: Products · Why Zaydtex · Factory · Contact (dropped "About").
+- **Sticky mobile bar**: now two actions — Get Trade Pricing + Call.
+- Knit divider got a subtle reveal; sticky header got a soft shadow.
+
+Verified: build ✅ lint ✅, desktop + mobile, count-up animates, 12 CTAs →
+/get-a-quote, form → /thank-you, 0 WhatsApp, no console errors.
+
+---
+
+## 📌 Update — 2026-06-27 (V2: light premium photography-led redesign)
 
 Full UI redesign per owner: a premium manufacturer site (Apple / Herman Miller
 feel) that still converts. Functionality/SEO/tracking/quote-form/conversion
