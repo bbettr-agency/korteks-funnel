@@ -54,7 +54,11 @@ export default function MinimalFooter() {
               {wordmark}
             </div>
             <p className="mt-5 max-w-xs text-sm leading-7 text-brand-cream/55">
-              {siteConfig.tagline}
+              {siteConfig.tagline} South Africa&apos;s vertically integrated
+              textile manufacturer &amp; wholesale partner.
+            </p>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-brand-cream/40">
+              Manufactured by {siteConfig.legalName}
             </p>
           </div>
 
@@ -102,7 +106,7 @@ export default function MinimalFooter() {
         <div className="mt-14 flex flex-col items-center gap-2 border-t border-brand-cream/10 pt-7 text-center text-xs text-brand-cream/40 sm:flex-row sm:justify-between sm:text-left">
           <p>
             © {new Date().getFullYear()} {siteConfig.businessName}. All rights
-            reserved. · {siteConfig.legalName} · Reg {siteConfig.registrationNumber}
+            reserved. · {siteConfig.legalName}
           </p>
           <p>
             Website by{" "}

@@ -6,7 +6,46 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-28 (Craftsmanship gallery — real photography)
+## 📌 Latest update — 2026-06-29 (Strategic repositioning — manufacturing partner)
+
+Positioning shift (owner-approved): we are NOT selling curtains — we're selling
+confidence in a **vertically integrated SA textile manufacturer & wholesale
+partner**. Curtains are the flagship. Copy is now in the **owner's voice**
+(warm, plain, proud, quality-first), grounded in the company profile's mission,
+culture and story. **Visual system unchanged.**
+
+- **No founding year anywhere** (1994 vs 1997 unconfirmed) — removed "Since 1997"
+  stat + the footer Reg number. Don't add a year until the client confirms.
+- **Korteks surfaced as the MANUFACTURER** (trust builder only): hero eyebrow
+  "Manufactured by Korteks Textiles Africa", the Factory section, and footer
+  ("Manufactured by Korteks Textiles Africa (Pty) Ltd"). Zaydtex stays the brand.
+- **Hero:** primary "We don't just supply textiles. We make them." + tagline
+  "From yarn to finished product." + partner subhead. (`heroContent.tagline` new.)
+- **Trust stats:** 1M · 250+ · 19,000m² · **100% South African owned & run**
+  (replaced the year). Eyebrow: "Africa's largest vertically integrated textile
+  producer."
+- **Factory = the powerhouse:** real factory photo (`DSC_0241.webp`),
+  "Everything we sell, we make.", Korteks reveal, 6-step vertical process
+  (Yarn → Knitted & Woven → Dyed & Finished → Cut, Made & Trimmed → 8 Quality
+  Checks → Delivered), SA-owned + B-BBEE trust line.
+- **Craftsmanship → Capabilities** (`craftsmanship-config.ts`): Knitting, Weaving,
+  Dyeing & Finishing, Embroidery, CMT, Quality Control — real factory photos.
+  ⚠️ Embroidery uses a **placeholder image** (`DSC_0370.webp`) — swap for a real
+  Shifli embroidery photo (just replace the path in config).
+- **Products → full range:** Ready-Made Curtains (featured, real `DSC_0002.webp`)
+  + Fabric by the Metre · by the Roll · Table Cloths · Scatter Cushions ·
+  Towelling · Dress Forms (icon cards). ⚠️ Those 6 use **icons, not photos** —
+  add real product shots later if wanted (config-driven).
+- **Why → "Built for the long term."** (partnership reasons); **Quote band →
+  "Let's build something that lasts."** (owner-voice, adapts their mission).
+- Quality is woven throughout as a thread (not a slogan on repeat).
+
+Verified: build ✅ lint ✅, desktop + mobile, no year on page, 20 CTAs →
+/get-a-quote, 0 broken images, 0 WhatsApp, no console errors.
+
+---
+
+## 📌 Update — 2026-06-28 (Craftsmanship gallery — real photography)
 
 - **New section `components/sections/craftsmanship.tsx`** between Factory and
   Products ("Can I trust the quality?"). Premium horizontal editorial gallery:

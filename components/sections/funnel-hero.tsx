@@ -29,11 +29,14 @@ export default function FunnelHero() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
               {heroContent.eyebrow}
             </p>
-            <h1 className="mt-6 font-display text-[2.5rem] font-extrabold leading-[1.04] tracking-tight text-brand-ink sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+            <h1 className="mt-6 font-display text-[2.4rem] font-extrabold leading-[1.05] tracking-tight text-brand-ink sm:text-5xl lg:text-[3.4rem] xl:text-6xl">
               {heroContent.headline}
             </h1>
-            <p className="mt-7 max-w-md text-base leading-7 text-brand-ink/65 md:text-lg">
-              {heroContent.sentence}
+            <p className="mt-4 font-display text-lg font-bold tracking-tight text-brand-primary sm:text-xl">
+              {heroContent.tagline}
+            </p>
+            <p className="mt-6 max-w-md text-base leading-7 text-brand-ink/65 md:text-lg">
+              {heroContent.subheadline}
             </p>
 
             {/* CTAs */}

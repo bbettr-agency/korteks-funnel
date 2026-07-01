@@ -5,13 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-import { products, featuredProduct, productsNote } from "@/config/funnel-config";
+import { featuredProduct, productRange, productsNote } from "@/config/funnel-config";
 import { siteConfig } from "@/config/site-config";
+import Icon from "@/components/ui/icon";
 
 export default function Products() {
-  const featured = products[0];
-  const tiles = products.slice(1);
-
   return (
     <section id="products" className="bg-brand-cream px-6 py-24 md:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -27,11 +25,11 @@ export default function Products() {
             Products
           </p>
           <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-ink md:text-5xl">
-            The curtains your customers want, supplied at scale.
+            More than curtains. A full textile range.
           </h2>
         </motion.div>
 
-        {/* featured */}
+        {/* featured — Ready-Made Curtains */}
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +42,8 @@ export default function Products() {
             className="group relative block aspect-[4/3] overflow-hidden rounded-3xl shadow-soft"
           >
             <Image
-              src={featured.image}
-              alt={featured.alt}
+              src={featuredProduct.image}
+              alt={featuredProduct.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -65,44 +63,39 @@ export default function Products() {
               href={siteConfig.quotePath}
               className="group mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-primary"
             >
-              Request a Curtain Supply Quote
+              {featuredProduct.cta}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </motion.div>
 
-        {/* range tiles */}
-        <div className="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {tiles.map((p, i) => (
+        {/* the rest of the range */}
+        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {productRange.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-40px" }}
             >
               <Link
                 href={siteConfig.quotePath}
-                className="group relative block aspect-[3/4] overflow-hidden rounded-2xl shadow-card"
+                className="group flex h-full flex-col rounded-2xl border border-brand-bone bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-brand-primary/30 hover:shadow-card"
               >
-                <Image
-                  src={p.image}
-                  alt={p.alt}
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/15 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <h3 className="font-display text-lg font-bold text-white">
-                    {p.title}
-                  </h3>
-                  <p className="mt-0.5 text-xs leading-5 text-white/75">{p.blurb}</p>
-                  <span className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-bold text-brand-primaryLight">
-                    Get pricing
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary transition-colors duration-500 group-hover:bg-brand-primary group-hover:text-white">
+                  <Icon name={p.icon} className="h-5 w-5" />
                 </div>
+                <h3 className="mt-4 font-display text-base font-bold leading-tight text-brand-ink">
+                  {p.title}
+                </h3>
+                <p className="mt-1 flex-1 text-xs leading-5 text-brand-ink/55">
+                  {p.line}
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-primary">
+                  Get pricing
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
               </Link>
             </motion.div>
           ))}

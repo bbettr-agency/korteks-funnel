@@ -20,7 +20,7 @@ export default function WhyZaydtex() {
             Why Zaydtex
           </p>
           <h2 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-ink md:text-5xl">
-            Why the trade buys from Zaydtex.
+            Built for the long term.
           </h2>
         </motion.div>
 

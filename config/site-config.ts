@@ -16,9 +16,9 @@ export const siteConfig = {
   shortName: "Zaydtex",
   legalName: "Korteks Textiles Africa (Pty) Ltd", // registered entity — legal use only
   registrationNumber: "1997/002157/07",
-  tagline: "Ready-made curtains, made in South Africa.",
+  tagline: "From yarn to finished product.",
   description:
-    "Zaydtex is South Africa's largest curtain manufacturer — producing almost a million ready-made curtains a year and supplying retailers, wholesalers, designers and developers nationwide.",
+    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner — ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa, and supplied to the trade nationwide.",
 
   // ── Brand assets ── SINGLE SOURCE OF TRUTH for every logo/image ──────────────
   // Drop replacement files into public/images/logo/ using the SAME filenames and
