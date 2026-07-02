@@ -36,7 +36,15 @@ export default function Factory() {
           className="object-cover"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/88 via-brand-ink/60 to-brand-ink/20" />
+      {/* Left-to-right fade — darker behind the text, clear over the bright
+          right of the photo, so the copy always reads without heavy darkening. */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(28,20,13,0.94) 0%, rgba(28,20,13,0.82) 38%, rgba(28,20,13,0.4) 66%, rgba(28,20,13,0.05) 100%)",
+        }}
+      />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
         <motion.div
@@ -52,7 +60,7 @@ export default function Factory() {
           <h2 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
             {factory.heading}
           </h2>
-          <p className="mt-6 max-w-lg text-base leading-7 text-white/75 md:text-lg">
+          <p className="mt-6 max-w-lg text-base leading-7 text-white/90 md:text-lg">
             {factory.sentence}
           </p>
 
