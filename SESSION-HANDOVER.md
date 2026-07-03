@@ -6,7 +6,34 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-29 (Strategic repositioning — manufacturing partner)
+## 📌 Latest update — 2026-06-30 (content & section adjustments)
+
+Content/positioning tweaks (no redesign):
+- Hero: subtext "under 1 roof"; trust points → "Vertically integrated" +
+  "Quality-checked, in every process"; **hero image is now a real factory shot**
+  (`DSC_0269.webp` — yarn cones) so it signals manufacturing, not lifestyle.
+- Trust eyebrow → "One of the largest vertically integrated textile producers".
+- Who We Supply: added **Industrial**.
+- Factory copy: "most vertically integrated…", lists real processes (Warping,
+  knitting, weaving, embroidery, dyeing, finishing, CMT…), embroidery spelled right.
+- **Craftsmanship → 8 real capabilities** (Warping, Knitting, Weaving, Embroidery,
+  Dyeing, Finishing, Cut Make & Trim, Quality Control) from the profile; new
+  quality-led subheading. Added `DSC_0188.webp` (warping) + `DSC_0481.webp`
+  (finishing). Embroidery still a placeholder image.
+- Products: the range is now **compact image cards** (was icons); removed "Our
+  flagship". ⚠️ Table Cloths / Cushions / Towelling / Dress Forms use PLACEHOLDER
+  images (generic textile shots in `/public/images/product-*.jpg`) — swap for real
+  product photos (change `image` path in `funnel-config.ts` productRange).
+- Quote band sentence → their mission statement (polished).
+- Get-a-quote page: removed the subheadline + 3 trust chips; who-for now includes
+  "industrial operations" and "construction".
+
+Verified: build ✅ lint ✅, desktop + mobile, 22 CTAs → /get-a-quote, 0 WhatsApp,
+phone tel:+27126667100, no year on page.
+
+---
+
+## 📌 Update — 2026-06-29 (Strategic repositioning — manufacturing partner)
 
 Positioning shift (owner-approved): we are NOT selling curtains — we're selling
 confidence in a **vertically integrated SA textile manufacturer & wholesale

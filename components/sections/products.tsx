@@ -7,7 +7,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { featuredProduct, productRange, productsNote } from "@/config/funnel-config";
 import { siteConfig } from "@/config/site-config";
-import Icon from "@/components/ui/icon";
 
 export default function Products() {
   return (
@@ -69,33 +68,39 @@ export default function Products() {
           </div>
         </motion.div>
 
-        {/* the rest of the range */}
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        {/* the rest of the range — compact image cards, same style as featured */}
+        <div className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-3">
           {productRange.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.06, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true, margin: "-40px" }}
             >
               <Link
                 href={siteConfig.quotePath}
-                className="group flex h-full flex-col rounded-2xl border border-brand-bone bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-brand-primary/30 hover:shadow-card"
+                className="group block overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-soft"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary transition-colors duration-500 group-hover:bg-brand-primary group-hover:text-white">
-                  <Icon name={p.icon} className="h-5 w-5" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-display text-base font-bold leading-tight text-brand-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-1 flex-1 text-xs leading-5 text-brand-ink/55">
-                  {p.line}
-                </p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-primary">
-                  Get pricing
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-bold leading-tight text-brand-ink">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-brand-ink/55">{p.line}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary">
+                    Get pricing
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </span>
+                </div>
               </Link>
             </motion.div>
           ))}

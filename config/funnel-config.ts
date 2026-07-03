@@ -20,16 +20,16 @@ export const heroContent = {
   headline: "We don't just supply textiles. We make them.",
   tagline: "From yarn to finished product.",
   subheadline:
-    "Ready-made curtains and a full textile range — made under our own roof and supplied to retailers, wholesalers and projects right across South Africa.",
+    "Ready-made curtains and a full textile range — made under 1 roof and supplied to retailers, wholesalers and projects right across South Africa.",
   microPoints: [
-    "Vertically integrated, from the yarn up",
-    "Quality-checked, every order",
+    "Vertically integrated",
+    "Quality-checked, in every process",
     "Proudly South African",
   ],
 };
 
 // ── TRUST — the scale and capability behind the supply (no dates) ─────────────
-export const trustEyebrow = "Africa's largest vertically integrated textile producer";
+export const trustEyebrow = "One of the largest vertically integrated textile producers";
 export const trustStats = [
   {
     icon: "Layers",
@@ -74,6 +74,7 @@ export const whoWeSupply = {
     { icon: "Sofa", label: "Furniture Stores" },
     { icon: "Palette", label: "Interior Designers" },
     { icon: "Hotel", label: "Hospitality Groups" },
+    { icon: "Factory", label: "Industrial" },
   ],
 };
 
@@ -82,7 +83,7 @@ export const factory = {
   eyebrow: "The Manufacturer Behind Zaydtex",
   heading: "Everything we sell, we make.",
   sentence:
-    "Zaydtex is manufactured by Korteks Textiles Africa — one of South Africa's most integrated textile operations. Spinning, knitting, weaving, dyeing, finishing and making, all under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
+    "Zaydtex is manufactured by Korteks Textiles Africa — one of South Africa's most vertically integrated textile operations. Warping, knitting, weaving, embroidery, dyeing, finishing, CMT and other processes, all under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
   steps: [
     "Yarn",
     "Knitted & Woven",
@@ -122,7 +123,7 @@ export const whyZaydtex = [
 
 // ── PRODUCTS — a complete textile partner, curtains first ─────────────────────
 export const featuredProduct = {
-  tag: "Our flagship",
+  tag: "The range we're known for",
   title: "Ready-Made Curtains",
   description:
     "Made, packaged and barcoded in-house — ready for your shelves or your project. Almost a million leave our floor a year, so the lines you reorder are always there.",
@@ -131,13 +132,46 @@ export const featuredProduct = {
   cta: "Request a Curtain Supply Quote",
 };
 
+// The rest of the range — shown compactly (image · name · line · CTA).
+// NOTE: entries flagged PLACEHOLDER re-use generic textile shots — swap for real
+// product photos when supplied (just change the `image` path here).
 export const productRange = [
-  { icon: "Ruler", title: "Fabric by the Metre", line: "Cut to your requirement." },
-  { icon: "Scroll", title: "Fabric by the Roll", line: "Roll goods for converters & trade." },
-  { icon: "Utensils", title: "Table Cloths", line: "For hospitality & retail." },
-  { icon: "Square", title: "Scatter Cushions", line: "To round out your range." },
-  { icon: "Droplet", title: "Towelling Products", line: "Our ZaHa towelling range." },
-  { icon: "Shirt", title: "Dress Forms", line: "Plain & adjustable, all sizes." },
+  {
+    image: "/images/craftsmanship/DSC_0454.webp",
+    alt: "Woven fabric on the loom",
+    title: "Fabric by the Metre",
+    line: "Cut to your requirement, any quantity.",
+  },
+  {
+    image: "/images/craftsmanship/DSC_0500.webp",
+    alt: "Rolls of finished fabric",
+    title: "Fabric by the Roll",
+    line: "Roll goods for converters and the trade.",
+  },
+  {
+    image: "/images/product-jacquard.jpg", // PLACEHOLDER
+    alt: "Table linen",
+    title: "Table Cloths",
+    line: "Table linen for hospitality and retail.",
+  },
+  {
+    image: "/images/product-blackout.jpg", // PLACEHOLDER
+    alt: "Scatter cushions",
+    title: "Scatter Cushions",
+    line: "Coordinating cushions to finish a range.",
+  },
+  {
+    image: "/images/product-sheers.jpg", // PLACEHOLDER
+    alt: "Towelling products",
+    title: "Towelling Products",
+    line: "Our ZaHa snag-proof towelling range.",
+  },
+  {
+    image: "/images/product-lace.jpg", // PLACEHOLDER
+    alt: "Dress forms",
+    title: "Dress Forms",
+    line: "Plain and adjustable, in every size.",
+  },
 ];
 
 export const productsNote =
@@ -147,7 +181,7 @@ export const productsNote =
 export const quoteBand = {
   heading: "Let's build something that lasts.",
   sentence:
-    "Tell us what you need. We'll come back with honest trade pricing — and if we take the order, we'll make it properly, on time, at a fair price. That's how we keep customers.",
+    "Our mission is simple: to supply our customers on time, at the lowest cost, with the best quality curtains — by continually getting better and better at what we do. It's the responsibility of every one of our employees.",
 };
 
 // ── FOOTER closing CTA ────────────────────────────────────────────────────────
@@ -161,16 +195,9 @@ export const quotePage = {
   badge: "Trade & Wholesale · Made in South Africa",
   headlineLead: "Let's talk about your",
   headlineHighlight: "trade pricing",
-  subheadline:
-    "Tell us what you need and we'll come back with honest trade pricing, minimum order quantities and lead times — made under our own roof by Korteks Textiles Africa.",
-  trustChips: [
-    "Vertically integrated manufacturer",
-    "Made in South Africa",
-    "Trade & wholesale only",
-  ],
   whoForTitle: "Who this is for:",
   whoFor:
-    "Retailers, wholesalers, curtain & furniture stores, interior designers, property developers and hospitality groups.",
+    "Retailers, wholesalers, industrial operations, construction, curtain & furniture stores, interior designers, property developers and hospitality groups.",
   responseNote: "No obligation. Trade enquiries only. We reply within 1 business day.",
 };
 

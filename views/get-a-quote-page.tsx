@@ -1,4 +1,4 @@
-import { Check, Phone, Clock, Users } from "lucide-react";
+import { Phone, Clock, Users } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import { quotePage } from "@/config/funnel-config";
@@ -24,23 +24,6 @@ export default function GetAQuotePage() {
               {quotePage.headlineLead}{" "}
               <span className="text-brand-primary">{quotePage.headlineHighlight}</span>
             </h1>
-
-            <p className="mt-6 max-w-xl text-base leading-7 text-brand-ink/65 md:text-lg">
-              {quotePage.subheadline}
-            </p>
-
-            <ul className="mt-8 grid max-w-xl gap-3 sm:grid-cols-2">
-              {quotePage.trustChips.map((chip) => (
-                <li key={chip} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary/12 text-brand-primary">
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  </span>
-                  <span className="text-sm font-medium leading-6 text-brand-ink/80">
-                    {chip}
-                  </span>
-                </li>
-              ))}
-            </ul>
 
             <div className="mt-8 max-w-xl rounded-2xl border border-brand-bone bg-white p-5">
               <div className="flex items-center gap-2 text-sm font-bold text-brand-ink">
