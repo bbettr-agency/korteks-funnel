@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/next";
+
 import { createMetadata } from "@/lib/metadata";
 import { organizationSchema } from "@/lib/schema";
 import TrackingScripts, {
@@ -47,6 +49,7 @@ export default function RootLayout({
         <GtmNoScript />
         {children}
         <TrackingScripts />
+        <Analytics />
       </body>
     </html>
   );
