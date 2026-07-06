@@ -15,7 +15,7 @@
  */
 
 const DEFAULT_LEAD_WEBHOOK_URL =
-  "https://services.leadconnectorhq.com/hooks/ObWZhJ1kyodB0ELR4hbi/webhook-trigger/e52ba870-bc45-4915-8756-d8fb379ebe3c";
+  "https://services.leadconnectorhq.com/hooks/ObWZhJ1kyodB0ELR4hbi/webhook-trigger/2107519c-1af1-4698-8ba7-f30ddd04d879";
 
 /** Optional auth headers, configured via env only (never hard-coded). */
 function parseAuthHeaders(): Record<string, string> {
