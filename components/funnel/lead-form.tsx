@@ -7,15 +7,16 @@ import { ArrowRight, Loader2 } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import { businessTypes } from "@/config/funnel-config";
 import { trackEvent } from "@/lib/tracking";
+import { submitLead } from "@/services/webhook-submit";
 
 /**
- * Native lead form — TEMPORARY until the client's GoHighLevel form is provided.
+ * Native lead form — production GoHighLevel integration.
  *
- * Submissions are emailed via FormSubmit.co to siteConfig.leadEmail (no API key
- * required; FormSubmit sends a one-time activation email on first use). On
- * success we redirect to the Thank You page, where the Google Ads / GTM lead
- * conversion fires (ConversionTracker). Swap back to GHL by setting
- * siteConfig.useGhlForm = true.
+ * Submissions POST to a GHL (LeadConnector) Inbound Webhook via submitLead()
+ * (see @/services/webhook-submit + @/config/integrations). GHL creates the CRM
+ * contact and fires its automation workflows server-side. On success we redirect
+ * to the Thank You page, where the Google Ads / GTM lead conversion fires
+ * (ConversionTracker).
  *
  * Six fields — the B2B sweet spot. Company Name + Business Type qualify the lead
  * and filter single-unit consumers without adding friction.
@@ -61,41 +62,28 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
     setErrors({});
     setStatus("submitting");
 
-    try {
-      const res = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(siteConfig.leadEmail)}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            _subject: "New trade enquiry — Zaydtex (ready-made curtains)",
-            _template: "table",
-            _captcha: "false",
-            "Full Name": name,
-            "Company Name": company,
-            "Email Address": email,
-            "Phone Number": phone,
-            "Business Type": businessType,
-            Message: (data.get("message") as string)?.trim() || "—",
-          }),
-        }
-      );
+    const result = await submitLead({
+      fullName: name,
+      companyName: company,
+      email,
+      phone,
+      businessType,
+      message: (data.get("message") as string)?.trim() || "",
+    });
 
-      if (!res.ok) throw new Error(`Submit failed: ${res.status}`);
-
-      trackEvent("lead_form_submit", {
-        form: "ready-made-curtains-trade",
-        instance: instanceId,
-        business_type: businessType,
-      });
-
-      router.push(siteConfig.thankYouPath);
-    } catch {
+    if (!result.ok) {
+      // Keep the user on the page with their data intact so they can retry.
       setStatus("error");
+      return;
     }
+
+    trackEvent("lead_form_submit", {
+      form: "ready-made-curtains-trade",
+      instance: instanceId,
+      business_type: businessType,
+    });
+
+    router.push(siteConfig.thankYouPath);
   };
 
   const fieldBase =
