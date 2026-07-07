@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Phone, ArrowRight, Check } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
-import { heroContent } from "@/config/funnel-config";
+import { heroContent, heroComposition } from "@/config/funnel-config";
 import { trackEvent, fireAdsConversion } from "@/lib/tracking";
 
 export default function FunnelHero() {
@@ -73,23 +73,82 @@ export default function FunnelHero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — full-bleed curtain photography */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative min-h-[58vh] lg:min-h-screen"
-        >
-          <Image
-            src={siteConfig.heroImage}
-            alt={siteConfig.heroImageAlt}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-brand-cream to-transparent lg:block" />
-        </motion.div>
+        {/* RIGHT — layered factory composition (scale shot + framed panels) */}
+        <div className="relative min-h-[62vh] overflow-hidden lg:min-h-screen">
+          {/* Dominant "scale" panel — bleeds off the top/right, curved toward
+              the copy on the left. This is the LCP image. */}
+          <motion.div
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 lg:left-10"
+          >
+            <div className="relative h-full w-full overflow-hidden rounded-bl-[2.5rem] lg:rounded-l-[3rem]">
+              <Image
+                src={heroComposition.primary.src}
+                alt={heroComposition.primary.alt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              {/* barely-there brightening so framed panels read cleanly on top */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-brand-ink/10 via-transparent to-transparent" />
+            </div>
+          </motion.div>
+
+          {/* Framed panel #1 — machinery / capability. Floats over the lower-left,
+              reaching toward the copy like a laid-down print. */}
+          <motion.figure
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-6 left-4 w-[52%] max-w-[19rem] rounded-2xl bg-white p-1.5 shadow-2xl ring-1 ring-brand-ink/10 sm:bottom-10 sm:left-8 lg:-left-10 lg:bottom-16"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+              <Image
+                src={heroComposition.secondary.src}
+                alt={heroComposition.secondary.alt}
+                fill
+                sizes="(max-width: 1024px) 52vw, 20vw"
+                className="object-cover"
+              />
+            </div>
+          </motion.figure>
+
+          {/* Framed panel #2 — the product being made. Smaller, upper area.
+              Hidden on the smallest screens to keep the stack calm. */}
+          <motion.figure
+            initial={{ opacity: 0, y: -22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute right-5 top-8 hidden w-[40%] max-w-[14rem] rounded-2xl bg-white p-1.5 shadow-xl ring-1 ring-brand-ink/10 sm:block lg:right-8 lg:top-24"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+              <Image
+                src={heroComposition.tertiary.src}
+                alt={heroComposition.tertiary.alt}
+                fill
+                sizes="(max-width: 1024px) 40vw, 15vw"
+                className="object-cover"
+              />
+            </div>
+          </motion.figure>
+
+          {/* Capability caption — one quiet, glassy trust line. */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-6 right-4 z-10 inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-xs font-semibold tracking-tight text-brand-ink shadow-lg ring-1 ring-brand-ink/10 backdrop-blur-md sm:bottom-10 sm:right-8 sm:text-sm"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" />
+            {heroComposition.caption}
+          </motion.div>
+
+          {/* Soft cream fade on the left so the composition melts into the copy. */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-brand-cream to-transparent lg:block" />
+        </div>
       </div>
 
       {/* Soft top scrim — keeps the header/nav readable over the photo without

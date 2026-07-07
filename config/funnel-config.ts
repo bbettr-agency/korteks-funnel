@@ -28,6 +28,32 @@ export const heroContent = {
   ],
 };
 
+// ── HERO COMPOSITION — layered factory photography ───────────────────────────
+// A designed, editorial arrangement of real Zaydtex / Korteks factory photos
+// (NOT stock) that reads "large, vertically integrated manufacturer" at a
+// glance: a dominant scale shot behind, two framed supporting panels
+// (machinery + product), and one capability caption. Swap any panel per site
+// by changing the src/alt below — the layout adapts automatically.
+export const heroComposition = {
+  // Dominant background panel — the "scale" shot (full-height, bleeds off edge).
+  primary: {
+    src: "/images/craftsmanship/DSC_0241.webp",
+    alt: "Row upon row of yarn packages on the warping creel, running the length of the Zaydtex / Korteks Textiles Africa mill",
+  },
+  // Framed supporting panel #1 — capability / machinery.
+  secondary: {
+    src: "/images/craftsmanship/DSC_0454.webp",
+    alt: "A jacquard weaving loom in production on the Zaydtex factory floor",
+  },
+  // Framed supporting panel #2 — the product being made (weaving / textile).
+  tertiary: {
+    src: "/images/craftsmanship/DSC_0292.webp",
+    alt: "Patterned lace fabric being knitted on the machine at Zaydtex",
+  },
+  // One quiet trust line, floated over the composition.
+  caption: "Spun, woven, dyed & finished under one roof",
+};
+
 // ── TRUST — the scale and capability behind the supply (no dates) ─────────────
 export const trustEyebrow = "One of the largest vertically integrated textile producers";
 export const trustStats = [
