@@ -83,7 +83,7 @@ export const siteConfig = {
 
   // ── Conversion tracking ── CLIENT TO SUPPLY (placeholders are no-op) ──────────
   tracking: {
-    gtmId: "GTM-XXXXXXX", // PLACEHOLDER — Google Tag Manager container
+    gtmId: "GTM-K6S3H8H9", // LIVE — Google Tag Manager container
     googleAdsId: "AW-XXXXXXXXXX", // PLACEHOLDER — Google Ads conversion ID
     leadConversionLabel: "XXXXXXXXXXXXXXXXXX", // PLACEHOLDER — fires on /thank-you
     callConversionLabel: "XXXXXXXXXXXXXXXXXX", // PLACEHOLDER — click-to-call
