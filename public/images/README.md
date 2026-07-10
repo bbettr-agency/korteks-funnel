@@ -37,6 +37,30 @@ path in config. Alt text is editable in config too (good for SEO/accessibility).
 - Always set meaningful **alt text** in config (not "image1") — it's read by
   Google and screen readers.
 
+## Externally sourced / extracted images (documented for licensing)
+
+These are **not** original Zaydtex photography. Replace with real Zaydtex/Korteks
+photos when available (just swap the path in config).
+
+| File | Used by | Source | Licence |
+|---|---|---|---|
+| `craftsmanship/dyeing-finishing.webp` | Capabilities → Dyeing & Finishing (`config/craftsmanship-config.ts`) | Pexels photo [38357014](https://www.pexels.com/photo/38357014/) | Pexels licence — free for commercial use, no attribution required |
+| `product-hooded-towel.webp` | Products → Towelling (`config/funnel-config.ts`) | Pexels photo [24538693](https://www.pexels.com/photo/24538693/) | Pexels licence — free for commercial use, no attribution required |
+| `product-dress-form.webp` | Products → Dress Forms (`config/funnel-config.ts`) | Extracted from the official **Company Profile 2024.pdf** (page 10, "Dressforms"), optimised for web | Client-owned company asset |
+
+Client-supplied factory photos added this round (real Zaydtex/Korteks). The client
+uploaded the full-res originals and named them; those originals are left untouched.
+The site renders web-optimised `.webp` derivatives generated from them:
+
+| Client original (untouched) | Optimised derivative (used by site) | Used by |
+|---|---|---|
+| `embroidery.jpg` | `embroidery.webp` | Capabilities → Embroidery |
+| `curtain being sewed` (no extension) | `curtain-being-sewed.webp` | Capabilities → Cut, Make & Trim |
+
+Still needed as real photos (currently placeholders / not authorised to source):
+Table Cloths (`product-jacquard.jpg`) and Scatter Cushions (`product-blackout.jpg`,
+currently a curtain).
+
 ## Not photography (do not replace with photos)
 
 - `knit-divider.png` — the optimised Zaydtex **knitting motif** used as the

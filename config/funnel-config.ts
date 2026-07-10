@@ -166,38 +166,51 @@ export const featuredProduct = {
 // product photos when supplied (just change the `image` path here).
 export const productRange = [
   {
-    image: "/images/craftsmanship/DSC_0454.webp",
-    alt: "Woven fabric on the loom",
+    // Authentic Zaydtex finished-fabric roll (replaces the earlier loom shot —
+    // client asked for finished roll goods, not machinery).
+    image: "/images/craftsmanship/DSC_0481.webp",
+    alt: "A finished roll of Zaydtex fabric",
     title: "Fabric by the Metre",
     line: "Cut to your requirement, any quantity.",
   },
   {
     image: "/images/craftsmanship/DSC_0500.webp",
-    alt: "Rolls of finished fabric",
+    alt: "A finished roll of Zaydtex fabric ready for supply",
     title: "Fabric by the Roll",
     line: "Roll goods for converters and the trade.",
   },
   {
-    image: "/images/product-jacquard.jpg", // PLACEHOLDER
+    // PLACEHOLDER — needs a real table-cloth-on-a-table photo. No authentic
+    // image supplied and internet sourcing not authorised for this product.
+    image: "/images/product-jacquard.jpg",
     alt: "Table linen",
     title: "Table Cloths",
     line: "Table linen for hospitality and retail.",
   },
   {
-    image: "/images/product-blackout.jpg", // PLACEHOLDER
+    // PLACEHOLDER — current image is a CURTAIN (must be replaced with a real
+    // scatter-cushion photo). No authentic image supplied and internet sourcing
+    // not authorised for this product.
+    image: "/images/product-blackout.jpg",
     alt: "Scatter cushions",
     title: "Scatter Cushions",
     line: "Coordinating cushions to finish a range.",
   },
   {
-    image: "/images/product-sheers.jpg", // PLACEHOLDER
-    alt: "Towelling products",
+    // EXTERNAL IMAGE (client-approved internet source; no supplied hooded-towel
+    // photo). Source: Pexels photo 24538693
+    // (https://www.pexels.com/photo/24538693/) — Pexels licence, free for
+    // commercial use, no attribution required. See public/images/README.md.
+    image: "/images/product-hooded-towel.webp",
+    alt: "A child wrapped in a soft children's hooded towel",
     title: "Towelling Products",
     line: "Our ZaHa snag-proof towelling range.",
   },
   {
-    image: "/images/product-lace.jpg", // PLACEHOLDER
-    alt: "Dress forms",
+    // Dress form extracted from the official Company Profile 2024 (page 10,
+    // "Dressforms") and optimised for web.
+    image: "/images/product-dress-form.webp",
+    alt: "Adjustable dressmaking mannequin / dress form",
     title: "Dress Forms",
     line: "Plain and adjustable, in every size.",
   },

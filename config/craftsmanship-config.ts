@@ -48,31 +48,38 @@ export const craftsmanship = {
       line: "Jacquards and wovens with real depth, woven wide.",
     },
     {
-      // NOTE: placeholder image — swap in a real Shifli embroidery photo when
-      // supplied (just replace this path).
-      image: `${DIR}/DSC_0370.webp`,
-      alt: "Detail work being added on the factory floor",
+      // Real embroidery photo supplied by the client (public/images/embroidery.jpg);
+      // this is the web-optimised webp derivative of that original.
+      image: "/images/embroidery.webp",
+      alt: "Detailed floral lace patterning being formed on a specialist embroidery machine at Korteks Textiles Africa",
       title: "Embroidery",
       line: "Pattern and detail added in-house on specialist machines.",
     },
     {
-      // Dyeing + finishing, shown as one department. Real finishing-line photo
-      // (fabric finished and rolled). NOTE: a dedicated dye-house photo would
-      // strengthen this further — swap the path in when supplied.
-      image: `${DIR}/DSC_0481.webp`,
-      alt: "Fabric being finished and rolled on the finishing line at Korteks Textiles Africa",
+      // EXTERNAL IMAGE (client-approved internet source; no Zaydtex dyeing/
+      // finishing photo available). Source: Pexels photo 38357014
+      // (https://www.pexels.com/photo/38357014/) — Pexels licence, free for
+      // commercial use, no attribution required. Swap for a real Korteks
+      // dye-house/finishing photo when supplied. See public/images/README.md.
+      image: `${DIR}/dyeing-finishing.webp`,
+      alt: "Fabric feeding through an industrial finishing line with large fabric rolls in a textile mill",
       title: "Dyeing & Finishing",
       line: "Colour that matches batch after batch, finished to a standard we'll put our name to.",
     },
     {
-      image: `${DIR}/DSC_0037.webp`,
-      alt: "The Zaydtex team cutting, sewing and finishing curtains on the CMT floor",
+      // Real "curtain being sewn" photo supplied by the client
+      // (public/images/curtain being sewed); this is the web-optimised webp
+      // derivative of that original.
+      image: "/images/curtain-being-sewed.webp",
+      alt: "A sheer curtain being sewn on an industrial machine on the Zaydtex CMT floor",
       title: "Cut, Make & Trim",
       line: "Curtains cut, sewn and finished by hands that have done it for years.",
     },
     {
-      image: `${DIR}/DSC_0500.webp`,
-      alt: "Finished fabric checked and rolled before shipping",
+      // Moved here from CMT — the team handling and checking finished curtains
+      // reads as inspection, better representing quality control.
+      image: `${DIR}/DSC_0037.webp`,
+      alt: "The Zaydtex team checking and finishing curtains before they are packed",
       title: "Quality Control",
       line: "Eight checks before anything is packed. If it's not right, it doesn't ship.",
     },
