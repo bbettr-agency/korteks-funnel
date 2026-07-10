@@ -20,12 +20,15 @@ export const heroContent = {
   headline: "We don't just supply textiles. We make them.",
   tagline: "From yarn to finished product.",
   subheadline:
-    "Ready-made curtains and a full textile range — made under 1 roof and supplied to retailers, wholesalers and projects right across South Africa.",
+    "Manufactured by Korteks Textiles Africa, one of South Africa's vertically integrated textile manufacturers, and supplied through Zaydtex to retailers, wholesalers and traders nationwide.",
   microPoints: [
-    "Vertically integrated",
-    "Quality-checked, in every process",
+    "Manufactured under one roof",
+    "Flexible production",
     "Proudly South African",
+    "Reliable supply",
   ],
+  // Company slogan — shown small, italic and understated below the trust points.
+  slogan: "We Beautify your home",
 };
 
 // ── HERO COMPOSITION — layered factory photography ───────────────────────────
@@ -55,7 +58,7 @@ export const heroComposition = {
 };
 
 // ── TRUST — the scale and capability behind the supply (no dates) ─────────────
-export const trustEyebrow = "One of the largest vertically integrated textile producers";
+export const trustEyebrow = "One of the largest vertically integrated textile producers in Africa";
 export const trustStats = [
   {
     icon: "Layers",
@@ -91,7 +94,7 @@ export const trustStats = [
 // ── WHO WE SUPPLY — the partner behind the trade ──────────────────────────────
 export const whoWeSupply = {
   intro:
-    "For years we've been the quiet partner behind the curtains and textiles you already know — supplying the trade, nationwide.",
+    "For years, we've been the quiet partner behind the curtains and textiles found in homes across South Africa.",
   buyers: [
     { icon: "Store", label: "Independent Retailers" },
     { icon: "Building2", label: "National Chains" },

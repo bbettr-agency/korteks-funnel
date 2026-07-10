@@ -70,6 +70,11 @@ export default function FunnelHero() {
                 </li>
               ))}
             </ul>
+
+            {/* Company slogan — quiet, elegant, understated. */}
+            <p className="mt-8 font-display text-lg italic tracking-tight text-brand-ink/45">
+              &ldquo;{heroContent.slogan}&rdquo;
+            </p>
           </motion.div>
         </div>
 

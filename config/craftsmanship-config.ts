@@ -56,22 +56,19 @@ export const craftsmanship = {
       line: "Pattern and detail added in-house on specialist machines.",
     },
     {
-      image: `${DIR}/DSC_0358.webp`,
-      alt: "Dyed yarn cones ready for production",
-      title: "Dyeing",
-      line: "Colour that matches, batch after batch.",
-    },
-    {
+      // Dyeing + finishing, shown as one department. Real finishing-line photo
+      // (fabric finished and rolled). NOTE: a dedicated dye-house photo would
+      // strengthen this further — swap the path in when supplied.
       image: `${DIR}/DSC_0481.webp`,
-      alt: "Fabric being finished on the line",
-      title: "Finishing",
-      line: "Finished to a standard we'll put our name to.",
+      alt: "Fabric being finished and rolled on the finishing line at Korteks Textiles Africa",
+      title: "Dyeing & Finishing",
+      line: "Colour that matches batch after batch, finished to a standard we'll put our name to.",
     },
     {
       image: `${DIR}/DSC_0037.webp`,
-      alt: "The Zaydtex team cutting and finishing curtains",
+      alt: "The Zaydtex team cutting, sewing and finishing curtains on the CMT floor",
       title: "Cut, Make & Trim",
-      line: "Cut, sewn and finished by hands that have done it for years.",
+      line: "Curtains cut, sewn and finished by hands that have done it for years.",
     },
     {
       image: `${DIR}/DSC_0500.webp`,
