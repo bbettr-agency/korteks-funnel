@@ -37,29 +37,30 @@ path in config. Alt text is editable in config too (good for SEO/accessibility).
 - Always set meaningful **alt text** in config (not "image1") — it's read by
   Google and screen readers.
 
-## Externally sourced / extracted images (documented for licensing)
+## Client-supplied images → optimised derivatives
 
-These are **not** original Zaydtex photography. Replace with real Zaydtex/Korteks
-photos when available (just swap the path in config).
-
-| File | Used by | Source | Licence |
-|---|---|---|---|
-| `craftsmanship/dyeing-finishing.webp` | Capabilities → Dyeing & Finishing (`config/craftsmanship-config.ts`) | Pexels photo [38357014](https://www.pexels.com/photo/38357014/) | Pexels licence — free for commercial use, no attribution required |
-| `product-hooded-towel.webp` | Products → Towelling (`config/funnel-config.ts`) | Pexels photo [24538693](https://www.pexels.com/photo/24538693/) | Pexels licence — free for commercial use, no attribution required |
-| `product-dress-form.webp` | Products → Dress Forms (`config/funnel-config.ts`) | Extracted from the official **Company Profile 2024.pdf** (page 10, "Dressforms"), optimised for web | Client-owned company asset |
-
-Client-supplied factory photos added this round (real Zaydtex/Korteks). The client
-uploaded the full-res originals and named them; those originals are left untouched.
-The site renders web-optimised `.webp` derivatives generated from them:
+The client uploads full-res originals (named after their section) and those
+originals are left **untouched**. The site is config-driven and renders
+web-optimised, web-safe-named `.webp` derivatives generated from them (the
+originals' names contain spaces / `&` / mixed formats that are unreliable in
+URLs). To swap any image later, replace the original and regenerate the webp,
+or point the config path at a new file.
 
 | Client original (untouched) | Optimised derivative (used by site) | Used by |
 |---|---|---|
 | `embroidery.jpg` | `embroidery.webp` | Capabilities → Embroidery |
 | `curtain being sewed` (no extension) | `curtain-being-sewed.webp` | Capabilities → Cut, Make & Trim |
+| `Dying & Finishing.png` | `craftsmanship/dyeing-finishing.webp` | Capabilities → Dyeing & Finishing |
+| `Ready made curtain.jpg` | `product-ready-made-curtain.webp` | Products → Ready-Made Curtains |
+| `Scatter cusion.png` | `product-scatter-cushion.webp` | Products → Scatter Cushions |
+| `Table cloth.avif` (264×264, low-res) | `product-table-cloth.webp` | Products → Table Cloths |
+| `Towel.webp` | `product-towel.webp` | Products → Towelling |
 
-Still needed as real photos (currently placeholders / not authorised to source):
-Table Cloths (`product-jacquard.jpg`) and Scatter Cushions (`product-blackout.jpg`,
-currently a curtain).
+## Extracted from the company profile
+
+| File | Used by | Source | Licence |
+|---|---|---|---|
+| `product-dress-form.webp` | Products → Dress Forms (`config/funnel-config.ts`) | Extracted from the official **Company Profile 2024.pdf** (page 10, "Dressforms"), optimised for web | Client-owned company asset |
 
 ## Not photography (do not replace with photos)
 

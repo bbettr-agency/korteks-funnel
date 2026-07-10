@@ -56,13 +56,10 @@ export const craftsmanship = {
       line: "Pattern and detail added in-house on specialist machines.",
     },
     {
-      // EXTERNAL IMAGE (client-approved internet source; no Zaydtex dyeing/
-      // finishing photo available). Source: Pexels photo 38357014
-      // (https://www.pexels.com/photo/38357014/) — Pexels licence, free for
-      // commercial use, no attribution required. Swap for a real Korteks
-      // dye-house/finishing photo when supplied. See public/images/README.md.
+      // Real Korteks dyeing & finishing photo supplied by the client (uploaded
+      // as "Dying & Finishing.png"); optimised into this webp derivative.
       image: `${DIR}/dyeing-finishing.webp`,
-      alt: "Fabric feeding through an industrial finishing line with large fabric rolls in a textile mill",
+      alt: "Fabric running through the finishing machine on the Korteks Textiles Africa dyeing & finishing line",
       title: "Dyeing & Finishing",
       line: "Colour that matches batch after batch, finished to a standard we'll put our name to.",
     },

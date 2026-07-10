@@ -156,8 +156,10 @@ export const featuredProduct = {
   title: "Ready-Made Curtains",
   description:
     "Made, packaged and barcoded in-house — ready for your shelves or your project. Almost a million leave our floor a year, so the lines you reorder are always there.",
-  image: "/images/craftsmanship/DSC_0002.webp",
-  alt: "Packaged Zaydtex ready-made curtains, barcoded and retail-ready",
+  // Client-supplied ready-made curtain photo (uploaded as "Ready made
+  // curtain.jpg"); optimised into this webp derivative.
+  image: "/images/product-ready-made-curtain.webp",
+  alt: "Zaydtex ready-made curtains hung in a styled interior",
   cta: "Request a Curtain Supply Quote",
 };
 
@@ -180,29 +182,26 @@ export const productRange = [
     line: "Roll goods for converters and the trade.",
   },
   {
-    // PLACEHOLDER — needs a real table-cloth-on-a-table photo. No authentic
-    // image supplied and internet sourcing not authorised for this product.
-    image: "/images/product-jacquard.jpg",
-    alt: "Table linen",
+    // Client-supplied table cloth photo (uploaded as "Table cloth.avif");
+    // optimised into this webp derivative.
+    image: "/images/product-table-cloth.webp",
+    alt: "A table cloth laid on a dining table",
     title: "Table Cloths",
     line: "Table linen for hospitality and retail.",
   },
   {
-    // PLACEHOLDER — current image is a CURTAIN (must be replaced with a real
-    // scatter-cushion photo). No authentic image supplied and internet sourcing
-    // not authorised for this product.
-    image: "/images/product-blackout.jpg",
-    alt: "Scatter cushions",
+    // Client-supplied scatter cushion photo (uploaded as "Scatter cusion.png");
+    // optimised into this webp derivative.
+    image: "/images/product-scatter-cushion.webp",
+    alt: "A woven scatter cushion",
     title: "Scatter Cushions",
     line: "Coordinating cushions to finish a range.",
   },
   {
-    // EXTERNAL IMAGE (client-approved internet source; no supplied hooded-towel
-    // photo). Source: Pexels photo 24538693
-    // (https://www.pexels.com/photo/24538693/) — Pexels licence, free for
-    // commercial use, no attribution required. See public/images/README.md.
-    image: "/images/product-hooded-towel.webp",
-    alt: "A child wrapped in a soft children's hooded towel",
+    // Client-supplied towelling photo (uploaded as "Towel.webp"); optimised
+    // into this webp derivative.
+    image: "/images/product-towel.webp",
+    alt: "A neatly folded stack of Zaydtex towels",
     title: "Towelling Products",
     line: "Our ZaHa snag-proof towelling range.",
   },
