@@ -32,7 +32,12 @@ export default function MinimalHeader() {
   };
 
   const wordmark = (
-    <span className="font-display text-xl font-extrabold lowercase tracking-tight text-brand-ink">
+    <span
+      className={cn(
+        "font-display font-extrabold lowercase tracking-tight text-brand-ink transition-all duration-500",
+        isScrolled ? "text-xl" : "text-2xl sm:text-3xl"
+      )}
+    >
       zayd<span className="text-brand-primary">tex</span>
     </span>
   );
@@ -57,7 +62,14 @@ export default function MinimalHeader() {
           className="flex items-center gap-2.5"
           aria-label={siteConfig.businessName}
         >
-          <Logo variant="icon" className="h-9 w-auto sm:h-10" markClassName="h-9 w-9" />
+          <Logo
+            variant="icon"
+            className={cn(
+              "w-auto transition-all duration-500",
+              isScrolled ? "h-9 sm:h-10" : "h-12 sm:h-14"
+            )}
+            markClassName="h-9 w-9"
+          />
           {wordmark}
         </Link>
 

@@ -67,19 +67,19 @@ export default function MinimalFooter() {
             <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-brand-primaryLight">
               Contact
             </h3>
-            <div className="mt-4 flex flex-col gap-3 text-sm">
+            <div className="mt-4 flex flex-col gap-3.5 text-base leading-relaxed">
               <a
                 href={siteConfig.phoneLink}
-                className="inline-flex items-center gap-2.5 font-semibold text-brand-cream transition hover:text-brand-primaryLight"
+                className="inline-flex items-center gap-3 font-semibold text-brand-cream transition hover:text-brand-primaryLight"
               >
-                <Phone className="h-4 w-4 text-brand-primaryLight" />
+                <Phone className="h-5 w-5 shrink-0 text-brand-primaryLight" />
                 {siteConfig.phoneDisplay}
               </a>
               <a
                 href={siteConfig.emailLink}
-                className="inline-flex items-center gap-2.5 font-semibold text-brand-cream transition hover:text-brand-primaryLight"
+                className="inline-flex items-center gap-3 font-semibold text-brand-cream transition hover:text-brand-primaryLight"
               >
-                <Mail className="h-4 w-4 text-brand-primaryLight" />
+                <Mail className="h-5 w-5 shrink-0 text-brand-primaryLight" />
                 {siteConfig.email}
               </a>
             </div>

@@ -26,7 +26,10 @@ export const siteConfig = {
   // exist, a built-in fallback wordmark renders.
   logo: {
     primary: "/images/logo/logo-primary.png", // main horizontal logo (header/footer)
-    icon: "/images/logo/logo-icon.png", // square Z icon / browser favicon
+    // Transparent-corner version (original logo-icon.png has an opaque white
+    // background that showed as white corners on the dark footer). Original is
+    // preserved at logo-icon.png.
+    icon: "/images/logo/logo-icon-transparent.png", // square Z icon
     favicon: "/images/logo/favicon.ico", // optional legacy favicon (future)
     ogImage: "/images/logo/og-image.jpg", // social share preview, 1200×630 (future)
   },

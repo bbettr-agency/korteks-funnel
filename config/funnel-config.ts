@@ -48,13 +48,14 @@ export const heroComposition = {
     src: "/images/craftsmanship/DSC_0454.webp",
     alt: "A jacquard weaving loom in production on the Zaydtex factory floor",
   },
-  // Framed supporting panel #2 — the product being made (weaving / textile).
+  // Framed supporting panel #2 — the people/process on the factory floor, so
+  // the hero reads as a real, staffed operation (not a distributor).
   tertiary: {
-    src: "/images/craftsmanship/DSC_0292.webp",
-    alt: "Patterned lace fabric being knitted on the machine at Zaydtex",
+    src: "/images/craftsmanship/DSC_0037.webp",
+    alt: "The Zaydtex team cutting, sewing and finishing curtains on the factory floor",
   },
   // One quiet trust line, floated over the composition.
-  caption: "Spun, woven, dyed & finished under one roof",
+  caption: "A real factory — every process under one roof",
 };
 
 // ── TRUST — the scale and capability behind the supply (no dates) ─────────────
@@ -112,7 +113,7 @@ export const factory = {
   eyebrow: "The Manufacturer Behind Zaydtex",
   heading: "Everything we sell, we make.",
   sentence:
-    "Zaydtex is manufactured by Korteks Textiles Africa — one of South Africa's most vertically integrated textile operations. Warping, knitting, weaving, embroidery, dyeing, finishing, CMT and other processes, all under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
+    "Zaydtex products are manufactured by Korteks Textiles Africa — one of South Africa's most vertically integrated textile operations. Warping, knitting, weaving, embroidery, dyeing, finishing, CMT and other processes all take place under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
   steps: [
     "Yarn",
     "Knitted & Woven",

@@ -26,6 +26,11 @@ export default function FunnelHero() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl"
           >
+            {/* Brand slogan — sits above the eyebrow as a genuine tagline:
+                elegant italic, accent colour, generous spacing, refined. */}
+            <p className="mb-7 font-display text-lg italic tracking-tight text-brand-primary/85 sm:text-xl">
+              &ldquo;{heroContent.slogan}&rdquo;
+            </p>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
               {heroContent.eyebrow}
             </p>
@@ -70,11 +75,6 @@ export default function FunnelHero() {
                 </li>
               ))}
             </ul>
-
-            {/* Company slogan — quiet, elegant, understated. */}
-            <p className="mt-8 font-display text-lg italic tracking-tight text-brand-ink/45">
-              &ldquo;{heroContent.slogan}&rdquo;
-            </p>
           </motion.div>
         </div>
 
