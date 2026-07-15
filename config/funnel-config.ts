@@ -38,21 +38,24 @@ export const heroContent = {
 // (machinery + product), and one capability caption. Swap any panel per site
 // by changing the src/alt below — the layout adapts automatically.
 export const heroComposition = {
-  // Dominant background panel — the "scale" shot (full-height, bleeds off edge).
+  // Dominant panel — the "scale" shot (full-height, bleeds off edge). The vast
+  // warping creel hall reads instantly as a large manufacturing operation.
+  // (Optimised from the client's DSC_0298.jpg.)
   primary: {
-    src: "/images/craftsmanship/DSC_0241.webp",
-    alt: "Row upon row of yarn packages on the warping creel, running the length of the Zaydtex / Korteks Textiles Africa mill",
+    src: "/images/hero-scale.webp",
+    alt: "The vast warping creel hall at Korteks Textiles Africa, lined with thousands of yarn packages running to a vanishing point",
   },
-  // Framed supporting panel #1 — capability / machinery.
+  // Supporting panel #1 — knitting: a wide raschel machine producing lace.
+  // (Optimised from the client's DSC_0283.jpg.)
   secondary: {
-    src: "/images/craftsmanship/DSC_0454.webp",
-    alt: "A jacquard weaving loom in production on the Zaydtex factory floor",
+    src: "/images/hero-knitting.webp",
+    alt: "A wide raschel knitting machine producing lace fabric on the Korteks factory floor",
   },
-  // Framed supporting panel #2 — the people/process on the factory floor, so
-  // the hero reads as a real, staffed operation (not a distributor).
+  // Supporting panel #2 — weaving: a jacquard loom in production.
+  // (Optimised from the client's DSC_0454.jpg.)
   tertiary: {
-    src: "/images/craftsmanship/DSC_0037.webp",
-    alt: "The Zaydtex team cutting, sewing and finishing curtains on the factory floor",
+    src: "/images/hero-weaving.webp",
+    alt: "A jacquard weaving loom running a golden warp on the Korteks factory floor",
   },
   // One quiet trust line, floated over the composition.
   caption: "A real factory — every process under one roof",

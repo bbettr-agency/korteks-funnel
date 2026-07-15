@@ -102,42 +102,39 @@ export default function FunnelHero() {
             </div>
           </motion.div>
 
-          {/* Framed panel #1 — machinery / capability. Floats over the lower-left,
-              reaching toward the copy like a laid-down print. */}
+          {/* Supporting panel #1 — knitting machine. Floats over the lower-left,
+              reaching toward the copy. Clean: thin light ring + soft shadow,
+              no heavy frame. */}
           <motion.figure
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-6 left-4 w-[52%] max-w-[19rem] rounded-2xl bg-white p-1.5 shadow-2xl ring-1 ring-brand-ink/10 sm:bottom-10 sm:left-8 lg:-left-10 lg:bottom-16"
+            className="absolute bottom-6 left-4 aspect-[4/3] w-[52%] max-w-[19rem] overflow-hidden rounded-2xl shadow-[0_18px_40px_-18px_rgba(46,33,23,0.5)] ring-1 ring-white/55 sm:bottom-10 sm:left-8 lg:-left-10 lg:bottom-16"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-              <Image
-                src={heroComposition.secondary.src}
-                alt={heroComposition.secondary.alt}
-                fill
-                sizes="(max-width: 1024px) 52vw, 20vw"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={heroComposition.secondary.src}
+              alt={heroComposition.secondary.alt}
+              fill
+              sizes="(max-width: 1024px) 52vw, 20vw"
+              className="object-cover"
+            />
           </motion.figure>
 
-          {/* Framed panel #2 — the product being made. Smaller, upper area.
-              Hidden on the smallest screens to keep the stack calm. */}
+          {/* Supporting panel #2 — weaving loom. Smaller, upper area. Hidden on
+              the smallest screens to keep the mobile stack calm. */}
           <motion.figure
             initial={{ opacity: 0, y: -22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute right-5 top-8 hidden w-[40%] max-w-[14rem] rounded-2xl bg-white p-1.5 shadow-xl ring-1 ring-brand-ink/10 sm:block lg:right-8 lg:top-24"
+            className="absolute right-5 top-8 hidden aspect-[4/3] w-[40%] max-w-[14rem] overflow-hidden rounded-2xl shadow-[0_16px_36px_-18px_rgba(46,33,23,0.5)] ring-1 ring-white/55 sm:block lg:right-8 lg:top-24"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-              <Image
-                src={heroComposition.tertiary.src}
-                alt={heroComposition.tertiary.alt}
-                fill
-                sizes="(max-width: 1024px) 40vw, 15vw"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={heroComposition.tertiary.src}
+              alt={heroComposition.tertiary.alt}
+              fill
+              sizes="(max-width: 1024px) 40vw, 15vw"
+              className="object-cover"
+            />
           </motion.figure>
 
           {/* Capability caption — one quiet, glassy trust line. */}
