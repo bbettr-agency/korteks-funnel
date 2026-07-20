@@ -73,10 +73,10 @@ export const craftsmanship = {
       line: "Curtains cut, sewn and finished by hands that have done it for years.",
     },
     {
-      // Moved here from CMT — the team handling and checking finished curtains
-      // reads as inspection, better representing quality control.
-      image: `${DIR}/DSC_0037.webp`,
-      alt: "The Zaydtex team checking and finishing curtains before they are packed",
+      // Real inspection photo supplied by the client (uploaded as DSC_0077.jpg);
+      // optimised into this webp derivative.
+      image: `${DIR}/quality-control.webp`,
+      alt: "A Zaydtex quality controller checking and measuring a finished lace curtain on the factory floor",
       title: "Quality Control",
       line: "Eight checks before anything is packed. If it's not right, it doesn't ship.",
     },

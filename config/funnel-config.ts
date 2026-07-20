@@ -160,10 +160,10 @@ export const featuredProduct = {
   title: "Ready-Made Curtains",
   description:
     "Made, packaged and barcoded in-house — ready for your shelves or your project. Almost a million leave our floor a year, so the lines you reorder are always there.",
-  // Client-supplied ready-made curtain photo (uploaded as "Ready made
-  // curtain.jpg"); optimised into this webp derivative.
+  // Client-supplied ready-made curtain photo (uploaded as DSC08231.jpg) —
+  // the branded, taped, hook-ready header; optimised into this webp derivative.
   image: "/images/product-ready-made-curtain.webp",
-  alt: "Zaydtex ready-made curtains hung in a styled interior",
+  alt: "A Zaydtex ready-made curtain showing the taped header, hooks and branded Zaydtex label",
   cta: "Request a Curtain Supply Quote",
 };
 
@@ -202,10 +202,10 @@ export const productRange = [
     line: "Coordinating cushions to finish a range.",
   },
   {
-    // Client-supplied towelling photo (uploaded as "Towel.webp"); optimised
-    // into this webp derivative.
+    // Client-supplied towelling photo (uploaded as "Hooded Towel.png") —
+    // the ZaHa children's hooded towel; optimised into this webp derivative.
     image: "/images/product-towel.webp",
-    alt: "A neatly folded stack of Zaydtex towels",
+    alt: "A children's hooded towel poncho from the Zaydtex ZaHa towelling range",
     title: "Towelling Products",
     line: "Our ZaHa snag-proof towelling range.",
   },
