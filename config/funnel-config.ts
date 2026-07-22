@@ -172,24 +172,26 @@ export const featuredProduct = {
 // product photos when supplied (just change the `image` path here).
 export const productRange = [
   {
-    // Authentic Zaydtex finished-fabric roll (replaces the earlier loom shot —
-    // client asked for finished roll goods, not machinery).
-    image: "/images/craftsmanship/DSC_0481.webp",
-    alt: "A finished roll of Zaydtex fabric",
+    // Client-supplied photo (uploaded as "Fabric by the meter.jpeg");
+    // optimised into this webp derivative.
+    image: "/images/product-fabric-metre.webp",
+    alt: "Embroidered Zaydtex voile being measured and rolled off the machine, sold by the metre",
     title: "Fabric by the Metre",
     line: "Cut to your requirement, any quantity.",
   },
   {
-    image: "/images/craftsmanship/DSC_0500.webp",
-    alt: "A finished roll of Zaydtex fabric ready for supply",
+    // Client-supplied photo (uploaded as "Fabric by the roll.jpeg");
+    // optimised into this webp derivative.
+    image: "/images/product-fabric-roll.webp",
+    alt: "Zaydtex-branded rolls of finished fabric wrapped and racked, ready for supply",
     title: "Fabric by the Roll",
     line: "Roll goods for converters and the trade.",
   },
   {
-    // Client-supplied table cloth photo (uploaded as "Table cloth.avif");
+    // Client-supplied table cloth photo (uploaded as "Table cloth.png");
     // optimised into this webp derivative.
     image: "/images/product-table-cloth.webp",
-    alt: "A table cloth laid on a dining table",
+    alt: "A linen table cloth laid over a dining table with place settings",
     title: "Table Cloths",
     line: "Table linen for hospitality and retail.",
   },

@@ -48,18 +48,18 @@ export const craftsmanship = {
       line: "Jacquards and wovens with real depth, woven wide.",
     },
     {
-      // Real embroidery photo supplied by the client (public/images/embroidery.jpg);
-      // this is the web-optimised webp derivative of that original.
-      image: "/images/embroidery.webp",
-      alt: "Detailed floral lace patterning being formed on a specialist embroidery machine at Korteks Textiles Africa",
+      // Real embroidery photo supplied by the client (uploaded as
+      // "embriodery 101.jpeg"); optimised into this webp derivative.
+      image: `${DIR}/embroidery.webp`,
+      alt: "A Lässer Schiffli embroidery machine embroidering patterned fabric at Korteks Textiles Africa",
       title: "Embroidery",
       line: "Pattern and detail added in-house on specialist machines.",
     },
     {
       // Real Korteks dyeing & finishing photo supplied by the client (uploaded
-      // as "Dying & Finishing.png"); optimised into this webp derivative.
+      // as "Dying & Finishing.jpeg"); optimised into this webp derivative.
       image: `${DIR}/dyeing-finishing.webp`,
-      alt: "Fabric running through the finishing machine on the Korteks Textiles Africa dyeing & finishing line",
+      alt: "Fabric feeding through the stenter on the Korteks Textiles Africa dyeing & finishing line",
       title: "Dyeing & Finishing",
       line: "Colour that matches batch after batch, finished to a standard we'll put our name to.",
     },
