@@ -204,10 +204,10 @@ export const productRange = [
     line: "Coordinating cushions to finish a range.",
   },
   {
-    // Client-supplied towelling photo (uploaded as "Hooded Towel.png") —
-    // the ZaHa children's hooded towel; optimised into this webp derivative.
+    // Client-supplied towelling photo (uploaded as "toweling product png.webp")
+    // — soft terry towelling fabric; optimised into this webp derivative.
     image: "/images/product-towel.webp",
-    alt: "A children's hooded towel poncho from the Zaydtex ZaHa towelling range",
+    alt: "A soft swirl of Zaydtex ZaHa terry towelling fabric",
     title: "Towelling Products",
     line: "Our ZaHa snag-proof towelling range.",
   },
