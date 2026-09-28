@@ -9,6 +9,7 @@ import { organizationSchema } from "@/lib/schema";
 import TrackingScripts, {
   GtmNoScript,
 } from "@/components/funnel/tracking-scripts";
+import AttributionCapture from "@/components/funnel/attribution-capture";
 
 const body = Inter({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
       </head>
       <body className="bg-white text-brand-ink antialiased">
         <GtmNoScript />
+        <AttributionCapture />
         {children}
         <TrackingScripts />
         <Analytics />

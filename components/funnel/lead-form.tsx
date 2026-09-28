@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, Tag } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import { businessTypes } from "@/config/funnel-config";
@@ -29,7 +29,19 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  // Product the buyer clicked to get here (?product=…), so we pre-note the
+  // enquiry with their intent instead of asking them to retype it.
+  const [product, setProduct] = useState<string | null>(null);
   const id = (name: string) => `${name}-${instanceId}`;
+
+  useEffect(() => {
+    try {
+      const p = new URLSearchParams(window.location.search).get("product");
+      if (p) setProduct(p.slice(0, 120));
+    } catch {
+      /* no-op */
+    }
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,13 +74,20 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
     setErrors({});
     setStatus("submitting");
 
+    // Prepend the clicked-product intent so it's captured even when the buyer
+    // leaves the (optional) message blank.
+    const typed = (data.get("message") as string)?.trim() || "";
+    const message = product
+      ? [`Product interest: ${product}.`, typed].filter(Boolean).join(" ")
+      : typed;
+
     const result = await submitLead({
       fullName: name,
       companyName: company,
       email,
       phone,
       businessType,
-      message: (data.get("message") as string)?.trim() || "",
+      message,
     });
 
     if (!result.ok) {
@@ -81,6 +100,7 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
       form: "ready-made-curtains-trade",
       instance: instanceId,
       business_type: businessType,
+      ...(product ? { product } : {}),
     });
 
     router.push(siteConfig.thankYouPath);
@@ -105,6 +125,18 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
           <input type="text" name="_honey" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
+
+      {/* Product-intent context — shown when the buyer arrived from a product
+          card, so they know their interest is already noted. */}
+      {product && (
+        <div className="flex items-center gap-2 rounded-xl border border-brand-primary/20 bg-brand-primary/[0.06] px-3.5 py-2.5 text-sm font-semibold text-brand-ink">
+          <Tag className="h-4 w-4 shrink-0 text-brand-primary" />
+          <span>
+            Enquiring about{" "}
+            <span className="text-brand-primary">{product}</span>
+          </span>
+        </div>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

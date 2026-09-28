@@ -1,13 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { whyZaydtex } from "@/config/funnel-config";
+import { siteConfig } from "@/config/site-config";
 import Icon from "@/components/ui/icon";
 
 export default function WhyZaydtex() {
   return (
-    <section id="why" className="bg-white px-6 py-24 md:py-28 lg:px-8">
+    <section id="why" className="bg-brand-cream px-6 py-24 md:py-28 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -44,6 +47,24 @@ export default function WhyZaydtex() {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA — this is a decision point: after the reasons to buy direct,
+            give the buyer the action. */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="mt-14"
+        >
+          <Link
+            href={siteConfig.quotePath}
+            className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-primary px-8 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:bg-brand-primaryDark"
+          >
+            {siteConfig.ctaQuote}
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

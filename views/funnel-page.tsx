@@ -18,19 +18,20 @@ export default function FunnelPage() {
       <main>
         {/* What is this company? */}
         <FunnelHero />
-        {/* Can I trust them? */}
+        {/* Can I trust them? (immediate proof) */}
         <TrustStrip />
-        {/* Do they supply businesses like mine? */}
+        {/* Do they supply businesses like mine? (relevance) */}
         <WhoWeSupply />
+        {/* Can they supply what I need? (product fit, early — before the buyer
+            invests attention in the long manufacturing story) */}
+        <Products />
         <KnittingDivider />
-        {/* Do they manufacture, or just resell? */}
+        {/* Do they manufacture, or just resell? (the differentiator) */}
         <Factory />
         <KnittingDivider />
         {/* Can I trust the quality of what I'm buying? */}
         <Craftsmanship />
-        {/* Do they have the products I need? */}
-        <Products />
-        {/* Why buy from them instead of another supplier? */}
+        {/* Why buy from them instead of another supplier? (+ CTA) */}
         <WhyZaydtex />
         <KnittingDivider />
         {/* What's the easiest next step? */}

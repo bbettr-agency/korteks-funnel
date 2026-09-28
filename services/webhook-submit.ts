@@ -9,6 +9,7 @@
  */
 
 import { leadWebhook } from "@/config/integrations";
+import { getAttribution } from "@/lib/attribution";
 
 export interface LeadPayload {
   fullName: string;
@@ -38,7 +39,10 @@ export async function submitLead(payload: LeadPayload): Promise<SubmitResult> {
         Accept: "application/json",
         ...leadWebhook.authHeaders,
       },
-      body: JSON.stringify(payload),
+      // Merge first-touch attribution (gclid / UTM / landing page) so leads are
+      // attributable in the CRM and importable as Google Ads offline
+      // conversions. Extra keys are ignored by the webhook if unmapped.
+      body: JSON.stringify({ ...payload, ...getAttribution() }),
     });
 
     if (!res.ok) {

@@ -8,9 +8,14 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { featuredProduct, productRange, productsNote } from "@/config/funnel-config";
 import { siteConfig } from "@/config/site-config";
 
+/** Link to the quote form, carrying which product the buyer clicked so the
+ *  form can pre-note the intent (captured in the lead + GTM event). */
+const quoteFor = (product: string) =>
+  `${siteConfig.quotePath}?product=${encodeURIComponent(product)}`;
+
 export default function Products() {
   return (
-    <section id="products" className="bg-brand-cream px-6 py-24 md:py-28 lg:px-8">
+    <section id="products" className="bg-white px-6 py-24 md:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* heading */}
         <motion.div
@@ -37,7 +42,7 @@ export default function Products() {
           className="mt-12 grid items-center gap-10 lg:grid-cols-2"
         >
           <Link
-            href={siteConfig.quotePath}
+            href={quoteFor(featuredProduct.title)}
             className="group relative block aspect-[4/3] overflow-hidden rounded-3xl shadow-soft"
           >
             <Image
@@ -59,7 +64,7 @@ export default function Products() {
               {featuredProduct.description}
             </p>
             <Link
-              href={siteConfig.quotePath}
+              href={quoteFor(featuredProduct.title)}
               className="group mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-primary"
             >
               {featuredProduct.cta}
@@ -79,8 +84,8 @@ export default function Products() {
               viewport={{ once: true, margin: "-40px" }}
             >
               <Link
-                href={siteConfig.quotePath}
-                className="group block overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-soft"
+                href={quoteFor(p.title)}
+                className="group block overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-brand-bone transition-all duration-500 hover:-translate-y-1 hover:shadow-soft"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image

@@ -52,7 +52,7 @@ export default function GetAQuotePage() {
             <FormPanel
               instanceId="quote"
               heading="Request Trade / Wholesale Pricing"
-              subheading="Ready-made curtains · Tell us what you need and we'll quote it."
+              subheading="Curtains, fabric & the full textile range · Tell us what you need and we'll quote it."
             />
             <div className="mt-4 flex items-center justify-center gap-2 text-center text-xs text-brand-ink/55">
               <Clock className="h-3.5 w-3.5 text-brand-primary" />
