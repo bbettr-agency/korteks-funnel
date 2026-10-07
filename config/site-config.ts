@@ -56,6 +56,8 @@ export const siteConfig = {
   postalCode: "0157",
   country: "South Africa",
   serviceArea: "Supplying nationwide across South Africa",
+  // Single-line address shown in the footer (clickable → Google Maps).
+  addressDisplay: "14 Sesmylspruit St, Sunderland Ridge, Centurion, 0157",
 
   hours: "Mon – Fri · 08:00 – 17:00", // PLACEHOLDER — confirm trading hours
   website: "https://zaydtex.com",

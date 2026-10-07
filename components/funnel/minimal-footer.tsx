@@ -85,21 +85,25 @@ export default function MinimalFooter() {
             </div>
           </div>
 
-          {/* Address */}
+          {/* Address — clickable, opens Google Maps in a new tab */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-brand-primaryLight">
               Visit
             </h3>
-            <p className="mt-4 inline-flex items-start gap-2.5 text-sm leading-6 text-brand-cream/70">
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                siteConfig.addressDisplay
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${siteConfig.addressDisplay} in Google Maps`}
+              className="group mt-4 inline-flex max-w-xs items-start gap-2.5 text-sm leading-6 text-brand-cream/70 transition hover:text-brand-primaryLight"
+            >
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-primaryLight" />
-              <span>
-                {siteConfig.addressLine}
-                <br />
-                {siteConfig.suburb}, {siteConfig.city}
-                <br />
-                {siteConfig.postalCode}, {siteConfig.country}
+              <span className="underline-offset-2 group-hover:underline">
+                {siteConfig.addressDisplay}
               </span>
-            </p>
+            </a>
           </div>
         </div>
 

@@ -16,9 +16,12 @@ export interface LeadPayload {
   companyName: string;
   email: string;
   phone: string;
+  /** Backend key preserved for GHL. Now carries the written "Nature of
+   *  Business" explanation (free text), not a fixed category. */
   businessType: string;
-  /** Required B2B gate — confirmed they enquire on behalf of a registered business. */
-  registeredBusiness: boolean;
+  /** Required B2B gate — "Yes" (only qualified, registered-business leads
+   *  ever reach the webhook; "No" is disqualified before submission). */
+  registeredBusiness: string;
   /** Required — comma-separated list of the Zaydtex categories they want.
    *  Serialised to a string (not an array) so GHL can map it to one field. */
   productsInterested: string;
