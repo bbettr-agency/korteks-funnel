@@ -191,7 +191,7 @@ Built from the profile + the 8 strongest facts (nothing invented).
   cards, copper-"Z" drapery hero visual, copper-thread card hovers — in
   `globals.css` + `tailwind.config.ts`.
 - **Real contact (from profile):** phone `012 666 7100`, email
-  `info@zaydtex.com`, address 14 Sesmylspruit Street, Sunderland Ridge, Centurion,
+  `sales@zaydtex.com`, address 14 Sesmylspruit Street, Sunderland Ridge, Centurion,
   0157. Website `zaydtex.com`.
 - **Trust facts used (all real):** almost 1M curtains/yr · largest in Africa ·
   since 1997 · 250+ employees · 19,000 m² · SA owned & operated · B-BBEE · 8 QC

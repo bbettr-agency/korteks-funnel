@@ -17,8 +17,8 @@
 // ── HERO — "What is Zaydtex, why trust them, what next?" ──────────────────────
 export const heroContent = {
   eyebrow: "Zaydtex · Manufactured by Korteks Textiles Africa",
-  headline: "We don't just supply textiles. We make them.",
-  tagline: "From yarn to finished product.",
+  headline: "We don't just supply curtains. We make them.",
+  tagline: "From start to finish.",
   subheadline:
     "Manufactured by Korteks Textiles Africa, one of South Africa's vertically integrated textile manufacturers, and supplied through Zaydtex to retailers, wholesalers and traders nationwide.",
   microPoints: [
@@ -172,6 +172,15 @@ export const featuredProduct = {
 // product photos when supplied (just change the `image` path here).
 export const productRange = [
   {
+    // Ready-Made Curtains also appears here as a normal category — deliberate:
+    // the grid lists the actual categories Zaydtex supplies. Reuses the
+    // featured ready-made curtain photo.
+    image: "/images/product-ready-made-curtain.webp",
+    alt: "A Zaydtex ready-made curtain showing the taped header, hooks and branded Zaydtex label",
+    title: "Ready-Made Curtains",
+    line: "Packaged and barcoded in-house, ready for your shelves.",
+  },
+  {
     // Client-supplied photo (uploaded as "Fabric by the meter.jpeg");
     // optimised into this webp derivative.
     image: "/images/product-fabric-metre.webp",
@@ -223,6 +232,22 @@ export const productRange = [
 
 export const productsNote =
   "One partner, one order — a full textile range, all made in-house.";
+
+// ── PRODUCT OPTIONS — the ONLY categories a buyer can enquire about ───────────
+// Used by the quote form's required "Which products are you interested in?"
+// selector. Intentionally restrictive: exactly the categories Zaydtex supplies,
+// matching the featured product + the product grid titles. Do NOT add blinds,
+// shutters, awnings, installation or any consumer-only / fabricated category —
+// the gate exists to filter out enquiries Zaydtex can't fulfil.
+export const productOptions = [
+  "Ready-Made Curtains",
+  "Fabric by the Metre",
+  "Fabric by the Roll",
+  "Table Cloths",
+  "Scatter Cushions",
+  "Towelling Products",
+  "Dress Forms",
+] as const;
 
 // ── QUOTE CTA BAND — the ask, in our own words ────────────────────────────────
 export const quoteBand = {

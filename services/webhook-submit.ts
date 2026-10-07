@@ -17,6 +17,11 @@ export interface LeadPayload {
   email: string;
   phone: string;
   businessType: string;
+  /** Required B2B gate — confirmed they enquire on behalf of a registered business. */
+  registeredBusiness: boolean;
+  /** Required — comma-separated list of the Zaydtex categories they want.
+   *  Serialised to a string (not an array) so GHL can map it to one field. */
+  productsInterested: string;
   message: string;
 }
 

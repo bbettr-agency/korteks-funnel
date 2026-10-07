@@ -36,7 +36,7 @@ developers and hospitality groups.
 **No WhatsApp anywhere.** Consumer shoppers are filtered out by copy ("trade &
 wholesale only") and form qualifiers (company name + business type).
 
-**Phone:** 012 666 7100 (`tel:+27126667100`) · **Email:** info@zaydtex.com ·
+**Phone:** 012 666 7100 (`tel:+27126667100`) · **Email:** sales@zaydtex.com ·
 **Quote page:** `/get-a-quote` — every quote CTA links here.
 
 ## ⚠️ Temporary development decisions (read before launch)
@@ -114,7 +114,7 @@ the official company profile, nothing invented). Remaining items:
 | **Logo files** | `public/images/logo/` | `logo-primary.png` + `logo-icon.png` are uploaded; header/footer use the copper Z icon + wordmark |
 | **OG image + favicon** | `public/images/logo/` | optional: `og-image.jpg` (1200×630) and `favicon.ico` — config already points at them |
 | **Hero photo** (optional) | `siteConfig.heroImage` | empty = built-in premium drapery visual; set a path to use a real curtain photo |
-| **Form delivery inbox** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` (FormSubmit, activated). Switch to client's inbox + re-activate, or set `useGhlForm = true` with a real `formId`. Public contact email is already `info@zaydtex.com`. |
+| **Form delivery inbox** | `config/site-config.ts` (`leadEmail`) | temp `info@bbettragency.com` (FormSubmit, activated). Switch to client's inbox + re-activate, or set `useGhlForm = true` with a real `formId`. Public contact email is already `sales@zaydtex.com`. |
 | **GTM + Google Ads IDs & labels** | `config/site-config.ts` (`tracking`) | tracking is a no-op until real IDs are pasted |
 | Trading hours | `config/site-config.ts` (`hours`) | confirm |
 

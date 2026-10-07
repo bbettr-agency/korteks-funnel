@@ -45,8 +45,8 @@ export const siteConfig = {
   phone: "012 666 7100",
   phoneDisplay: "012 666 7100",
   phoneLink: "tel:+27126667100",
-  email: "info@zaydtex.com",
-  emailLink: "mailto:info@zaydtex.com",
+  email: "sales@zaydtex.com",
+  emailLink: "mailto:sales@zaydtex.com",
 
   // Physical address (from company profile)
   addressLine: "14 Sesmylspruit Street",
@@ -73,7 +73,7 @@ export const siteConfig = {
   // ── Lead capture ─────────────────────────────────────────────────────────────
   // TEMPORARY (development): native lead form emails submissions via FormSubmit.co
   // to leadEmail below (FormSubmit activated for that address). The PUBLIC contact
-  // email shown on the site is info@zaydtex.com (above). Switch leadEmail to the
+  // email shown on the site is sales@zaydtex.com (above). Switch leadEmail to the
   // client's real inbox and re-activate FormSubmit when ready, or flip useGhlForm.
   useGhlForm: false, // ← set true once the real GHL form is provided
   leadEmail: "info@bbettragency.com", // TEMP form-delivery inbox (testing) — replace at launch

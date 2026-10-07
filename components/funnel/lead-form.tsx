@@ -2,24 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Loader2, Tag } from "lucide-react";
+import { ArrowRight, Loader2, Tag, Check } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
-import { businessTypes } from "@/config/funnel-config";
+import { businessTypes, productOptions } from "@/config/funnel-config";
 import { trackEvent } from "@/lib/tracking";
 import { submitLead } from "@/services/webhook-submit";
+import { cn } from "@/utils/cn";
 
 /**
  * Native lead form — production GoHighLevel integration.
  *
  * Submissions POST to a GHL (LeadConnector) Inbound Webhook via submitLead()
- * (see @/services/webhook-submit + @/config/integrations). GHL creates the CRM
- * contact and fires its automation workflows server-side. On success we redirect
- * to the Thank You page, where the Google Ads / GTM lead conversion fires
- * (ConversionTracker).
+ * (see @/services/webhook-submit + @/config/integrations). On success we
+ * redirect to the Thank You page, where the lead conversion fires.
  *
- * Six fields — the B2B sweet spot. Company Name + Business Type qualify the lead
- * and filter single-unit consumers without adding friction.
+ * B2B qualification gates (deliberately restrictive — quality over volume):
+ *  • Business Type (who they are)
+ *  • Products interested in — at least one of the real Zaydtex categories
+ *  • Registered-business confirmation — required before submit
+ * These filter out consumer/irrelevant enquiries before they enter the CRM.
  */
 type FieldErrors = Partial<Record<string, string>>;
 
@@ -29,19 +31,38 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
-  // Product the buyer clicked to get here (?product=…), so we pre-note the
-  // enquiry with their intent instead of asking them to retype it.
+  // Product the buyer clicked to get here (?product=…) — shown as context.
   const [product, setProduct] = useState<string | null>(null);
+  // Required B2B qualification state.
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+  const [registeredBusiness, setRegisteredBusiness] = useState(false);
   const id = (name: string) => `${name}-${instanceId}`;
 
   useEffect(() => {
     try {
       const p = new URLSearchParams(window.location.search).get("product");
-      if (p) setProduct(p.slice(0, 120));
+      if (!p) return;
+      const clean = p.slice(0, 120);
+      setProduct(clean);
+      // Preselect it in the products field if it's a real category — so the
+      // buyer never has to select the same product twice.
+      const match = (productOptions as readonly string[]).find(
+        (o) => o.toLowerCase() === clean.toLowerCase()
+      );
+      if (match) setSelectedProducts([match]);
     } catch {
       /* no-op */
     }
   }, []);
+
+  const toggleProduct = (option: string) => {
+    setSelectedProducts((prev) =>
+      prev.includes(option)
+        ? prev.filter((o) => o !== option)
+        : [...prev, option]
+    );
+    if (errors.products) setErrors((e) => ({ ...e, products: undefined }));
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -66,6 +87,11 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
     if (!email || !EMAIL_RE.test(email)) next.email = "Enter a valid email.";
     if (!phone) next.phone = "Please enter a phone number.";
     if (!businessType) next.businessType = "Please select your business type.";
+    if (selectedProducts.length === 0)
+      next.products = "Please select at least one product.";
+    if (!registeredBusiness)
+      next.registered =
+        "Please confirm that you are enquiring on behalf of a registered business.";
 
     if (Object.keys(next).length) {
       setErrors(next);
@@ -74,12 +100,7 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
     setErrors({});
     setStatus("submitting");
 
-    // Prepend the clicked-product intent so it's captured even when the buyer
-    // leaves the (optional) message blank.
-    const typed = (data.get("message") as string)?.trim() || "";
-    const message = product
-      ? [`Product interest: ${product}.`, typed].filter(Boolean).join(" ")
-      : typed;
+    const message = (data.get("message") as string)?.trim() || "";
 
     const result = await submitLead({
       fullName: name,
@@ -87,6 +108,9 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
       email,
       phone,
       businessType,
+      registeredBusiness: true,
+      // Serialised to a string so GHL can map it to a single field.
+      productsInterested: selectedProducts.join(", "),
       message,
     });
 
@@ -100,7 +124,8 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
       form: "ready-made-curtains-trade",
       instance: instanceId,
       business_type: businessType,
-      ...(product ? { product } : {}),
+      products: selectedProducts.join(", "),
+      registered_business: true,
     });
 
     router.push(siteConfig.thankYouPath);
@@ -224,9 +249,42 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
         {errors.businessType && <p className={errCls}>{errors.businessType}</p>}
       </div>
 
+      {/* Products interested in — required multi-select (chips). Restricted to
+          the real Zaydtex categories so irrelevant enquiries self-filter. */}
+      <div>
+        <span className={labelCls}>Which products are you interested in?</span>
+        <div
+          role="group"
+          aria-label="Which products are you interested in?"
+          className="mt-1 flex flex-wrap gap-2"
+        >
+          {productOptions.map((option) => {
+            const active = selectedProducts.includes(option);
+            return (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={active}
+                onClick={() => toggleProduct(option)}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50",
+                  active
+                    ? "border-brand-primary bg-brand-primary text-white shadow-sm"
+                    : "border-brand-ink/15 bg-white text-brand-ink/75 hover:border-brand-primary/50 hover:text-brand-ink"
+                )}
+              >
+                {active && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+                {option}
+              </button>
+            );
+          })}
+        </div>
+        {errors.products && <p className={errCls}>{errors.products}</p>}
+      </div>
+
       <div>
         <label htmlFor={id("message")} className={labelCls}>
-          What are you looking to source?{" "}
+          Anything else we should know?{" "}
           <span className="font-normal normal-case text-brand-ink/40">
             (optional)
           </span>
@@ -235,9 +293,38 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
           id={id("message")}
           name="message"
           rows={3}
-          placeholder="Products & rough quantities, e.g. ready-made curtains for 12 retail stores"
+          placeholder="Rough quantities or specifics, e.g. ready-made curtains for 12 retail stores"
           className={`${fieldBase} ${ok} resize-none`}
         />
+      </div>
+
+      {/* Registered-business confirmation — required trade gate. */}
+      <div>
+        <label
+          htmlFor={id("registered")}
+          className={cn(
+            "flex cursor-pointer items-start gap-3 rounded-xl border bg-white px-4 py-3.5 transition",
+            errors.registered
+              ? "border-red-400"
+              : "border-brand-ink/15 hover:border-brand-primary/40"
+          )}
+        >
+          <input
+            id={id("registered")}
+            type="checkbox"
+            checked={registeredBusiness}
+            onChange={(e) => {
+              setRegisteredBusiness(e.target.checked);
+              if (errors.registered)
+                setErrors((prev) => ({ ...prev, registered: undefined }));
+            }}
+            className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer rounded border-brand-ink/30 text-brand-primary accent-brand-primary focus:ring-brand-primary/40"
+          />
+          <span className="text-sm font-medium leading-6 text-brand-ink/80">
+            I confirm that I am enquiring on behalf of a registered business.
+          </span>
+        </label>
+        {errors.registered && <p className={errCls}>{errors.registered}</p>}
       </div>
 
       {status === "error" && (
