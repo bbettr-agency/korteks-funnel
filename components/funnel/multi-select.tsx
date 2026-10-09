@@ -17,9 +17,11 @@ type MultiSelectProps = {
 
 /**
  * Accessible multi-select dropdown. Compact closed trigger (summary + chevron)
- * that opens a checkbox-style listbox. Multiple selections, selections persist
- * when closed, closes on outside pointer / Escape / Tab, arrow-key navigable.
- * Visually matches the Zaydtex form fields. No native <select multiple>.
+ * that opens a checkbox-style listbox with a sticky "Done" footer — the options
+ * scroll independently above it, so Done is always reachable (esp. on mobile).
+ * Multiple selections persist when closed; closes on Done / outside pointer /
+ * Escape / focus-leave, arrow-key navigable. Done only closes the dropdown — it
+ * never submits the form. Visually matches the Zaydtex form fields.
  */
 export default function MultiSelect({
   id,
@@ -83,15 +85,24 @@ export default function MultiSelect({
     }
   };
 
+  const close = () => {
+    setOpen(false);
+    triggerRef.current?.focus();
+  };
+
+  // Close when keyboard focus leaves the whole popover (e.g. Tab past "Done").
+  // Pointer interactions are handled by the outside-pointerdown listener.
+  const onPanelBlur = (e: React.FocusEvent) => {
+    const next = e.relatedTarget as Node | null;
+    if (next && rootRef.current && !rootRef.current.contains(next))
+      setOpen(false);
+  };
+
   const onPanelKeyDown = (e: React.KeyboardEvent) => {
     switch (e.key) {
       case "Escape":
         e.preventDefault();
-        setOpen(false);
-        triggerRef.current?.focus();
-        break;
-      case "Tab":
-        setOpen(false);
+        close();
         break;
       case "ArrowDown":
         e.preventDefault();
@@ -141,48 +152,67 @@ export default function MultiSelect({
 
       {open && (
         <div
-          role="listbox"
-          aria-multiselectable="true"
-          aria-label={ariaLabel}
           onKeyDown={onPanelKeyDown}
-          className="absolute z-20 mt-2 max-h-72 w-full overflow-auto rounded-xl border border-brand-ink/15 bg-white p-1.5 shadow-soft"
+          onBlur={onPanelBlur}
+          className="absolute z-20 mt-2 flex max-h-[min(65vh,22rem)] w-full flex-col overflow-hidden rounded-xl border border-brand-ink/15 bg-white shadow-soft"
         >
-          {options.map((opt, i) => {
-            const selected = value.includes(opt);
-            return (
-              <button
-                key={opt}
-                ref={(el) => {
-                  optionRefs.current[i] = el;
-                }}
-                type="button"
-                role="option"
-                aria-selected={selected}
-                tabIndex={-1}
-                onClick={() => toggle(opt)}
-                className={cn(
-                  "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition",
-                  i === active ? "bg-brand-primary/[0.06]" : "",
-                  selected
-                    ? "text-brand-ink"
-                    : "text-brand-ink/75 hover:bg-brand-ink/[0.03]"
-                )}
-              >
-                <span
-                  aria-hidden
+          {/* Options scroll independently above the sticky Done footer. */}
+          <div
+            role="listbox"
+            aria-multiselectable="true"
+            aria-label={ariaLabel}
+            className="min-h-0 flex-1 overflow-auto p-1.5"
+          >
+            {options.map((opt, i) => {
+              const selected = value.includes(opt);
+              return (
+                <button
+                  key={opt}
+                  ref={(el) => {
+                    optionRefs.current[i] = el;
+                  }}
+                  type="button"
+                  role="option"
+                  aria-selected={selected}
+                  tabIndex={-1}
+                  onClick={() => toggle(opt)}
                   className={cn(
-                    "flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition",
+                    "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition",
+                    i === active ? "bg-brand-primary/[0.06]" : "",
                     selected
-                      ? "border-brand-primary bg-brand-primary text-white"
-                      : "border-brand-ink/25 bg-white"
+                      ? "text-brand-ink"
+                      : "text-brand-ink/75 hover:bg-brand-ink/[0.03]"
                   )}
                 >
-                  {selected && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
-                </span>
-                {opt}
-              </button>
-            );
-          })}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition",
+                      selected
+                        ? "border-brand-primary bg-brand-primary text-white"
+                        : "border-brand-ink/25 bg-white"
+                    )}
+                  >
+                    {selected && (
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    )}
+                  </span>
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Sticky footer — always visible while the options scroll. */}
+          <div className="shrink-0 border-t border-brand-ink/10 bg-white p-1.5">
+            <button
+              type="button"
+              onClick={close}
+              className="w-full rounded-lg bg-brand-primary px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-primaryDark active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50"
+            >
+              Done
+            </button>
+          </div>
         </div>
       )}
     </div>
