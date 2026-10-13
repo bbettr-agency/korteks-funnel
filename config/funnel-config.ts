@@ -185,16 +185,16 @@ export const productRange = [
     // optimised into this webp derivative.
     image: "/images/product-fabric-metre.webp",
     alt: "Embroidered Zaydtex voile being measured and rolled off the machine, sold by the metre",
-    title: "Fabric by the Metre",
-    line: "Cut to your requirement, any quantity.",
+    title: "Curtain Fabric by the Metre",
+    line: "Curtain fabric cut to your requirement, any quantity.",
   },
   {
     // Client-supplied photo (uploaded as "Fabric by the roll.jpeg");
     // optimised into this webp derivative.
     image: "/images/product-fabric-roll.webp",
     alt: "Zaydtex-branded rolls of finished fabric wrapped and racked, ready for supply",
-    title: "Fabric by the Roll",
-    line: "Roll goods for converters and the trade.",
+    title: "Curtain Fabric by the Roll",
+    line: "Full rolls of curtain fabric for the trade.",
   },
   {
     // Client-supplied table cloth photo (uploaded as "Table cloth.png");
@@ -241,13 +241,21 @@ export const productsNote =
 // the gate exists to filter out enquiries Zaydtex can't fulfil.
 export const productOptions = [
   "Ready-Made Curtains",
-  "Fabric by the Metre",
-  "Fabric by the Roll",
+  "Curtain Fabric by the Metre",
+  "Curtain Fabric by the Roll",
   "Table Cloths",
   "Scatter Cushions",
   "Towelling Products",
   "Dress Forms",
 ] as const;
+
+// Legacy ?product= values → current category, so older shared / indexed quote
+// links (e.g. ?product=Fabric%20by%20the%20Roll) still preselect correctly
+// after the 2026-10 "Curtain Fabric" rename. Keys are matched case-insensitively.
+export const legacyProductAliases: Record<string, string> = {
+  "fabric by the metre": "Curtain Fabric by the Metre",
+  "fabric by the roll": "Curtain Fabric by the Roll",
+};
 
 // ── QUOTE CTA BAND — the ask, in our own words ────────────────────────────────
 export const quoteBand = {

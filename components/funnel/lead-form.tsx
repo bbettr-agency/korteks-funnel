@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Loader2, Tag, Info } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
-import { productOptions } from "@/config/funnel-config";
+import { productOptions, legacyProductAliases } from "@/config/funnel-config";
 import { trackEvent } from "@/lib/tracking";
 import { submitLead } from "@/services/webhook-submit";
 import { cn } from "@/utils/cn";
@@ -46,11 +46,15 @@ export default function LeadForm({ instanceId }: { instanceId: string }) {
       const p = new URLSearchParams(window.location.search).get("product");
       if (!p) return;
       const clean = p.slice(0, 120);
-      setProduct(clean);
-      // Preselect it in Product Interest if it's a real category.
+      // Resolve any legacy category name (old shared links) to its current name,
+      // then preselect it in Product Interest if it's a real category.
+      const resolved = legacyProductAliases[clean.toLowerCase()] ?? clean;
       const match = (productOptions as readonly string[]).find(
-        (o) => o.toLowerCase() === clean.toLowerCase()
+        (o) => o.toLowerCase() === resolved.toLowerCase()
       );
+      // Show the current category name as context when it's a known product;
+      // otherwise fall back to whatever was passed.
+      setProduct(match ?? clean);
       if (match) setSelectedProducts([match]);
     } catch {
       /* no-op */
