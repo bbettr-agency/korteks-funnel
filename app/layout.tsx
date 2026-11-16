@@ -5,7 +5,7 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { createMetadata } from "@/lib/metadata";
-import { organizationSchema } from "@/lib/schema";
+import { siteSchema } from "@/lib/schema";
 import TrackingScripts, {
   GtmNoScript,
 } from "@/components/funnel/tracking-scripts";
@@ -42,7 +42,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(siteSchema),
           }}
         />
       </head>

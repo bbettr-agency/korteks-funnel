@@ -18,7 +18,7 @@ export const siteConfig = {
   registrationNumber: "1997/002157/07",
   tagline: "From yarn to finished product.",
   description:
-    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner — ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa, and supplied to the trade nationwide.",
+    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner – ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa, and supplied to the trade nationwide.",
 
   // ── Brand assets ── SINGLE SOURCE OF TRUTH for every logo/image ──────────────
   // Drop replacement files into public/images/logo/ using the SAME filenames and
@@ -60,7 +60,10 @@ export const siteConfig = {
   addressDisplay: "14 Sesmylspruit St, Sunderland Ridge, Centurion, 0157",
 
   hours: "Mon – Fri · 08:00 – 17:00", // PLACEHOLDER — confirm trading hours
-  website: "https://zaydtex.com",
+  // Canonical host = www (the apex zaydtex.com issues a 308 redirect to www in
+  // production). All canonical URLs, OG tags, sitemap, robots and JSON-LD derive
+  // from this value, so it MUST match the final non-redirecting host.
+  website: "https://www.zaydtex.com",
   facebook: "https://www.facebook.com/zaydtex",
 
   // ── Calls to action (copy) ──────────────────────────────────────────────────

@@ -2,6 +2,7 @@ import { Phone, Clock, Users } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import { quotePage } from "@/config/funnel-config";
+import { breadcrumbSchema } from "@/lib/schema";
 import MinimalHeader from "@/components/funnel/minimal-header";
 import MinimalFooter from "@/components/funnel/minimal-footer";
 import StickyMobileBar from "@/components/ui/sticky-mobile-bar";
@@ -10,6 +11,16 @@ import FormPanel from "@/components/funnel/form-panel";
 export default function GetAQuotePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Get a Trade Quote", path: siteConfig.quotePath },
+            ])
+          ),
+        }}
+      />
       <MinimalHeader />
       <main id="top" className="bg-brand-cream text-brand-ink">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-24 pt-32 lg:grid-cols-[1fr_0.95fr] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-36">

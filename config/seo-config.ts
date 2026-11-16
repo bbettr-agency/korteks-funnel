@@ -1,8 +1,9 @@
 export const seoConfig = {
-  title:
-    "Zaydtex | South Africa's Vertically Integrated Textile Manufacturer — Trade & Wholesale",
+  // Kept within SERP display limits: title ≈55 chars (no mid-word truncation),
+  // description ≈158 chars. SA/British punctuation (en dash, never em dash).
+  title: "Zaydtex | Textile & Curtain Manufacturer – South Africa",
   description:
-    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner — ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa. Trade & wholesale supply nationwide. Get trade pricing.",
+    "Vertically integrated curtain & textile manufacturer in South Africa. Ready-made curtains and a full range, made from yarn to finished product. Trade pricing.",
   keywords: [
     "Zaydtex",
     "textile manufacturer South Africa",
