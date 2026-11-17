@@ -6,6 +6,7 @@ import MinimalHeader from "@/components/funnel/minimal-header";
 import MinimalFooter from "@/components/funnel/minimal-footer";
 import StickyMobileBar from "@/components/ui/sticky-mobile-bar";
 import FormPanel from "@/components/funnel/form-panel";
+import TradeFaq from "@/components/sections/trade-faq";
 
 export default function GetAQuotePage() {
   return (
@@ -60,6 +61,7 @@ export default function GetAQuotePage() {
             </div>
           </div>
         </div>
+        <TradeFaq />
       </main>
       <MinimalFooter />
       <StickyMobileBar />

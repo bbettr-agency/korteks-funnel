@@ -7,6 +7,9 @@ type CreateMetadataOptions = {
   description?: string;
   path?: string;
   noindex?: boolean;
+  /** Root-layout defaults: no canonical, so pages without their own metadata
+   *  (e.g. the 404) don't inherit the homepage canonical. */
+  base?: boolean;
 };
 
 export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
@@ -25,10 +28,10 @@ export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
     description,
     keywords: seoConfig.keywords,
     authors: [{ name: seoConfig.author }],
-    robots: options.noindex ? "noindex, nofollow" : seoConfig.robots,
-    alternates: {
-      canonical: url,
-    },
+    // "index, follow" is the default — only emit robots when opting out, so
+    // pages Next marks noindex (404) never get a conflicting second tag.
+    ...(options.noindex ? { robots: "noindex, nofollow" } : {}),
+    ...(options.base ? {} : { alternates: { canonical: url } }),
     // Browser icon — central, from siteConfig.logo (activates once the square
     // icon file is uploaded; the file-based app/icon.svg covers the gap).
     icons: {

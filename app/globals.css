@@ -50,10 +50,21 @@ body {
    as a full-width divider / footer top-border. Tiles horizontally so it stays
    crisp at any width; never used as a full-page background. ─────────────────── */
 .knit-strip {
-  background-image: url("/images/knit-divider.png");
+  background-image: url("/images/knit-divider.webp");
   background-repeat: repeat-x;
   background-position: center;
   background-size: auto 100%;
+}
+
+/* No-JS fallback — framer-motion server-renders reveal elements with inline
+   opacity:0 / transforms. Without JavaScript (some crawlers, previews, strict
+   browsers) they would never reveal, so force them visible. */
+@media (scripting: none) {
+  [style*="opacity:0"],
+  [style*="opacity: 0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Respect reduced-motion — disable all subtle movement. */

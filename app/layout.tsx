@@ -5,7 +5,6 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { createMetadata } from "@/lib/metadata";
-import { organizationSchema } from "@/lib/schema";
 import TrackingScripts, {
   GtmNoScript,
 } from "@/components/funnel/tracking-scripts";
@@ -24,7 +23,7 @@ const display = Plus_Jakarta_Sans({
   weight: ["500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = createMetadata();
+export const metadata: Metadata = createMetadata({ base: true });
 
 export default function RootLayout({
   children,
@@ -33,18 +32,12 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-ZA"
       className={`${body.variable} ${display.variable}`}
       suppressHydrationWarning
     >
       <head>
         <meta name="theme-color" content="#FBF7F1" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
       </head>
       <body className="bg-white text-brand-ink antialiased">
         <GtmNoScript />

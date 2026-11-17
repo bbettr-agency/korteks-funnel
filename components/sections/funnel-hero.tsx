@@ -20,9 +20,12 @@ export default function FunnelHero() {
       <div className="mx-auto grid min-h-screen w-full grid-cols-1 lg:grid-cols-2">
         {/* LEFT — message */}
         <div className="flex items-center px-6 pb-16 pt-32 sm:px-10 lg:px-14 lg:py-0 xl:px-20">
+          {/* Transform-only entrance: the H1 + copy are visible in the server
+              HTML (opacity is never 0), so crawlers, no-JS readers and LCP all
+              see the content immediately. */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 24 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl"
           >
@@ -83,8 +86,8 @@ export default function FunnelHero() {
           {/* Dominant "scale" panel — bleeds off the top/right, curved toward
               the copy on the left. This is the LCP image. */}
           <motion.div
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 1.05 }}
+            animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 lg:left-10"
           >

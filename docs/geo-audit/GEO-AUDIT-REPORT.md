@@ -66,7 +66,7 @@ The biggest gain is content plus fixing the zero counters. Most of the other sco
 5. **The schema type is invalid and the schema has no linked graph.**
    - `@type: ["Organization","Manufacturer"]` is invalid, because `Manufacturer` is not a schema.org type.
    - There is no `@id`, WebSite, WebPage or LocalBusiness entity, so search engines and AI systems can't connect the brand, the site and the Centurion factory as one entity.
-   - **Fix:** use `["Organization","Corporation"]` and ship the `@graph` in `docs/geo-audit/proposed-schema.ts`.
+   - **Fix:** use `["Organization","Corporation"]` and ship the `@graph` in `lib/schema.ts`.
    - **Location:** `lib/schema.ts`, injected in `app/layout.tsx:41-47`.
 
 ## High Priority Issues
@@ -220,7 +220,7 @@ Not run: Lighthouse/PageSpeed Insights. The sandbox also blocked GTM, so third-p
 - One `makesOffer` covering 7 product lines.
 - No WebSite, WebPage, BreadcrumbList or LocalBusiness entity.
 
-**Proposed:** a linked `@graph` in `docs/geo-audit/proposed-schema.ts`. It covers:
+**Proposed:** a linked `@graph` in `lib/schema.ts`. It covers:
 - Organization + Corporation, with `@id`, `contactPoint`, the CIPC `identifier`, and the ZaHa range as a Brand
 - A LocalBusiness entity for the Centurion factory
 - An OfferCatalog of all 7 product lines
@@ -319,6 +319,42 @@ Most of these appear through **sadecor.co.za**.
 
 ---
 
+## Fix Log — 17 November 2026
+
+Everything below shipped in code. Items that need client facts or off-site accounts were **not** invented; they are listed under "Still open".
+
+| # | Issue | Status | Where |
+|---|---|---|---|
+| 1 | Stats rendered "0" | ✅ Real values server-rendered; count-up only re-primes when off-screen; plain-text facts sentence added under the stats | `components/ui/count-up.tsx`, `trust-strip.tsx`, `trustSummary` |
+| 2 | Canonical on redirecting host | ✅ `siteConfig.website` → `https://www.zaydtex.com` (canonicals, OG, sitemap, robots, schema) | `config/site-config.ts` |
+| 3 | No privacy policy | ✅ `/privacy-policy` (POPIA baseline, describes the real data flows), linked under the form and in the footer. **Client should have it reviewed.** | `app/privacy-policy/page.tsx` |
+| 5 | Invalid schema / no graph | ✅ Per-page linked `@graph`: Organization+Corporation, LocalBusiness factory, ZaHa Brand, OfferCatalog (7 products), WebSite, WebPage, BreadcrumbList, FAQPage. E.164 phone, contactPoint, suburb in address. "Blackout" removed. | `lib/schema.ts`, `components/seo/json-ld.tsx` |
+| 6 | Hero invisible without JS | ✅ Hero copy + LCP image animate transform only; `@media (scripting: none)` fallback reveals all other animated sections | `funnel-hero.tsx`, `app/globals.css` |
+| 7 | No llms.txt | ✅ `/llms.txt` (www URLs, verified facts only) | `public/llms.txt` |
+| 8 | Thin content | ⚠️ Partly: 10-question trade FAQ on `/get-a-quote` (verified facts only) + definition sentence in hero. Product/About/spec pages need client facts. | `tradeFaq`, `components/sections/trade-faq.tsx` |
+| 9 | Inconsistent scale claim | ✅ One claim everywhere: "one of the largest vertically integrated textile producers in Africa" ("Africa's largest curtain manufacturer" removed) | configs, quote meta, footer |
+| 10 | Schema gaps | ✅ (see #5). `sameAs` driven by `siteConfig.socialProfiles` | |
+| 11 | Security headers | ✅ nosniff, SAMEORIGIN, Referrer-Policy, Permissions-Policy, HSTS includeSubDomains, CSP **Report-Only** | `next.config.js` |
+| 15 | Sitemap | ✅ www URLs, `lastmod`, privacy page added | `app/sitemap.ts` |
+| 16 | Title / description length | ✅ 54 / 149 chars | `config/seo-config.ts` |
+| 17 | 404 conflicting signals | ✅ Branded `app/not-found.tsx`; root layout no longer emits canonical or `index, follow` | `lib/metadata.ts`, `app/layout.tsx` |
+| 18 | `/thank-you` blocked + noindex | ✅ Disallow removed (meta noindex kept) | `app/robots.txt/route.ts` |
+| 19 | "Blackout curtains" in schema | ✅ Removed | `lib/schema.ts` |
+| 25 | `lang="en"` | ✅ `en-ZA` | `app/layout.tsx` |
+| 26 | Heavy logo / divider | ✅ 240px WebP icon (2 KB) with width/height; divider WebP (62 KB vs 172 KB); AVIF enabled | `components/ui/logo.tsx`, `next.config.js` |
+| 27 | 40 MB originals public | ✅ Unreferenced originals moved to `assets/source-images/` (not deployed); `public/images` 71 MB → ~2 MB | |
+| 28 | Content-Signal | ✅ `search=yes, ai-input=yes` (ai-train left to client) | `app/robots.txt/route.ts` |
+| 30 | No visible social link | ✅ Footer Facebook link (`rel="me"`) | `minimal-footer.tsx` |
+
+**Still open — needs the client or off-site work (not something code can fix):**
+- **Client facts:** founding year, B-BBEE level, MOQs, sizes/widths/roll lengths, lead times, delivery terms, the 8 named QC checks, whether blackout is in the range, whether dress forms/towelling are made in-house, real product photos, opening hours + map pin, Information Officer, relationship (if any) to Korteks Mensucat. Then build `/about`, product pages, `/manufacturing`, `/how-to-order`, and extend the FAQ.
+- **Off-site (#4, #12, #13):** Google Business Profile, LinkedIn page, sadecor.co.za / Hellopeter / fibre2fashion listings, Google Search Console + Bing Webmaster (submit sitemap, IndexNow), YouTube factory video, press. Add each verified URL to `siteConfig.socialProfiles`.
+- **Leads:** form still posts to the agency's GoHighLevel webhook — confirm the client receives them.
+- **CSP:** move from Report-Only to enforced after checking the browser console in production.
+- **Deliberately not done:** CIPC registration number in schema (removed from the site on purpose earlier); descriptive H2 rewrites (brand-voice decision for the owner).
+
+---
+
 ## Appendix A: Pages Analyzed
 
 | URL | Title | Status | GEO Issues |
@@ -377,5 +413,5 @@ When product pages exist, point the product links at them instead of the quote U
 
 ## Appendix C: Supporting files
 
-- `docs/geo-audit/proposed-schema.ts`: drop-in replacement for `lib/schema.ts`. Renders a per-page `@graph`; client-confirm items are marked `TODO(client)`.
+- `lib/schema.ts`: the shipped per-page `@graph` (client-confirm items listed in its header comment).
 - `docs/geo-audit/no-js-mobile.png`: the home page on mobile with JavaScript disabled (blank hero).

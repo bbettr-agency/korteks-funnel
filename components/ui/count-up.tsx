@@ -10,6 +10,10 @@ import { useEffect, useRef, useState } from "react";
  *   "compact" → abbreviated (250K / 1M)
  *   "plain"   → no grouping (1997 — for years)
  * Respects prefers-reduced-motion (jumps straight to the final value).
+ *
+ * SEO / AI crawlers: the FINAL value is rendered on the server (and is what
+ * non-JS readers see). Only after hydration, and only if the number is still
+ * off-screen, is it reset to 0 so it can count up when scrolled into view.
  */
 type CountUpProps = {
   value: number;
@@ -42,7 +46,7 @@ export default function CountUp({
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(value);
   const started = useRef(false);
 
   useEffect(() => {
@@ -52,15 +56,25 @@ export default function CountUp({
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    if (prefersReduced) {
+      setCount(value);
+      return;
+    }
+
+    // Only prime to 0 when the number is below the fold — if it's already on
+    // screen at hydration, leave the real value showing (no flash to 0).
+    const rect = node.getBoundingClientRect();
+    const onScreen = rect.top < window.innerHeight && rect.bottom > 0;
+    if (onScreen) {
+      started.current = true;
+      return;
+    }
+    setCount(0);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          if (prefersReduced) {
-            setCount(value);
-            return;
-          }
           const start = performance.now();
           const tick = (now: number) => {
             const progress = Math.min((now - start) / durationMs, 1);

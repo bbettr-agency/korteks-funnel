@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 
 /**
  * KnittingDivider — the official uploaded Zaydtex knitting motif
- * (public/images/knit-divider.png) as a single, full-width, edge-to-edge
+ * (public/images/knit-divider.webp) as a single, full-width, edge-to-edge
  * decorative divider between sections. Tiles horizontally so it stays crisp on
  * desktop, tablet and mobile. The one decorative brand element on the site —
  * subtle and premium, with a gentle reveal as it scrolls into view.

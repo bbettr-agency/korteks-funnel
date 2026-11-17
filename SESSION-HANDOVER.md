@@ -6,7 +6,21 @@ See [`README.md`](./README.md) for the full overview.
 
 ---
 
-## 📌 Latest update — 2026-06-30 (content & section adjustments)
+## 📌 Latest update — 2026-11-17 (GEO audit fixes)
+
+Full audit + fix log: [`docs/geo-audit/GEO-AUDIT-REPORT.md`](./docs/geo-audit/GEO-AUDIT-REPORT.md).
+- Canonical host is now **www** (`siteConfig.website`). Stats server-render real values.
+- One scale claim only: `siteConfig.scaleClaim`. Don't add "Africa's largest…" variants.
+- Schema is per-page (`lib/schema.ts` + `<JsonLd>` in each `app/*/page.tsx`), not in the layout.
+- New: `/privacy-policy`, trade FAQ on `/get-a-quote` (`tradeFaq` — verified facts only; it's
+  also FAQPage schema), `/llms.txt`, `app/robots.txt/route.ts` (Content-Signal), `app/not-found.tsx`,
+  security headers in `next.config.js` (CSP is Report-Only).
+- Unused original photos moved to `assets/source-images/` (not deployed).
+- Social links: add verified profiles to `siteConfig.socialProfiles` (feeds footer + `sameAs`).
+
+---
+
+## 📌 Update — 2026-06-30 (content & section adjustments)
 
 Content/positioning tweaks (no redesign):
 - Hero: subtext "under 1 roof"; trust points → "Vertically integrated" +

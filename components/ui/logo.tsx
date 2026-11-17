@@ -34,7 +34,15 @@ export default function Logo({
   markClassName = "h-9 w-9",
   wordmark,
 }: LogoProps) {
-  const src = siteConfig.logo?.[variant];
+  // Header/footer use the lightweight display icon; intrinsic sizes are given
+  // so the browser reserves space (no layout shift). CSS classes still control
+  // the rendered height.
+  const src =
+    variant === "icon"
+      ? siteConfig.logo?.iconDisplay ?? siteConfig.logo?.icon
+      : siteConfig.logo?.primary;
+  const intrinsic =
+    variant === "icon" ? { width: 240, height: 233 } : { width: 3721, height: 1140 };
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
@@ -51,6 +59,9 @@ export default function Logo({
         ref={imgRef}
         src={src}
         alt={`${siteConfig.businessName} logo`}
+        width={intrinsic.width}
+        height={intrinsic.height}
+        decoding="async"
         className={className}
         onError={() => setFailed(true)}
       />

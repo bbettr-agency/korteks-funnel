@@ -18,7 +18,11 @@ export const siteConfig = {
   registrationNumber: "1997/002157/07",
   tagline: "From yarn to finished product.",
   description:
-    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner — ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa, and supplied to the trade nationwide.",
+    "Zaydtex is the trade and wholesale brand of Korteks Textiles Africa, one of the largest vertically integrated textile producers in Africa. Ready-made curtains, curtain fabric and a full textile range are made from yarn to finished product under one roof in Centurion, South Africa, and supplied to the trade nationwide.",
+  // Canonical scale claim — use THIS wording everywhere (copy, meta, schema,
+  // llms.txt). Don't introduce stronger variants ("Africa's largest…") unless
+  // the client confirms and can substantiate them.
+  scaleClaim: "one of the largest vertically integrated textile producers in Africa",
 
   // ── Brand assets ── SINGLE SOURCE OF TRUTH for every logo/image ──────────────
   // Drop replacement files into public/images/logo/ using the SAME filenames and
@@ -29,7 +33,10 @@ export const siteConfig = {
     // Transparent-corner version (original logo-icon.png has an opaque white
     // background that showed as white corners on the dark footer). Original is
     // preserved at logo-icon.png.
-    icon: "/images/logo/logo-icon-transparent.png", // square Z icon
+    icon: "/images/logo/logo-icon-transparent.png", // square Z icon (favicon / metadata)
+    // Lightweight display version of the icon used in the header/footer
+    // (240px WebP, ~10 KB vs the 1006px PNG). Regenerate if the icon changes.
+    iconDisplay: "/images/logo/logo-icon-240.webp",
     favicon: "/images/logo/favicon.ico", // optional legacy favicon (future)
     ogImage: "/images/logo/og-image.jpg", // social share preview, 1200×630 (future)
   },
@@ -60,8 +67,13 @@ export const siteConfig = {
   addressDisplay: "14 Sesmylspruit St, Sunderland Ridge, Centurion, 0157",
 
   hours: "Mon – Fri · 08:00 – 17:00", // PLACEHOLDER — confirm trading hours
-  website: "https://zaydtex.com",
+  website: "https://www.zaydtex.com", // served host (apex 308-redirects here)
   facebook: "https://www.facebook.com/zaydtex",
+  // Verified public profiles — every URL here is emitted in schema `sameAs`
+  // and linked in the footer. Add LinkedIn / YouTube / Google Business Profile
+  // once they exist (never add unverified URLs).
+  socialProfiles: [{ label: "Facebook", url: "https://www.facebook.com/zaydtex" }],
+  privacyPath: "/privacy-policy",
 
   // ── Calls to action (copy) ──────────────────────────────────────────────────
   cta: "Request Trade Pricing", // form / strongest

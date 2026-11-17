@@ -20,7 +20,7 @@ export const heroContent = {
   headline: "We don't just supply curtains. We make them.",
   tagline: "From start to finish.",
   subheadline:
-    "Manufactured by Korteks Textiles Africa, one of South Africa's vertically integrated textile manufacturers, and supplied through Zaydtex to retailers, wholesalers and traders nationwide.",
+    "Zaydtex is the trade and wholesale brand of Korteks Textiles Africa — one of the largest vertically integrated textile producers in Africa. Ready-made curtains, curtain fabric and a full textile range, made in Centurion and supplied to retailers, wholesalers and traders nationwide.",
   microPoints: [
     "Manufactured under one roof",
     "Flexible production",
@@ -63,6 +63,10 @@ export const heroComposition = {
 
 // ── TRUST — the scale and capability behind the supply (no dates) ─────────────
 export const trustEyebrow = "One of the largest vertically integrated textile producers in Africa";
+// Plain-text fact line under the stats — server-rendered so crawlers and AI
+// assistants can quote the real numbers (keep in sync with trustStats).
+export const trustSummary =
+  "Korteks Textiles Africa makes almost 1,000,000 ready-made curtains a year in a 19,000 m² factory in Centurion, Gauteng, with more than 250 skilled people — and is 100% South African owned and run.";
 export const trustStats = [
   {
     icon: "Layers",
@@ -116,7 +120,7 @@ export const factory = {
   eyebrow: "The Manufacturer Behind Zaydtex",
   heading: "Everything we sell, we make.",
   sentence:
-    "Zaydtex products are manufactured by Korteks Textiles Africa — one of South Africa's most vertically integrated textile operations. Warping, knitting, weaving, embroidery, dyeing, finishing, CMT and other processes all take place under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
+    "Zaydtex products are manufactured by Korteks Textiles Africa, in our own factory. Warping, knitting, weaving, embroidery, dyeing, finishing, CMT and other processes all take place under one roof in Centurion. From the yarn up, it's ours — and nothing leaves the floor until it's right.",
   steps: [
     "Yarn",
     "Knitted & Woven",
@@ -292,3 +296,55 @@ export const businessTypes = [
   "Procurement / Commercial Buyer",
   "Other",
 ];
+
+// ── TRADE FAQ (/get-a-quote) ──────────────────────────────────────────────────
+// Every answer below restates facts already published on the site / in the
+// company profile. Rendered as visible copy AND as FAQPage schema — keep the
+// two identical. Add MOQ, sizes, lead times, delivery terms and B-BBEE level
+// ONLY once the client confirms them.
+export const tradeFaq = {
+  eyebrow: "Trade FAQ",
+  heading: "Questions trade buyers ask us",
+  items: [
+    {
+      q: "Does Zaydtex sell to the public?",
+      a: "No. Zaydtex supplies the trade only — retailers, wholesalers, curtain shops, furniture stores, interior designers, hospitality groups, property developers and industrial buyers. Quotes are prepared for registered businesses.",
+    },
+    {
+      q: "Who manufactures Zaydtex products?",
+      a: "Zaydtex is the trade and wholesale brand of Korteks Textiles Africa (Pty) Ltd. Everything is manufactured in our own factory at 14 Sesmylspruit Street, Sunderland Ridge, Centurion, Gauteng — warping, knitting, weaving, embroidery, dyeing, finishing and cut, make & trim all happen under one roof.",
+    },
+    {
+      q: "What products can I order?",
+      a: "Ready-made curtains, curtain fabric by the metre, curtain fabric by the roll, table cloths, scatter cushions, ZaHa towelling products and dress forms — one supplier for a full textile range.",
+    },
+    {
+      q: "What kinds of curtain fabric do you make?",
+      a: "We knit fine lace and sheers on our own machines, weave jacquards and other wovens, and add embroidery in-house on specialist machines. Fabric is dyed and finished in the same factory, so colour stays consistent from batch to batch.",
+    },
+    {
+      q: "How big is your production?",
+      a: "Almost 1,000,000 ready-made curtains leave our floor every year. The factory covers 19,000 m² in Centurion and employs more than 250 skilled people.",
+    },
+    {
+      q: "Are your ready-made curtains shelf-ready?",
+      a: "Yes. Ready-made curtains are made, packaged and barcoded in-house, so they arrive ready for retail shelves or for your project.",
+    },
+    {
+      q: "How do you check quality?",
+      a: "Every product goes through eight quality checks before it is packed. If it isn't right, it doesn't ship.",
+    },
+    {
+      q: "Do you supply outside Gauteng?",
+      a: "Yes. Zaydtex supplies trade customers nationwide across South Africa.",
+    },
+    {
+      q: "Is Zaydtex South African owned?",
+      a: "Yes. Zaydtex and Korteks Textiles Africa are 100% South African owned and run, and a B-BBEE contributor.",
+    },
+    {
+      q: "How do I get trade pricing?",
+      a: "Send your requirements through the quote form on this page or call 012 666 7100. We reply to trade enquiries within 1 business day, with no obligation.",
+    },
+  ],
+};

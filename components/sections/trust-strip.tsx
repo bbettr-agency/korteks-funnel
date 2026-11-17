@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { trustStats, trustEyebrow } from "@/config/funnel-config";
+import { trustStats, trustEyebrow, trustSummary } from "@/config/funnel-config";
 import Icon from "@/components/ui/icon";
 import CountUp from "@/components/ui/count-up";
 
@@ -47,6 +47,9 @@ export default function TrustStrip() {
           </motion.div>
         ))}
       </div>
+      <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-6 text-brand-ink/60">
+        {trustSummary}
+      </p>
     </section>
   );
 }

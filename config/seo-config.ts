@@ -1,8 +1,7 @@
 export const seoConfig = {
-  title:
-    "Zaydtex | South Africa's Vertically Integrated Textile Manufacturer — Trade & Wholesale",
+  title: "Zaydtex | Curtain & Textile Manufacturer, South Africa",
   description:
-    "Zaydtex is South Africa's vertically integrated textile manufacturer and wholesale partner — ready-made curtains and a full textile range, made from yarn to finished product by Korteks Textiles Africa. Trade & wholesale supply nationwide. Get trade pricing.",
+    "Ready-made curtains, curtain fabric and textiles for the trade, made from yarn up by Korteks Textiles Africa in Centurion. Get Zaydtex trade pricing.",
   keywords: [
     "Zaydtex",
     "textile manufacturer South Africa",

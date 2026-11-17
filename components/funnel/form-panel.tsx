@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Factory, Lock } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import GhlForm from "@/components/funnel/ghl-form";
@@ -42,7 +43,10 @@ export default function FormPanel({
 
           <div className="mt-2 flex items-center justify-center gap-1.5 pb-1 text-[11px] text-brand-ink/45">
             <Lock className="h-3 w-3" />
-            Your details are kept private and secure.
+            Your details are kept private and secure ·{" "}
+            <Link href={siteConfig.privacyPath} className="underline underline-offset-2 hover:text-brand-primary">
+              Privacy policy
+            </Link>
           </div>
         </div>
       </div>

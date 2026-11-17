@@ -54,8 +54,8 @@ export default function MinimalFooter() {
               {wordmark}
             </div>
             <p className="mt-5 max-w-xs text-sm leading-7 text-brand-cream/55">
-              {siteConfig.tagline} South Africa&apos;s vertically integrated
-              textile manufacturer &amp; wholesale partner.
+              {siteConfig.tagline} Trade &amp; wholesale textiles from one of
+              the largest vertically integrated textile producers in Africa.
             </p>
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-brand-cream/40">
               Manufactured by {siteConfig.legalName}
@@ -110,7 +110,26 @@ export default function MinimalFooter() {
         <div className="mt-14 flex flex-col items-center gap-2 border-t border-brand-cream/10 pt-7 text-center text-xs text-brand-cream/40 sm:flex-row sm:justify-between sm:text-left">
           <p>
             © {new Date().getFullYear()} {siteConfig.businessName}. All rights
-            reserved. · {siteConfig.legalName}
+            reserved. · {siteConfig.legalName} ·{" "}
+            <Link
+              href={siteConfig.privacyPath}
+              className="font-semibold text-brand-cream/55 transition hover:text-brand-primaryLight"
+            >
+              Privacy policy
+            </Link>
+            {siteConfig.socialProfiles.map((profile) => (
+              <span key={profile.url}>
+                {" · "}
+                <a
+                  href={profile.url}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  className="font-semibold text-brand-cream/55 transition hover:text-brand-primaryLight"
+                >
+                  {profile.label}
+                </a>
+              </span>
+            ))}
           </p>
           <p>
             Website by{" "}
